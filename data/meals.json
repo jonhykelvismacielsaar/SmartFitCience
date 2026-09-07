@@ -1,0 +1,815 @@
+{
+ "_meta": {
+  "descricao": "Modelos de refeição e tabela de equivalência entre fontes de proteína. O gerador de plano (src/lib/planner.ts) monta o dia com o banco de alimentos; estes modelos são os exemplos prontos e as regras de troca usados nas abas de Nutrição e no chat da Yayá.",
+  "campos": "modelos.<dieta>[] = {nome, hora, itens:[{a: id de foods.json, g: gramas}], dica, refs:[ids de sources]}; substituicoes[] = blocos de troca entre fontes de proteína (mesma âncora proteica).",
+  "observacao": "Gramagens são ponto de partida: o app recalcula para bater kcal e proteína do SEU perfil. Nunca prescrição clínica."
+ },
+ "papeis": [
+  {
+   "papel": "proteina",
+   "share": 0.28,
+   "regra": "30–45 g de proteína por refeição; ≥2,5 g de leucina (3,2 g se >50 anos).",
+   "base": [
+    "Morton2018",
+    "VanVliet2016"
+   ]
+  },
+  {
+   "papel": "carbo",
+   "share": 0.3,
+   "regra": "2–3 g/kg em dias de treino, 1,5–2 g/kg em dias leves; priorizar integral e tubérculo.",
+   "base": [
+    "Peos2021",
+    "Reynolds2019"
+   ]
+  },
+  {
+   "papel": "vegetal",
+   "share": 0.12,
+   "regra": "≥2 porções de hortaliça no almoço e no jantar; folhosas escuras contam cálcio e potássio.",
+   "base": [
+    "AHA2026",
+    "WCRF2018"
+   ]
+  },
+  {
+   "papel": "gordura",
+   "share": 0.18,
+   "regra": "0,8–1,0 g/kg com saturada <10% do total; azeite como principal.",
+   "base": [
+    "AHA2021",
+    "AHA2026"
+   ]
+  },
+  {
+   "papel": "fruta",
+   "share": 0.12,
+   "regra": "2–3 frutas/dia inteiras (não suco).",
+   "base": [
+    "Carter2013",
+    "WHO2013"
+   ]
+  }
+ ],
+ "modelos": {
+  "omni": [
+   {
+    "nome": "Café forte com ovo e fruta",
+    "hora": "07:30",
+    "itens": [
+     {
+      "a": "ovo_galinha",
+      "g": 100
+     },
+     {
+      "a": "pao_integral",
+      "g": 60
+     },
+     {
+      "a": "mamao",
+      "g": 150
+     },
+     {
+      "a": "aveia",
+      "g": 20
+     }
+    ],
+    "dica": "Ovo no café é o jeito mais barato de começar o dia com 13 g de proteína; a aveia no iogurte/fruta fecha fibra.",
+    "refs": [
+     "Clarys2014",
+     "Morton2018"
+    ]
+   },
+   {
+    "nome": "Almoço prato cheio",
+    "hora": "12:30",
+    "itens": [
+     {
+      "a": "peito_frango",
+      "g": 140
+     },
+     {
+      "a": "arroz_integral",
+      "g": 150
+     },
+     {
+      "a": "feijao_carioquinha",
+      "g": 120
+     },
+     {
+      "a": "couve",
+      "g": 80
+     },
+     {
+      "a": "tomate",
+      "g": 80
+     },
+     {
+      "a": "azeite",
+      "g": 8
+     }
+    ],
+    "dica": "Arroz + feijão não é 'error': é o par que fecha aminoácidos e fibra. Frango 140 g é o que sobra depois de cozinhar.",
+    "refs": [
+     "Reynolds2019",
+     "WCRF2018"
+    ]
+   },
+   {
+    "nome": "Jantar rápido de atum",
+    "hora": "20:00",
+    "itens": [
+     {
+      "a": "atum_lata",
+      "g": 120
+     },
+     {
+      "a": "batata_doce",
+      "g": 200
+     },
+     {
+      "a": "brócolis",
+      "g": 150
+     },
+     {
+      "a": "azeite",
+      "g": 8
+     }
+    ],
+    "dica": "Atum em lata = ômega-3 barato; se o sódio do rótulo incomodar, enxágue. Batata-doce depois de treino ajuda a repor glicogênio.",
+    "refs": [
+     "AHA2021",
+     "Peos2021"
+    ]
+   }
+  ],
+  "pesc": [
+   {
+    "nome": "Café de iogurte e sardinha?",
+    "hora": "07:30",
+    "itens": [
+     {
+      "a": "iogurte_natural",
+      "g": 170
+     },
+     {
+      "a": "aveia",
+      "g": 40
+     },
+     {
+      "a": "banana",
+      "g": 100
+     },
+     {
+      "a": "linhaca",
+      "g": 12
+     }
+    ],
+    "dica": "Sem granola açucarada: aveia + banana + linhaça dá a mesma textura com fibra e ALA.",
+    "refs": [
+     "Bao2013",
+     "Reynolds2019"
+    ]
+   },
+   {
+    "nome": "Almoço de sardinha e grão-de-bico",
+    "hora": "12:30",
+    "itens": [
+     {
+      "a": "sardinha",
+      "g": 140
+     },
+     {
+      "a": "quinoa",
+      "g": 120
+     },
+     {
+      "a": "espinfre",
+      "g": 80
+     },
+     {
+      "a": "laranja",
+      "g": 130
+     },
+     {
+      "a": "azeite",
+      "g": 8
+     }
+    ],
+    "dica": "Sardinha com espinho: cálcio de verdade. Vitamina C da laranja na mesma refeição aumenta a absorção do ferro do grão.",
+    "refs": [
+     "Hurrell2010",
+     "Tong2020"
+    ]
+   },
+   {
+    "nome": "Jantar de tilápia e legumes assados",
+    "hora": "20:00",
+    "itens": [
+     {
+      "a": "tilapia",
+      "g": 160
+     },
+     {
+      "a": "abobora",
+      "g": 150
+     },
+     {
+      "a": "graodebico",
+      "g": 100
+     },
+     {
+      "a": "azeite",
+      "g": 10
+     }
+    ],
+    "dica": "Peixe magro + leguminosa = proteína alta com pouca saturada; assar tudo na mesma forma economiza tempo.",
+    "refs": [
+     "AHA2021",
+     "AHA2026"
+    ]
+   }
+  ],
+  "lacto_ovo": [
+   {
+    "nome": "Café de ovos e queijo",
+    "hora": "07:30",
+    "itens": [
+     {
+      "a": "ovo_galinha",
+      "g": 100
+     },
+     {
+      "a": "queijo_minas",
+      "g": 40
+     },
+     {
+      "a": "pao_integral",
+      "g": 60
+     },
+     {
+      "a": "tomate",
+      "g": 80
+     }
+    ],
+    "dica": "2 ovos + queijo Minas = ~25 g de proteína e cálcio, sem precisar de suplemento.",
+    "refs": [
+     "Clarys2014",
+     "Morton2018"
+    ]
+   },
+   {
+    "nome": "Almoço lentilha + iogurte",
+    "hora": "12:30",
+    "itens": [
+     {
+      "a": "lentilha",
+      "g": 150
+     },
+     {
+      "a": "arroz_integral",
+      "g": 130
+     },
+     {
+      "a": "couve",
+      "g": 80
+     },
+     {
+      "a": "iogurte_natural",
+      "g": 120
+     },
+     {
+      "a": "laranja",
+      "g": 130
+     }
+    ],
+    "dica": "Lentilha 150 g cozida dá ~12 g de proteína; limão por cima não é frescura, é vitamina C para o ferro.",
+    "refs": [
+     "Hurrell2010",
+     "Reynolds2019"
+    ]
+   },
+   {
+    "nome": "Omelete de forno com batata",
+    "hora": "20:00",
+    "itens": [
+     {
+      "a": "ovo_galinha",
+      "g": 125
+     },
+     {
+      "a": "batata_inglesa",
+      "g": 180
+     },
+     {
+      "a": "brócolis",
+      "g": 100
+     },
+     {
+      "a": "cottage",
+      "g": 80
+     }
+    ],
+    "dica": "Cottage no omelete é o truque para chegar a 35 g de proteína numa janta simples.",
+    "refs": [
+     "Morton2018"
+    ]
+   }
+  ],
+  "ovo": [
+   {
+    "nome": "Café de ovo e abacate",
+    "hora": "07:30",
+    "itens": [
+     {
+      "a": "ovo_galinha",
+      "g": 125
+     },
+     {
+      "a": "pao_integral",
+      "g": 60
+     },
+     {
+      "a": "abacate",
+      "g": 60
+     },
+     {
+      "a": "chia",
+      "g": 10
+     }
+    ],
+    "dica": "Sem laticínios, o ovo é sua âncora de B12/colina/leucina — use 2 a 3 por dia e varie no resto do dia.",
+    "refs": [
+     "AND2016",
+     "VanVliet2016"
+    ]
+   },
+   {
+    "nome": "Almoço de grão-de-bico e ovo",
+    "hora": "12:30",
+    "itens": [
+     {
+      "a": "graodebico",
+      "g": 140
+     },
+     {
+      "a": "ovo_galinha",
+      "g": 50
+     },
+     {
+      "a": "arroz_integral",
+      "g": 130
+     },
+     {
+      "a": "rucula",
+      "g": 40
+     },
+     {
+      "a": "azeite",
+      "g": 8
+     }
+    ],
+    "dica": "Cálcio é o ponto cego do ovo-vegetariano: couve, brócolis, gergelim e bebida fortificada todo dia.",
+    "refs": [
+     "Tong2020"
+    ]
+   },
+   {
+    "nome": "Jantar de tofu com ovo pochê",
+    "hora": "20:00",
+    "itens": [
+     {
+      "a": "tofu",
+      "g": 150
+     },
+     {
+      "a": "ovo_galinha",
+      "g": 50
+     },
+     {
+      "a": "macarrao_integral",
+      "g": 90
+     },
+     {
+      "a": "abobrinha",
+      "g": 120
+     }
+    ],
+    "dica": "Tofu coalhado em cálcio (olhe o rotulo: sulfato de cálcio) resolve 200+ mg de cálcio.",
+    "refs": [
+     "Tong2020"
+    ]
+   }
+  ],
+  "lacto": [
+   {
+    "nome": "Café de iogurte grego e aveia",
+    "hora": "07:30",
+    "itens": [
+     {
+      "a": "iogurte_grego_light",
+      "g": 200
+     },
+     {
+      "a": "aveia",
+      "g": 45
+     },
+     {
+      "a": "banana",
+      "g": 100
+     },
+     {
+      "a": "noz",
+      "g": 20
+     }
+    ],
+    "dica": "Sem ovo, laticínio é a âncora: 200 g de iogurte grego = ~20 g de proteína e B12.",
+    "refs": [
+     "AHA2021",
+     "Morton2018"
+    ]
+   },
+   {
+    "nome": "Almoço de feijão e queijo",
+    "hora": "12:30",
+    "itens": [
+     {
+      "a": "feijao_preto",
+      "g": 160
+     },
+     {
+      "a": "arroz_integral",
+      "g": 140
+     },
+     {
+      "a": "queijo_minas",
+      "g": 50
+     },
+     {
+      "a": "couve",
+      "g": 90
+     },
+     {
+      "a": "laranja",
+      "g": 100
+     }
+    ],
+    "dica": "Queijo branco + fruta cítrica: cálcio e vitamina C na mesma mesa, ferro do feijão absorvendo melhor.",
+    "refs": [
+     "Hurrell2010"
+    ]
+   },
+   {
+    "nome": "Jantar de leite e lentilha",
+    "hora": "20:00",
+    "itens": [
+     {
+      "a": "lentilha",
+      "g": 160
+     },
+     {
+      "a": "leite_vaca",
+      "g": 250
+     },
+     {
+      "a": "batata_doce",
+      "g": 160
+     },
+     {
+      "a": "espinfre",
+      "g": 90
+     },
+     {
+      "a": "azeite",
+      "g": 8
+     }
+    ],
+    "dica": "250 mL de leite antes de dormir é sono com proteína caseína — sem dramatismo, é só conveniente.",
+    "refs": [
+     "Morton2018",
+     "Watson2015"
+    ]
+   }
+  ],
+  "veg": [
+   {
+    "nome": "Café de soja fortificada",
+    "hora": "07:30",
+    "itens": [
+     {
+      "a": "leite_vegetal_fort",
+      "g": 250
+     },
+     {
+      "a": "aveia",
+      "g": 50
+     },
+     {
+      "a": "banana",
+      "g": 100
+     },
+     {
+      "a": "linhaca",
+      "g": 15
+     }
+    ],
+    "dica": "Escolha bebida de soja FORTIFICADA em cálcio e B12 e agite: o cálcio decanta. 25 g de proteína no dia começam aqui.",
+    "refs": [
+     "Dinu2018",
+     "Rogerson2021"
+    ]
+   },
+   {
+    "nome": "Almoço feijão + tofu + vitamina C",
+    "hora": "12:30",
+    "itens": [
+     {
+      "a": "tofu",
+      "g": 150
+     },
+     {
+      "a": "feijao_carioquinha",
+      "g": 120
+     },
+     {
+      "a": "arroz_integral",
+      "g": 150
+     },
+     {
+      "a": "couve",
+      "g": 90
+     },
+     {
+      "a": "pimentao",
+      "g": 60
+     },
+     {
+      "a": "laranja",
+      "g": 130
+     }
+    ],
+    "dica": "Tofu 150 g = ~19 g de proteína + 200 mg de cálcio (se coalhado em cálcio). Pimentão e limão no mesmo prato = ferro absorvido.",
+    "refs": [
+     "Hurrell2010",
+     "Tong2020"
+    ]
+   },
+   {
+    "nome": "Jantar de lentilha com hambúrguer de grão-de-bico",
+    "hora": "20:00",
+    "itens": [
+     {
+      "a": "hamburguer_veg",
+      "g": 120
+     },
+     {
+      "a": "lentilha",
+      "g": 120
+     },
+     {
+      "a": "quinoa",
+      "g": 100
+     },
+     {
+      "a": "abobrinha",
+      "g": 100
+     },
+     {
+      "a": "azeite",
+      "g": 8
+     }
+    ],
+    "dica": "Hambúrguer vegetal: leia o rótulo — bom tem ≥15 g de proteína e <400 mg de sódio por unidade, sem metilcelulose aos quilos.",
+    "refs": [
+     "Dinu2018",
+     "Lane2024"
+    ]
+   },
+   {
+    "nome": "Lanche de resgate (pós-treino)",
+    "hora": "16:30",
+    "itens": [
+     {
+      "a": "proteina_texturizada",
+      "g": 25
+     },
+     {
+      "a": "tapioca",
+      "g": 60
+     },
+     {
+      "a": "amendoim",
+      "g": 25
+     }
+    ],
+    "dica": "PTS hidratada 25 g = ~12 g de proteína por centavos. Se o whey está caro, a soja ganha no custo por grama de proteína.",
+    "refs": [
+     "Hall2019",
+     "Morton2018"
+    ]
+   }
+  ]
+ },
+ "substituicoes": [
+  {
+   "grupo": "Proteína animal → vegetal (1 bloco ≈ 20 g de proteína)",
+   "blocos": [
+    {
+     "de": "peito_frango 120 g",
+     "por": [
+      {
+       "a": "tofu",
+       "g": 200
+      },
+      {
+       "a": "tempeh",
+       "g": 140
+      },
+      {
+       "a": "proteina_texturizada",
+       "g": 40
+      },
+      {
+       "a": "seitan",
+       "g": 120
+      },
+      {
+       "a": "edamame",
+       "g": 250
+      }
+     ],
+     "nota": "PTS hidrata 1:2; seitan tem 25 g/100 g mas quase zero lisina — combine com leguminosa no dia."
+    },
+    {
+     "de": "carne_boi_magra 110 g",
+     "por": [
+      {
+       "a": "lentilha",
+       "g": 300
+      },
+      {
+       "a": "graodebico",
+       "g": 280
+      },
+      {
+       "a": "hamburguer_veg",
+       "g": 180
+      }
+     ],
+     "nota": "Para a mesma proteína você come ~3× o volume: aproveite a fibra e o ferro, mas ferro não-heme rende menos — sempre com vitamina C e longe de café/chá (Hurrell & Egli 2010)."
+    },
+    {
+     "de": "atum_lata 120 g",
+     "por": [
+      {
+       "a": "linhaca",
+       "g": 30
+      },
+      {
+       "a": "chia",
+       "g": 30
+      },
+      {
+       "a": "noz",
+       "g": 40
+      }
+     ],
+     "nota": "Isso cobre ALA, não EPA/DHA. Para ômega-3 de cadeia longa em dieta veg: alga 250–500 mg/d (Rogerson 2021)."
+    },
+    {
+     "de": "ovo_galinha 100 g",
+     "por": [
+      {
+       "a": "tofu",
+       "g": 120
+      },
+      {
+       "a": "edamame",
+       "g": 150
+      },
+      {
+       "a": "proteina_texturizada",
+       "g": 25
+      }
+     ],
+     "nota": "Para sabor 'queijo/ovo': 1 colher de fermento nutricional fortificado (veja o rótulo: nem todo tem B12) — confira B12 no rótulo, marcas variam."
+    },
+    {
+     "de": "iogurte_grego_light 170 g",
+     "por": [
+      {
+       "a": "yogurt_vegetal",
+       "g": 170
+      },
+      {
+       "a": "leite_vegetal_fort",
+       "g": 250
+      }
+     ],
+     "nota": "Iogurte vegetal costuma ter 2–4 g de proteína: escolha os de soja com ≥6 g por pote ou reforce com 20 g de aveia + 15 g de proteína de soja em pó."
+    },
+    {
+     "de": "leite_vaca 250 g",
+     "por": [
+      {
+       "a": "leite_vegetal_fort",
+       "g": 250
+      },
+      {
+       "a": "tofu",
+       "g": 150
+      }
+     ],
+     "nota": "Cálcio: só bebidas fortificadas. Agite e verifique 120 mg/100 mL (Tong 2020 mostra o efeito do cálcio na fratura)."
+    }
+   ]
+  },
+  {
+   "grupo": "Carboidrato",
+   "blocos": [
+    {
+     "de": "arroz_polido 150 g",
+     "por": [
+      {
+       "a": "arroz_integral",
+       "g": 150
+      },
+      {
+       "a": "quinoa",
+       "g": 150
+      },
+      {
+       "a": "milho",
+       "g": 170
+      },
+      {
+       "a": "batata_doce",
+       "g": 250
+      }
+     ],
+     "nota": "Integral ou tubérculo > refinado para fibra e saciedade (Reynolds 2019 — não é 'veneno', é densidade de nutrientes)."
+    },
+    {
+     "de": "pao_frances 50 g",
+     "por": [
+      {
+       "a": "pao_integral",
+       "g": 60
+      },
+      {
+       "a": "tapioca",
+       "g": 60
+      },
+      {
+       "a": "aveia",
+       "g": 40
+      }
+     ],
+     "nota": "Tapioca é leve em proteína: se ela é sua base, adicione uma proteína âncora (ovo, tofu, iogurte) na mesma refeição."
+    }
+   ]
+  },
+  {
+   "grupo": "Gordura",
+   "blocos": [
+    {
+     "de": "manteiga 10 g",
+     "por": [
+      {
+       "a": "azeite",
+       "g": 9
+      },
+      {
+       "a": "abacate",
+       "g": 40
+      }
+     ],
+     "nota": "Trocar saturada por insaturada reduz eventos cardiovasculares em ensaios com óleo de canola/azeite (Mozaffarian 2024)."
+    },
+    {
+     "de": "queijo_prato 30 g",
+     "por": [
+      {
+       "a": "castanha_caju",
+       "g": 15
+      },
+      {
+       "a": "queijo_minas",
+       "g": 30
+      }
+     ],
+     "nota": "Queijo é sódio+gordura+proteína: pesque na lista de ingredientes antes de 'naturalmente' virar desculpa."
+    }
+   ]
+  }
+ ],
+ "custo_rotulo": {
+  "como_ler": [
+   "Ingredientes em ordem decrescente: se açúcar/xarope/maltodextrina aparece em 3 posições, não é comida de treino, é sobremesa com marketing.",
+   "Proteína por porção <10 g e preço alto = você está pagando embalagem.",
+   "Sódio: >600 mg por porção em 'alimento de cozinha do dia a dia' merece justificativa no rótulo.",
+   "'Zero açúcar' pode ser zero em açúcar e continuar ultraprocessado: adoçante resolve o dente, não resolve o matriz alimentar (Lane 2024)."
+  ],
+  "custo": "Compare R$ por grama de proteína, não por quilo: na tabela do app os 8 alimentos mais baratos por grama de proteína são quase todos vegetais (ovo, PTS, soja, feijão, leite em pó) — Anand 2023 (Lancet Glob Health) mostrou que dietas vegetais podem ser mais baratas que as de referência em vários países."
+ }
+}

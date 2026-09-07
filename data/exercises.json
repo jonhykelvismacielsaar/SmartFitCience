@@ -1,0 +1,2798 @@
+{
+ "_meta": {
+  "descricao": "Biblioteca de exercícios com técnica, cues, amplitude métrica, regressões/progressões e substituições. O app usa 'nivel' (0=ninguém, 1=iniciante, 2=intermediário, 3=avançado), 'eq' para filtrar por equipamento disponível e 'sub' para trocar exercício mantendo o estímulo.",
+  "tempo": "formato excêntrica-pausa-concêntrica-pausa em segundos; '2-1-X-0' = concêntrica o mais rápido possível",
+  "rir": "reps in reserve alvo (Refalo2023, Maeo2021)"
+ },
+ "exercicios": [
+  {
+   "id": "squat_goblet",
+   "n": "Agachamento goblet",
+   "pose": "squat",
+   "grp": "quadríceps",
+   "sec": [
+    "glúteo",
+    "core",
+    "eretores"
+   ],
+   "eq": [
+    "halter",
+    "kettlebell",
+    "academia"
+   ],
+   "nivel": 0,
+   "padrao": "dominante-joelho",
+   "rir": 3,
+   "tempo": "3-1-X-0",
+   "cues": [
+    "Barra/weight colado no peito, cotovelos por dentro dos joelhos",
+    "Desça até a coxa passar do paralelo ou até o cotovelo encostar na coxa",
+    "Joelhos acompanham a linha do pé — não deixe entrar",
+    "Respire antes de descer, segure o abdômen rígido, solte no final da subida"
+   ],
+   "erros": [
+    "Calcanhar saindo do chão",
+    "Quadril subindo antes do peito (virar good-morning)",
+    "Meia-repetição"
+   ],
+   "rom": "Coxa abaixo do paralelo; pé inteiro no chão",
+   "regressoes": [
+    "sentar e levantar de banco (box squat)",
+    "agachamento na parede"
+   ],
+   "progressoes": [
+    "squat com barra nas costas",
+    "front squat"
+   ],
+   "sub": [
+    "squat_livre",
+    "leg_press",
+    "squat_pistol_progressao"
+   ],
+   "xpBase": 42
+  },
+  {
+   "id": "squat_livre",
+   "n": "Agachamento livre com barra",
+   "pose": "squat",
+   "grp": "quadríceps",
+   "sec": [
+    "glúteo",
+    "addutores",
+    "eretores"
+   ],
+   "eq": [
+    "barra",
+    "rack",
+    "academia"
+   ],
+   "nivel": 2,
+   "padrao": "dominante-joelho",
+   "rir": 3,
+   "tempo": "3-1-X-1",
+   "cues": [
+    "Barra na base do trapézio, pés 15–30° para fora",
+    "Quebre quadril e joelho ao mesmo tempo",
+    "Pés 'parafusando' o chão para ativar glúteo médio",
+    "Suba empurrando o chão com o pé inteiro, expirando após o ponto difícil"
+   ],
+   "erros": [
+    "Colapsar joelho para dentro sob carga",
+    "Tronco muito vertical com barra alta (mais cisalhamento lombar)",
+    "Prender a respiração sem bracing abdominal"
+   ],
+   "rom": "Paralelo ou mais fundo, conforme mobilidade de tornozelo",
+   "regressoes": [
+    "goblet squat",
+    "box squat"
+   ],
+   "progressoes": [
+    "pause squat 3 s",
+    "front squat"
+   ],
+   "sub": [
+    "squat_goblet",
+    "hack_levanta",
+    "leg_press"
+   ],
+   "xpBase": 55
+  },
+  {
+   "id": "squat_pistol_progressao",
+   "n": "Agachamento unilateral (progressão)",
+   "pose": "lunge",
+   "grp": "quadríceps",
+   "sec": [
+    "glúteo médio",
+    "core"
+   ],
+   "eq": [
+    "peso_corporal",
+    "casa"
+   ],
+   "nivel": 1,
+   "padrao": "dominante-joelho",
+   "rir": 2,
+   "tempo": "3-1-1-0",
+   "cues": [
+    "Apoie o calcanhar da perna livre no chão (ou use banco alto)",
+    "Desça controlado até a coxa da perna de apoio ficar paralela",
+    "Peito aberto, sem cair para frente"
+   ],
+   "erros": [
+    "Segurar com as duas mãos e chamar de unilateral",
+    "Perder o equilíbrio e 'corrigir' com valgo de joelho"
+   ],
+   "rom": "Coxa paralela em uma perna",
+   "regressoes": [
+    "agachamento no smith com uma perna auxiliada",
+    "dividido no step"
+   ],
+   "progressoes": [
+    "pistol squat completo",
+    "shrimp squat"
+   ],
+   "sub": [
+    "bulgaro",
+    "afundo"
+   ],
+   "xpBase": 40
+  },
+  {
+   "id": "bulgaro",
+   "n": "Búlgaro (split squat com pé trás)",
+   "pose": "lunge",
+   "grp": "quadríceps",
+   "sec": [
+    "glúteo máximo",
+    "isquiotibiais"
+   ],
+   "eq": [
+    "halter",
+    "kettlebell",
+    "academia",
+    "casa"
+   ],
+   "nivel": 1,
+   "padrao": "dominante-joelho",
+   "rir": 2,
+   "tempo": "3-0-X-0",
+   "cues": [
+    "Pé da frente ~60–70 cm à frente do banco",
+    "Tronco levemente inclinado para ativar mais glúteo",
+    "Desça o quadril 'para trás e para baixo', não só para baixo",
+    "Calcanhar da frente no chão"
+   ],
+   "erros": [
+    "Passo curto demais (joelho domina)",
+    "Subir inclinando o tronco todo"
+   ],
+   "rom": "Joelho de trás a 5–10 cm do chão",
+   "regressoes": [
+    "afundo no lugar",
+    "passada curta"
+   ],
+   "progressoes": [
+    "búlgaro com carga alta",
+    "búlgaro com pausa de 2 s embaixo"
+   ],
+   "sub": [
+    "afundo",
+    "stiff_unilateral"
+   ],
+   "xpBase": 44
+  },
+  {
+   "id": "afundo",
+   "n": "Afundo (lunge) no lugar",
+   "pose": "lunge",
+   "grp": "quadríceps",
+   "sec": [
+    "glúteo",
+    "adutores"
+   ],
+   "eq": [
+    "peso_corporal",
+    "halter",
+    "casa"
+   ],
+   "nivel": 0,
+   "padrao": "dominante-joelho",
+   "rir": 2,
+   "tempo": "2-0-X-0",
+   "cues": [
+    "Passo largo o suficiente para o joelho de trás descer verticalmente",
+    "Tronco ereto, olhar à frente",
+    "Empurre pelo calcanhar da frente para voltar"
+   ],
+   "erros": [
+    "Joelho da frente 'fugindo' para dentro",
+    "Passo curto (sobrecarrega joelho)"
+   ],
+   "rom": "Joelho de trás perto do chão",
+   "regressoes": [
+    "meio afundo",
+    "step-up baixo"
+   ],
+   "progressoes": [
+    "búlgaro",
+    "passada caminhando"
+   ],
+   "sub": [
+    "bulgaro",
+    "squat_goblet"
+   ],
+   "xpBase": 34
+  },
+  {
+   "id": "leg_press",
+   "n": "Leg press 45°",
+   "pose": "squat",
+   "grp": "quadríceps",
+   "sec": [
+    "glúteo"
+   ],
+   "eq": [
+    "maquina",
+    "academia"
+   ],
+   "nivel": 0,
+   "padrao": "dominante-joelho",
+   "rir": 2,
+   "tempo": "3-0-X-0",
+   "cues": [
+    "Pés no meio da plataforma, largura dos ombros",
+    "Desça até 90° no joelho sem o quadril 'sair' do banco",
+    "Não trave o joelho no fim (mantenha tensão)"
+   ],
+   "erros": [
+    "Descer tão fundo que a lombar arredonda",
+    "Travar joelhos com carga alta"
+   ],
+   "rom": "90° no joelho, lombar colada",
+   "regressoes": [
+    "leg press com amplitude parcial controlada",
+    "goblet squat"
+   ],
+   "progressoes": [
+    "single-leg press",
+    "pausa de 2 s embaixo"
+   ],
+   "sub": [
+    "squat_goblet",
+    "squat_livre",
+    "hack_levanta"
+   ],
+   "xpBase": 40
+  },
+  {
+   "id": "hack_levanta",
+   "n": "Agachamento hack / Levanta-vento",
+   "pose": "squat",
+   "grp": "quadríceps",
+   "sec": [
+    "glúteo",
+    "addutores"
+   ],
+   "eq": [
+    "maquina",
+    "academia"
+   ],
+   "nivel": 1,
+   "padrao": "dominante-joelho",
+   "rir": 2,
+   "tempo": "3-1-X-0",
+   "cues": [
+    "Ombros firmes, pés na metade de baixo da plataforma",
+    "Desça até o quadril passar do joelho, se a lombar permitir",
+    "Tronco 'abraçado' na máquina"
+   ],
+   "erros": [
+    "Subir com os calcanhares soltos",
+    "Hiperextender no topo"
+   ],
+   "rom": "Quadril abaixo do joelho sem descolar lombar",
+   "regressoes": [
+    "leg press",
+    "squat_goblet"
+   ],
+   "progressoes": [
+    "pausa de 2 s",
+    "single leg hack"
+   ],
+   "sub": [
+    "leg_press",
+    "squat_livre"
+   ],
+   "xpBase": 44
+  },
+  {
+   "id": "cadeira_extensora",
+   "n": "Cadeira extensora",
+   "pose": "knee_extension",
+   "grp": "quadríceps (vasto medial/retal)",
+   "sec": [],
+   "eq": [
+    "maquina",
+    "academia"
+   ],
+   "nivel": 0,
+   "padrao": "isolador",
+   "rir": 1,
+   "tempo": "2-1-1-1",
+   "cues": [
+    "Ajuste o eixo da máquina no seu joelho",
+    "Segure 1 s em cima apertando o quadríceps",
+    "Controle a descida — não deixe o peso cair"
+   ],
+   "erros": [
+    "Travar joelho com carga máxima",
+    "Usar impulso do tronco"
+   ],
+   "rom": "Extensão completa com contração final",
+   "regressoes": [
+    "extensão com amplitude parcial em ângulo confortável",
+    "squat na parede"
+   ],
+   "progressoes": [
+    "overcoming isometric 6 s",
+    "drop-set na última série"
+   ],
+   "sub": [
+    "squat_goblet",
+    "bulgaro"
+   ],
+   "xpBase": 26,
+   "nota": "Útil para reabilitação de joelho e para 'finalizador' — não substitui exercício composto."
+  },
+  {
+   "id": "mesa_flexora",
+   "n": "Mesa/cadeira flexora",
+   "pose": "leg_curl",
+   "grp": "isquiotibiais",
+   "sec": [
+    "gastrocnêmio"
+   ],
+   "eq": [
+    "maquina",
+    "academia"
+   ],
+   "nivel": 0,
+   "padrao": "isolador",
+   "rir": 1,
+   "tempo": "2-1-1-2",
+   "cues": [
+    "Quadril colado no banco (não deixar subir)",
+    "Calcanhares 'para o bumbum', joelhos alinhados",
+    "Desça em 2–3 s (excêntrica é o ouro para isquiotibiais)"
+   ],
+   "erros": [
+    "Arquear lombar para completar a rep",
+    "Subir o quadril"
+   ],
+   "rom": "Calcanhar a 5–10 cm do glúteo",
+   "regressoes": [
+    "flexora em pé unilateral",
+    "nordic excêntrico assistido"
+   ],
+   "progressoes": [
+    "single-leg flexora com pausa de 2 s",
+    "ponte unilateral com deslizamento"
+   ],
+   "sub": [
+    "stiff_unilateral",
+    "ponte_unilateral",
+    "mesa_flexora_uni"
+   ],
+   "xpBase": 28
+  },
+  {
+   "id": "stiff",
+   "n": "Stiff / RDL (barra ou halteres)",
+   "pose": "hinge",
+   "grp": "isquiotibiais",
+   "sec": [
+    "glúteo máximo",
+    "eretores",
+    "antebraço"
+   ],
+   "eq": [
+    "barra",
+    "halter",
+    "kettlebell",
+    "casa"
+   ],
+   "nivel": 1,
+   "padrao": "dominante-quadril",
+   "rir": 3,
+   "tempo": "3-1-X-1",
+   "cues": [
+    "Joelhos 'amortecidos' (~15°) e fixos",
+    "Empurre o quadril para trás, não desça o tronco para frente",
+    "Carga raspando na coxa/perna",
+    "Suba apertando glúteo — não hiperextendindo a lombar",
+    "Pare quando sentir tensão firme atrás da coxa"
+   ],
+   "erros": [
+    "Arredondar a lombar sob carga alta (o clássico)",
+    "Transformar em agachamento (dobrar joelho demais)",
+    "Descer além do que a mobilidade permite"
+   ],
+   "rom": "Carga no meio da tíbia ou até a tensão de isquio",
+   "regressoes": [
+    "bom dia sem carga",
+    "kettlebell deadlift",
+    "stiff com bastão"
+   ],
+   "progressoes": [
+    "terra convencional",
+    "stiff unilateral com halter pesado"
+   ],
+   "sub": [
+    "terra_terra",
+    "hiperextensao_lombar",
+    "boa_noite"
+   ],
+   "xpBase": 46
+  },
+  {
+   "id": "boa_noite",
+   "n": "Bom dia (boa noite) com bastão/barra",
+   "pose": "hinge",
+   "grp": "eretores + isquiotibiais",
+   "sec": [
+    "glúteo"
+   ],
+   "eq": [
+    "barra",
+    "bastao",
+    "casa"
+   ],
+   "nivel": 2,
+   "padrao": "dominante-quadril",
+   "rir": 3,
+   "tempo": "3-1-X-1",
+   "cues": [
+    "Barra no trapézio, cotovelos para trás",
+    "Quadril vai para trás com torso quase rígido",
+    "Amplitude: até o tronco ficar paralelo ao solo, se a lombar aguentar"
+   ],
+   "erros": [
+    "Carga alta cedo demais — é exercício de aprendizado",
+    "Arredondar e 'quicar'"
+   ],
+   "rom": "Torso paralelo ao chão",
+   "regressoes": [
+    "hinge com bastão",
+    "kettlebell swing"
+   ],
+   "progressoes": [
+    "bom dia com pausa"
+   ],
+   "sub": [
+    "stiff",
+    "hiperextensao_lombar"
+   ],
+   "xpBase": 36
+  },
+  {
+   "id": "hiperextensao_lombar",
+   "n": "Hiperextensão (banco romano)",
+   "pose": "hinge",
+   "grp": "eretores",
+   "sec": [
+    "glúteo",
+    "isquiotibiais"
+   ],
+   "eq": [
+    "maquina",
+    "academia"
+   ],
+   "nivel": 1,
+   "padrao": "dominante-quadril",
+   "rir": 2,
+   "tempo": "2-1-1-2",
+   "cues": [
+    "Suba até alinhar com as pernas (não hiperextenda)",
+    "Aperte glúteo no topo",
+    "Discos no peito apenas quando a técnica for sólida"
+   ],
+   "erros": [
+    "Hiperextender e 'bater' na parada",
+    "Subir rápido com impulso"
+   ],
+   "rom": "Alinhamento neutro",
+   "regressoes": [
+    "superman no solo",
+    "bird_dog"
+   ],
+   "progressoes": [
+    "unilateral no banco",
+    "com anilha"
+   ],
+   "sub": [
+    "bird_dog",
+    "bom_dia_progressao"
+   ],
+   "xpBase": 26
+  },
+  {
+   "id": "hip_thrust",
+   "n": "Hip thrust com barra",
+   "pose": "hipthrust",
+   "grp": "glúteo máximo",
+   "sec": [
+    "isquiotibiais",
+    "quadríceps"
+   ],
+   "eq": [
+    "barra",
+    "banco",
+    "academia"
+   ],
+   "nivel": 1,
+   "padrao": "dominante-quadril",
+   "rir": 1,
+   "tempo": "2-1-1-2",
+   "cues": [
+    "Queixo no peito, costelas 'para baixo'",
+    "Empurre o chão com os calcanhares",
+    "Barra a ~1 s no topo apertando o glúteo",
+    "Cotovelos para fora, barra acolchoada"
+   ],
+   "erros": [
+    "Arquear lombar no topo para 'subir mais'",
+    "Pernas muito longe (joga o estímulo para isquio)"
+   ],
+   "rom": "Quadril em extensão total, sem hiperextender lombar",
+   "regressoes": [
+    "ponte no solo",
+    "ponte unilateral"
+   ],
+   "progressoes": [
+    "pausa de 3 s no topo",
+    "single-leg thrust"
+   ],
+   "sub": [
+    "ponte_unilateral",
+    "ponte_no_cabo",
+    "stiff"
+   ],
+   "xpBase": 34
+  },
+  {
+   "id": "ponte_unilateral",
+   "n": "Ponte unilateral (glute bridge)",
+   "pose": "hipthrust",
+   "grp": "glúteo médio/máximo",
+   "sec": [
+    "core"
+   ],
+   "eq": [
+    "peso_corporal",
+    "casa",
+    "halter"
+   ],
+   "nivel": 0,
+   "padrao": "dominante-quadril",
+   "rir": 1,
+   "tempo": "2-1-1-1",
+   "cues": [
+    "Calcanhar da perna de trabalho a ~40 cm do bumbum",
+    "Pé 'para dentro' (5°) para ativar mais glúteo médio",
+    "Segure 1 s no topo"
+   ],
+   "erros": [
+    "Subir com a lombar",
+    "Perna de apoio 'ajudando'"
+   ],
+   "rom": "Quadril alinhado com joelho e tronco",
+   "regressoes": [
+    "ponte com as duas pernas",
+    "ponte com apoio das costas"
+   ],
+   "progressoes": [
+    "com halter no quadril",
+    "ponte com calcanhar em banco"
+   ],
+   "sub": [
+    "hip_thrust",
+    "mesa_flexora"
+   ],
+   "xpBase": 20
+  },
+  {
+   "id": "panturrilha_em_pe",
+   "n": "Panturrilha em pé (degrau)",
+   "pose": "standing_neutral",
+   "grp": "gastrocnêmio",
+   "sec": [
+    "sóleo"
+   ],
+   "eq": [
+    "peso_corporal",
+    "halter",
+    "maquina",
+    "casa"
+   ],
+   "nivel": 0,
+   "padrao": "isolador",
+   "rir": 0,
+   "tempo": "3-1-1-2",
+   "cues": [
+    "Amplitude total: calcanhar abaixo da linha do degrau embaixo",
+    "Pernas quase estendidas para pegar gastrocnêmio",
+    "Segure 2 s embaixo (o maior estímulo está ali)",
+    "Suba e pause 1 s no topo"
+   ],
+   "erros": [
+    "Meias-reps rápidas (o motivo de 'panturrilha não crescer')",
+    "Dobrar joelho demais"
+   ],
+   "rom": "Dorsiflexão completa para extensão plantar",
+   "regressoes": [
+    "em solo",
+    "com apoio na parede"
+   ],
+   "progressoes": [
+    "unilateral com halter",
+    "sóleo sentado (joelho dobrado)"
+   ],
+   "sub": [
+    "panturrilha_sentado",
+    "salto_no_lugar"
+   ],
+   "xpBase": 16
+  },
+  {
+   "id": "panturrilha_sentado",
+   "n": "Panturrilha sentado (sóleo)",
+   "pose": "knee_extension",
+   "grp": "sóleo",
+   "sec": [],
+   "eq": [
+    "maquina",
+    "halter",
+    "casa"
+   ],
+   "nivel": 1,
+   "padrao": "isolador",
+   "rir": 0,
+   "tempo": "3-1-1-2",
+   "cues": [
+    "Joelho a 90° para isolar o sóleo",
+    "Disco/halter sobre os joelhos",
+    "Amplitude completa e 2 s de pausa embaixo"
+   ],
+   "erros": [
+    "Reduzir amplitude com carga alta",
+    "Fazer só com joelho estendido (vira gastrocnêmio)"
+   ],
+   "rom": "Completa",
+   "regressoes": [
+    "em pé",
+    "sem carga"
+   ],
+   "progressoes": [
+    "com carga alta e pausa",
+    "unilateral"
+   ],
+   "sub": [
+    "panturrilha_em_pe"
+   ],
+   "xpBase": 16
+  },
+  {
+   "id": "terra_terra",
+   "n": "Levantamento terra convencional",
+   "pose": "hinge",
+   "grp": "posterior chain (eretores, glúteo, isquio)",
+   "sec": [
+    "dorsal",
+    "antebraço",
+    "trapézio"
+   ],
+   "eq": [
+    "barra",
+    "academia"
+   ],
+   "nivel": 3,
+   "padrao": "dominante-quadril",
+   "rir": 3,
+   "tempo": "1-0-X-1",
+   "cues": [
+    "Barra sobre o meio do pé; ombros levemente à frente da barra",
+    "Inspire e faça bracing 360°, depois empurre o chão com a barra raspando na perna",
+    "Cotovelos 'por dentro', não deixe a barra se afastar",
+    "Bloqueie com glúteo; desça empurrando o quadril para trás"
+   ],
+   "erros": [
+    "Quadril subindo cedo (vira 'puxada de braços')",
+    "Costas arredondadas em fadiga",
+    "Cinto/Strap como muleta técnica"
+   ],
+   "rom": "Bloqueio completo em pé",
+   "regressoes": [
+    "trap bar",
+    "terra no bloco (rack pull)",
+    "kettlebell deadlift"
+   ],
+   "progressoes": [
+    "déficit deadlift",
+    "pausa de 2 s no chão"
+   ],
+   "sub": [
+    "stiff",
+    "hiperextensao_lombar",
+    "remada_curvada"
+   ],
+   "xpBase": 60
+  },
+  {
+   "id": "banquinta_supino",
+   "n": "Supino reto com halteres",
+   "pose": "bench_press",
+   "grp": "peitoral maior",
+   "sec": [
+    "deltoide anterior",
+    "tríceps"
+   ],
+   "eq": [
+    "halter",
+    "banco",
+    "casa"
+   ],
+   "nivel": 0,
+   "padrao": "empurrar-horizontal",
+   "rir": 2,
+   "tempo": "3-1-X-0",
+   "cues": [
+    "Escápulas retraídas e 'no bolso de trás'",
+    "Pegada neutra/15° para fora, cotovelos ~45° do tronco",
+    "Desça até sentir alongamento no peito (cotovelos à linha do tronco)",
+    "Suba 'juntando' sem bater os halteres"
+   ],
+   "erros": [
+    "Cotovelos abertos a 90° (ombro sofre)",
+    "Ponte lombar exagerada",
+    "Haltes descendo só pela metade"
+   ],
+   "rom": "Cotovelo na linha do tronco ou abaixo",
+   "regressoes": [
+    "flexão inclinada",
+    "supino na máquina"
+   ],
+   "progressoes": [
+    "supino reto com barra",
+    "pausa de 1 s embaixo"
+   ],
+   "sub": [
+    "supino_barra",
+    "flexao",
+    "crucifixo"
+   ],
+   "xpBase": 40
+  },
+  {
+   "id": "supino_barra",
+   "n": "Supino reto com barra",
+   "pose": "bench_press",
+   "grp": "peitoral maior",
+   "sec": [
+    "deltoide anterior",
+    "tríceps"
+   ],
+   "eq": [
+    "barra",
+    "banco",
+    "academia"
+   ],
+   "nivel": 2,
+   "padrao": "empurrar-horizontal",
+   "rir": 2,
+   "tempo": "3-1-X-0",
+   "cues": [
+    "Pegada ~1,7× a largura dos ombros; polegar em volta (suicide é opcional e não recomendo)",
+    "Barra na linha do mamilo/peito inferior",
+    "Cotovelos ~45–70°, 'quebre a barra'",
+    "Empurre diagonalmente, pés firmes, arco natural"
+   ],
+   "erros": [
+    "Toque no pescoço (pego alto = ombro)",
+    "Descer com os cotovelos abertos a 90°",
+    "Bounce no peito sem controle"
+   ],
+   "rom": "Barra ao peito com controle",
+   "regressoes": [
+    "supino com halteres",
+    "máquina de supino"
+   ],
+   "progressoes": [
+    "pausa de 1 s no peito",
+    "floor press para tríceps"
+   ],
+   "sub": [
+    "banquinta_supino",
+    "flexao",
+    "crucifixo"
+   ],
+   "xpBase": 48
+  },
+  {
+   "id": "crucifixo",
+   "n": "Crucifixo (halteres ou polia)",
+   "pose": "bench_press",
+   "grp": "peitoral (alongamento)",
+   "sec": [
+    "deltoide anterior"
+   ],
+   "eq": [
+    "halter",
+    "cabo",
+    "academia"
+   ],
+   "nivel": 1,
+   "padrao": "empurrar-horizontal",
+   "rir": 1,
+   "tempo": "3-1-1-1",
+   "cues": [
+    "Cotovelo fixo ~150–160° — o movimento vem do ombro",
+    "Desça até alongamento desconfortável-mas-controlado",
+    "Suba 'abraçando uma árvore', sem estender totalmente na frente"
+   ],
+   "erros": [
+    "Transformar em supino (dobrar/estender cotovelo)",
+    "Carga que força hiperextensão de ombro"
+   ],
+   "rom": "Cotovelo na linha do tronco",
+   "regressoes": [
+    "fly na máquina com apoio",
+    "crucifixo com elástico"
+   ],
+   "progressoes": [
+    "crucifixo inclinado na polia",
+    "pausa de 2 s embaixo"
+   ],
+   "sub": [
+    "banquinta_supino",
+    "flexao_aberta"
+   ],
+   "xpBase": 26
+  },
+  {
+   "id": "flexao",
+   "n": "Flexão de braço",
+   "pose": "pushup",
+   "grp": "peitoral, tríceps",
+   "sec": [
+    "serrátil anterior",
+    "core"
+   ],
+   "eq": [
+    "peso_corporal",
+    "casa"
+   ],
+   "nivel": 0,
+   "padrao": "empurrar-horizontal",
+   "rir": 1,
+   "tempo": "2-1-X-0",
+   "cues": [
+    "Corpo em régua (glúteo contraído, sem quadril pendurado)",
+    "Cotovelos ~45°, mãos sob os ombros/ligeiramente abaixo",
+    "Peito ao chão (queixo não toca primeiro)",
+    "Empurre o chão e 'arredonde' levemente as escápulas no topo"
+   ],
+   "erros": [
+    "Amplitude curta",
+    "Pescoço esticado para o chão",
+    "Mãos muito altas (ombro em tensão)"
+   ],
+   "rom": "Peito a 1 punho do chão",
+   "regressoes": [
+    "inclinada na parede/mesa",
+    "joelhos"
+   ],
+   "progressoes": [
+    "flexão com pés elevados",
+    "flexão com mochila",
+    "flexão Archer"
+   ],
+   "sub": [
+    "banquinta_supino",
+    "supino_barra"
+   ],
+   "xpBase": 22
+  },
+  {
+   "id": "flexao_aberta",
+   "n": "Flexão com pegada aberta (foco peitoral)",
+   "pose": "pushup",
+   "grp": "peitoral",
+   "sec": [
+    "deltoide anterior"
+   ],
+   "eq": [
+    "peso_corporal",
+    "casa"
+   ],
+   "nivel": 1,
+   "padrao": "empurrar-horizontal",
+   "rir": 1,
+   "tempo": "2-1-1-0",
+   "cues": [
+    "Mãos ~1,5× largura dos ombros",
+    "Cotovelo a ~75°",
+    "Alongue no fundo, contraia no topo"
+   ],
+   "erros": [
+    "Ombros subindo em direção às orelhas",
+    "Punhos doendo (use paralletes)"
+   ],
+   "rom": "Peito ao chão",
+   "regressoes": [
+    "inclinada aberta"
+   ],
+   "progressoes": [
+    "flexão declinada aberta"
+   ],
+   "sub": [
+    "crucifixo",
+    "banquinta_supino"
+   ],
+   "xpBase": 24
+  },
+  {
+   "id": "dip",
+   "n": "Mergulho (paralelas/banco)",
+   "pose": "pushup",
+   "grp": "peitoral inferior, tríceps",
+   "sec": [
+    "deltoide anterior"
+   ],
+   "eq": [
+    "paralelas",
+    "banco",
+    "casa"
+   ],
+   "nivel": 2,
+   "padrao": "empurrar-vertical",
+   "rir": 2,
+   "tempo": "3-0-X-0",
+   "cues": [
+    "Incline o tronco à frente para pegar mais peito",
+    "Desça até o braço do tronco paralelo ao chão (ou até sentir desconforto no ombro)",
+    "Ombros 'para baixo e para trás'"
+   ],
+   "erros": [
+    "Descer mais fundo do que a cápsula do ombro tolera",
+    "Cotovelos voando para os lados",
+    "Balancear com impulso de quadril"
+   ],
+   "rom": "Braço do tronco paralelo",
+   "regressoes": [
+    "mergulho no banco com pés no chão",
+    "assistido com elástico"
+   ],
+   "progressoes": [
+    "com anilha",
+    "dip na paralela com pausa"
+   ],
+   "sub": [
+    "banquinta_supino",
+    "triceps_polia"
+   ],
+   "xpBase": 40
+  },
+  {
+   "id": "desenvolvimento",
+   "n": "Desenvolvimento militar (halteres ou barra)",
+   "pose": "ohp",
+   "grp": "deltoide anterior/lateral",
+   "sec": [
+    "tríceps",
+    "serrátil",
+    "core"
+   ],
+   "eq": [
+    "halter",
+    "barra",
+    "kettlebell",
+    "casa"
+   ],
+   "nivel": 1,
+   "padrao": "empurrar-vertical",
+   "rir": 2,
+   "tempo": "3-0-X-0",
+   "cues": [
+    "Costelas 'para baixo' (sem arquear lombar)",
+    "Barra/halteres em linha com o ouvido no topo",
+    "Passe a cabeça 'para dentro' no final da subida",
+    "Sente o quadril e aperte glúteo/abdômen se em pé"
+   ],
+   "erros": [
+    "Empurrar com a lombar (virar press reverso)",
+    "Barra muito à frente, ombro comprimido",
+    "Semi-reps com dor no manguito"
+   ],
+   "rom": "Extensão total sem hiperextender coluna",
+   "regressoes": [
+    "desenvolvimento sentado com apoio de lombar",
+    "press Arnold leve",
+    "flexão declinada"
+   ],
+   "progressoes": [
+    "push press (com leve impulso das pernas)",
+    "desenvolvimento unilateral com pausa"
+   ],
+   "sub": [
+    "elevacao_lateral",
+    "desenvolvimento_maq"
+   ],
+   "xpBase": 42
+  },
+  {
+   "id": "desenvolvimento_maq",
+   "n": "Desenvolvimento na máquina/Smith",
+   "pose": "ohp",
+   "grp": "deltoide anterior",
+   "sec": [
+    "tríceps"
+   ],
+   "eq": [
+    "maquina",
+    "academia"
+   ],
+   "nivel": 0,
+   "padrao": "empurrar-vertical",
+   "rir": 2,
+   "tempo": "2-1-X-0",
+   "cues": [
+    "Ajuste o banco para as mãos ficarem na linha da orelha",
+    "Não trave o cotovelo com carga máxima",
+    "Controle a volta"
+   ],
+   "erros": [
+    "Descer atrás da nuca",
+    "Banco muito longe"
+   ],
+   "rom": "Até queixo/orelha",
+   "regressoes": [
+    "press com halteres sentado",
+    "elevacao frontal"
+   ],
+   "progressoes": [
+    "halteres livres"
+   ],
+   "sub": [
+    "desenvolvimento",
+    "flexao_declinada"
+   ],
+   "xpBase": 32
+  },
+  {
+   "id": "elevacao_lateral",
+   "n": "Elevação lateral",
+   "pose": "lateral_raise",
+   "grp": "deltoide lateral",
+   "sec": [
+    "supraespinhoso"
+   ],
+   "eq": [
+    "halter",
+    "cabo",
+    "elastico",
+    "casa"
+   ],
+   "nivel": 0,
+   "padrao": "isolador",
+   "rir": 0,
+   "tempo": "2-1-1-1",
+   "cues": [
+    "Cotovelo levemente dobrado, suba até linha do ombro",
+    "Polegar levemente para baixo (não 'serve chá' com dor)",
+    "Baixe devagar, sem balançar o tronco"
+   ],
+   "erros": [
+    "Carga alta com encolhimento de trapézio",
+    "Subir acima de 90° com sobrecarga no ombro"
+   ],
+   "rom": "Até a linha do ombro",
+   "regressoes": [
+    "sem peso com pausa de 3 s",
+    "elástico"
+   ],
+   "progressoes": [
+    "drop-set na última série",
+    "lateral na polia unilateral"
+   ],
+   "sub": [
+    "elevacao_lateral_polia",
+    "desenvolvimento"
+   ],
+   "xpBase": 18
+  },
+  {
+   "id": "elevacao_lateral_polia",
+   "n": "Elevação lateral na polia (unilateral)",
+   "pose": "lateral_raise",
+   "grp": "deltoide lateral",
+   "sec": [],
+   "eq": [
+    "cabo",
+    "academia"
+   ],
+   "nivel": 1,
+   "padrao": "isolador",
+   "rir": 0,
+   "tempo": "3-1-1-1",
+   "cues": [
+    "Cabo atrás do corpo, polia no nível do punho",
+    "Tensão no alongamento — desça devagar",
+    "Corpo levemente inclinado para fora"
+   ],
+   "erros": [
+    "Puxar com o trapézio",
+    "Impulso do tronco"
+   ],
+   "rom": "Full ROM controlado na fase excêntrica; sem balanço.",
+   "regressoes": [
+    "com halter",
+    "elástico"
+   ],
+   "progressoes": [
+    "pausa de 2 s no topo"
+   ],
+   "sub": [
+    "elevacao_lateral"
+   ],
+   "xpBase": 20
+  },
+  {
+   "id": "face_pull",
+   "n": "Face pull (corda)",
+   "pose": "face_pull",
+   "grp": "deltoide posterior, romboides",
+   "sec": [
+    "infraespinhoso (rotadores externos)"
+   ],
+   "eq": [
+    "cabo",
+    "elastico",
+    "casa"
+   ],
+   "nivel": 0,
+   "padrao": "puxar",
+   "rir": 1,
+   "tempo": "2-1-1-1",
+   "cues": [
+    "Polia na linha da testa",
+    "Puxe a corda em direção à testa/orelhas, cotovelos altos",
+    "Mãos 'para fora' no final (rotação externa)",
+    "Segure 1 s apertando as escápulas"
+   ],
+   "erros": [
+    "Puxar horizontal na altura do peito",
+    "Ombros subindo"
+   ],
+   "rom": "Punhos na linha das orelhas",
+   "regressoes": [
+    "elástico sentado",
+    "band pull-apart"
+   ],
+   "progressoes": [
+    "com pausa de 3 s",
+    "unilateral com rotação externa"
+   ],
+   "sub": [
+    "pull_apart",
+    "remada_alta"
+   ],
+   "xpBase": 16
+  },
+  {
+   "id": "pull_apart",
+   "n": "Band pull-apart",
+   "pose": "face_pull",
+   "grp": "deltoide posterior, romboides",
+   "sec": [
+    "trapézio médio"
+   ],
+   "eq": [
+    "elastico",
+    "casa"
+   ],
+   "nivel": 0,
+   "padrao": "puxar",
+   "rir": 1,
+   "tempo": "2-1-1-1",
+   "cues": [
+    "Cotovelos levemente dobrados, braços na linha do ombro",
+    "Abra a faixa até encostar no peito",
+    "Não 'junte' ombros em direção às orelhas"
+   ],
+   "erros": [
+    "Faixa muito alta",
+    "Balançar o tronco"
+   ],
+   "rom": "Faixa no peito",
+   "regressoes": [
+    "pull-apart com elástico leve",
+    "sem elástico (contração isométrica)"
+   ],
+   "progressoes": [
+    "unilateral",
+    "pausa de 3 s"
+   ],
+   "sub": [
+    "face_pull",
+    "remada_curvada"
+   ],
+   "xpBase": 12
+  },
+  {
+   "id": "remada_curvada",
+   "n": "Remada curvada com barra",
+   "pose": "row",
+   "grp": "dorsal, romboides",
+   "sec": [
+    "eretores",
+    "deltoide posterior"
+   ],
+   "eq": [
+    "barra",
+    "halter",
+    "academia"
+   ],
+   "nivel": 2,
+   "padrao": "puxar",
+   "rir": 2,
+   "tempo": "2-1-X-1",
+   "cues": [
+    "Tronco a ~15–30° do paralelo, joelhos amortecidos",
+    "Puxe a barra em direção ao umbigo",
+    "Cotovelos junto ao corpo, escápulas 'para o bolso traseiro'",
+    "Desça controlado sem arredondar a lombar"
+   ],
+   "erros": [
+    "Remada 'em pé' com impulso lombar",
+    "Puxar com os braços e não com as escápulas",
+    "Amplitude curta por ombros tensos"
+   ],
+   "rom": "Barra ao abdômen; extensão total no fundo",
+   "regressoes": [
+    "remada unilateral apoiada (serrote)",
+    "remada na máquina peito-apoiado"
+   ],
+   "progressoes": [
+    "remada curvada 90°",
+    "pausa de 1 s em cima"
+   ],
+   "sub": [
+    "remada_serrote",
+    "remada_maq",
+    "barra_fixa"
+   ],
+   "xpBase": 46
+  },
+  {
+   "id": "remada_serrote",
+   "n": "Remada unilateral (serrote)",
+   "pose": "row",
+   "grp": "dorsal, romboides",
+   "sec": [
+    "eretores unilaterais"
+   ],
+   "eq": [
+    "halter",
+    "banco",
+    "casa"
+   ],
+   "nivel": 1,
+   "padrao": "puxar",
+   "rir": 1,
+   "tempo": "2-1-X-1",
+   "cues": [
+    "Mãos e joelhos no banco, tronco paralelo ao chão",
+    "Puxe o halter em direção ao quadril (não ao ombro)",
+    "Segure o topo 1 s com o cotovelo junto ao corpo"
+   ],
+   "erros": [
+    "Girar o tronco para 'subir mais'",
+    "Puxar pela lateral do corpo"
+   ],
+   "rom": "Cotovelo passa do tronco",
+   "regressoes": [
+    "remada apoiada na máquina",
+    "remada com elástico"
+   ],
+   "progressoes": [
+    "pausa 2 s",
+    "carga alta com suporte de core"
+   ],
+   "sub": [
+    "remada_curvada",
+    "pulldown"
+   ],
+   "xpBase": 34
+  },
+  {
+   "id": "remada_maq",
+   "n": "Remada sentada na máquina/cabo",
+   "pose": "row",
+   "grp": "dorsal, romboides",
+   "sec": [
+    "deltoide posterior",
+    "bíceps"
+   ],
+   "eq": [
+    "cabo",
+    "maquina",
+    "academia"
+   ],
+   "nivel": 0,
+   "padrao": "puxar",
+   "rir": 1,
+   "tempo": "2-1-1-1",
+   "cues": [
+    "Peito estufado, ombros longe das orelhas",
+    "Puxe a maçaneta em direção ao umbigo, cotovelos junto ao corpo",
+    "Deixe as escápulas abrirem lá na frente (alongamento)",
+    "Não use deitar/levantar do tronco"
+   ],
+   "erros": [
+    "Balancear o tronco",
+    "Amplitude só parcial"
+   ],
+   "rom": "Completa: escápula estirada para contração final",
+   "regressoes": [
+    "remada com elástico sentado",
+    "remada unilateral com halter"
+   ],
+   "progressoes": [
+    "pausa de 2 s",
+    "unilateral com rotação"
+   ],
+   "sub": [
+    "remada_curvada",
+    "barra_fixa"
+   ],
+   "xpBase": 30
+  },
+  {
+   "id": "pulldown",
+   "n": "Pulley frente (lat pulldown)",
+   "pose": "pulldown",
+   "grp": "dorsal",
+   "sec": [
+    "deltoide posterior",
+    "bíceps"
+   ],
+   "eq": [
+    "cabo",
+    "maquina",
+    "academia"
+   ],
+   "nivel": 0,
+   "padrao": "puxar",
+   "rir": 1,
+   "tempo": "2-1-1-1",
+   "cues": [
+    "Peito alto, tronco ~15° para trás (fixo)",
+    "Puxe a barra em direção à clavícula/queixo",
+    "Cotovelos 'para os bolsos laterais'",
+    "Suba em 3 s sentindo o alongamento da dorsal"
+   ],
+   "erros": [
+    "Puxar atrás da nuca",
+    "Balancear o tronco para 'gerar reps'",
+    "Amplitude curta no topo"
+   ],
+   "rom": "Barra ao queixo; braços estendidos com escápula elevada",
+   "regressoes": [
+    "pulldown com pegada neutra",
+    "elástico ancorado alto"
+   ],
+   "progressoes": [
+    "barra fixa (pull-up) completa",
+    "negativas de barra fixa"
+   ],
+   "sub": [
+    "barra_fixa",
+    "remada_maq",
+    "barra_fixa_elastico"
+   ],
+   "xpBase": 30
+  },
+  {
+   "id": "barra_fixa",
+   "n": "Barra fixa (pull-up)",
+   "pose": "pulldown",
+   "grp": "dorsal",
+   "sec": [
+    "bíceps, core, romboides"
+   ],
+   "eq": [
+    "barra_fixa",
+    "peso_corporal",
+    "academia",
+    "casa"
+   ],
+   "nivel": 3,
+   "padrao": "puxar",
+   "rir": 1,
+   "tempo": "2-1-1-1",
+   "cues": [
+    "Pegada pronada ~1,4× ombros, cotovelos 'para baixo e para trás'",
+    "Comece o movimento deprimindo as escápulas",
+    "Queixo à barra; desça em 2–3 s com controle",
+    "Core tenso, sem balanço de perna"
+   ],
+   "erros": [
+    "Meia-rep (queixo nunca passa)",
+    "Kipping sem dominar a rep estrita",
+    "Ombro subindo no topo da descida"
+   ],
+   "rom": "Queixo acima da barra → braços quase estendidos",
+   "regressoes": [
+    "barra com elástico",
+    "negativas 5 s",
+    "pulldown unilateral"
+   ],
+   "progressoes": [
+    "la lastre",
+    "muscle-up progressão",
+    "com lastro e pausa"
+   ],
+   "sub": [
+    "pulldown",
+    "remada_maq",
+    "barra_fixa_elastico"
+   ],
+   "xpBase": 60
+  },
+  {
+   "id": "barra_fixa_elastico",
+   "n": "Barra fixa com elástico (assistida)",
+   "pose": "pulldown",
+   "grp": "dorsal",
+   "sec": [
+    "bíceps, core"
+   ],
+   "eq": [
+    "barra_fixa",
+    "elastico",
+    "academia"
+   ],
+   "nivel": 1,
+   "padrao": "puxar",
+   "rir": 1,
+   "tempo": "2-1-1-2",
+   "cues": [
+    "Use o elástico mais fino que ainda te deixe fazer 5–8 reps limpas",
+    "Joelhos dentro do loop, corpo firme",
+    "Reduza o elástico a cada 2 semanas"
+   ],
+   "erros": [
+    "'Quicar' com o elástico",
+    "Não descer ao braço estendido"
+   ],
+   "rom": "Completa",
+   "regressoes": [
+    "negativas",
+    "pulldown na máquina"
+   ],
+   "progressoes": [
+    "barra fixa sem auxílio"
+   ],
+   "sub": [
+    "pulldown",
+    "barra_fixa"
+   ],
+   "xpBase": 34
+  },
+  {
+   "id": "remada_alta",
+   "n": "Remada alta (UPR)",
+   "pose": "shrug",
+   "grp": "deltoide lateral, trapézio",
+   "sec": [
+    "bíceps"
+   ],
+   "eq": [
+    "barra",
+    "halter",
+    "cabo",
+    "casa"
+   ],
+   "nivel": 1,
+   "padrao": "puxar",
+   "rir": 1,
+   "tempo": "2-1-1-1",
+   "cues": [
+    "Pegada pronada na largura dos ombros",
+    "Suba só até a linha do ombro (cotovelos acima dos punhos)",
+    "Pare se sentir pinçamento"
+   ],
+   "erros": [
+    "Subir demais (impacto subacromial)",
+    "Pegada muito fechada",
+    "Wrist curl sem querer (punho dobrado)"
+   ],
+   "rom": "Full ROM controlado na fase excêntrica; sem balanço.",
+   "regressoes": [
+    "elevação lateral com pausa",
+    "remada alta com elástico"
+   ],
+   "progressoes": [
+    "com halteres e neutra (menos impacto)"
+   ],
+   "sub": [
+    "elevacao_lateral",
+    "face_pull"
+   ],
+   "xpBase": 22,
+   "nota": "Evitar se histórico de dor subacromial; substitua por elevação lateral + face pull."
+  },
+  {
+   "id": "encolhimento",
+   "n": "Encolhimento (shrug)",
+   "pose": "shrug",
+   "grp": "trapézio superior",
+   "sec": [
+    "levantador da escápula"
+   ],
+   "eq": [
+    "halter",
+    "barra",
+    "casa"
+   ],
+   "nivel": 0,
+   "padrao": "isolador",
+   "rir": 0,
+   "tempo": "1-2-1-1",
+   "cues": [
+    "Braços estendidos, suba os ombros 'em direção às orelhas' (não para frente/trás)",
+    "Segure 2 s no topo",
+    "Baixe alongando bem"
+   ],
+   "erros": [
+    "Girar o ombro",
+    "Carga que força pegada aberta"
+   ],
+   "rom": "Elevação pura",
+   "regressoes": [
+    "sem carga com isometria",
+    "elástico"
+   ],
+   "progressoes": [
+    "unilateral com halter pesado",
+    "farmer carry"
+   ],
+   "sub": [
+    "face_pull",
+    "farmer_carry"
+   ],
+   "xpBase": 16
+  },
+  {
+   "id": "rosca_direta",
+   "n": "Rosca direta (barra/halter)",
+   "pose": "curl",
+   "grp": "bíceps braquial",
+   "sec": [
+    "braquial",
+    "antebraço"
+   ],
+   "eq": [
+    "barra",
+    "halter",
+    "elastico",
+    "casa"
+   ],
+   "nivel": 0,
+   "padrao": "isolador",
+   "rir": 0,
+   "tempo": "3-0-1-1",
+   "cues": [
+    "Cotovelo colado ao lado do corpo, 'pregado na costela'",
+    "Suba sem balançar ombros",
+    "Desça em 3 s com controle"
+   ],
+   "erros": [
+    "Balançar o tronco",
+    "Adiantar o cotovelo (vira deltoide anterior)",
+    "Semi-reps em cima"
+   ],
+   "rom": "Extensão completa → contração",
+   "regressoes": [
+    "rosca com halteres leves e apoio de braço",
+    "elástico"
+   ],
+   "progressoes": [
+    "rosca alternada com rotação (martelo→supinação)",
+    "pausa no pico"
+   ],
+   "sub": [
+    "rosca_martelo",
+    "rosca_scott"
+   ],
+   "xpBase": 18
+  },
+  {
+   "id": "rosca_martelo",
+   "n": "Rosca martelo",
+   "pose": "curl",
+   "grp": "braquial, braquiorradial",
+   "sec": [
+    "bíceps"
+   ],
+   "eq": [
+    "halter",
+    "elastico",
+    "casa"
+   ],
+   "nivel": 0,
+   "padrao": "isolador",
+   "rir": 0,
+   "tempo": "3-0-1-0",
+   "cues": [
+    "Pegada neutra, cotovelos parados",
+    "Suba para o ombro oposto para maior pico",
+    "Desça controlado"
+   ],
+   "erros": [
+    "Girar punho no final",
+    "Impulso lombar"
+   ],
+   "rom": "Completa",
+   "regressoes": [
+    "rosca com halteres leves",
+    "elástico"
+   ],
+   "progressoes": [
+    "unilateral com pausa de 2 s"
+   ],
+   "sub": [
+    "rosca_direta",
+    "remada_alta"
+   ],
+   "xpBase": 18
+  },
+  {
+   "id": "rosca_scott",
+   "n": "Rosca Scott (banco preacher)",
+   "pose": "curl",
+   "grp": "bíceps (cabeça longa alongada)",
+   "sec": [],
+   "eq": [
+    "maquina",
+    "halter",
+    "academia"
+   ],
+   "nivel": 1,
+   "padrao": "isolador",
+   "rir": 0,
+   "tempo": "3-1-1-1",
+   "cues": [
+    "Axila apoiada no topo do banco",
+    "Desça até estender quase completo (não deixe o peso puxar em velocidade)",
+    "Não estenda com hiperextensão de cotovelo sob carga"
+   ],
+   "erros": [
+    "Descer com o cotovelo saindo do banco",
+    "Travar o cotovelo 'de queixo'"
+   ],
+   "rom": "Alongada com controle",
+   "regressoes": [
+    "rosca com halter em pé",
+    "elástico com apoio"
+   ],
+   "progressoes": [
+    "21s (7 embaixo, 7 em cima, 7 completas)"
+   ],
+   "sub": [
+    "rosca_direta"
+   ],
+   "xpBase": 20
+  },
+  {
+   "id": "triceps_polia",
+   "n": "Tríceps na polia (corda/barra)",
+   "pose": "tricep_overhead",
+   "grp": "tríceps (lateral/medial)",
+   "sec": [
+    "ancôneo"
+   ],
+   "eq": [
+    "cabo",
+    "elastico",
+    "academia"
+   ],
+   "nivel": 0,
+   "padrao": "isolador",
+   "rir": 0,
+   "tempo": "2-1-1-1",
+   "cues": [
+    "Cotovelo fixo ao lado do corpo",
+    "Abra a corda no final (supinação leve)",
+    "Extensão completa sem mover o ombro"
+   ],
+   "erros": [
+    "Empurrar com o peito e ombros",
+    "Semi-rep no topo"
+   ],
+   "rom": "Extensão completa",
+   "regressoes": [
+    "extensão deitada com halteres leves",
+    "flexão fechada com pés no chão"
+   ],
+   "progressoes": [
+    "tríceps testa com barra Z",
+    "skull press controlado"
+   ],
+   "sub": [
+    "triceps_testa",
+    "flexao_fechada"
+   ],
+   "xpBase": 18
+  },
+  {
+   "id": "triceps_testa",
+   "n": "Tríceps testa / extensão sobre a cabeça",
+   "pose": "tricep_overhead",
+   "grp": "tríceps (cabeça longa — alongada)",
+   "sec": [],
+   "eq": [
+    "halter",
+    "barra",
+    "elastico",
+    "casa"
+   ],
+   "nivel": 1,
+   "padrao": "isolador",
+   "rir": 0,
+   "tempo": "3-1-1-1",
+   "cues": [
+    "Cotovelo 'para o teto', aberto ~20° (não deixe fechar na frente)",
+    "Desça atrás da cabeça para maior alongamento",
+    "Extensão total sem travar"
+   ],
+   "erros": [
+    "Cotovelo migrando para frente (vira supino)",
+    "Carga pesada com punho quebrado"
+   ],
+   "rom": "Alongada atrás da cabeça",
+   "regressoes": [
+    "sentado com halter leve",
+    "elástico"
+   ],
+   "progressoes": [
+    "unilateral com pausa",
+    "com barra EZ"
+   ],
+   "sub": [
+    "triceps_polia",
+    "dip"
+   ],
+   "xpBase": 20
+  },
+  {
+   "id": "prancha",
+   "n": "Prancha frontal (anti-extensão)",
+   "pose": "plank",
+   "grp": "core (transverso, reto), deltoide",
+   "sec": [
+    "glúteo",
+    "serrátil"
+   ],
+   "eq": [
+    "peso_corporal",
+    "casa"
+   ],
+   "nivel": 0,
+   "padrao": "anti-movimento",
+   "rir": "n/a",
+   "tempo": "isométrico 20–60 s",
+   "cues": [
+    "Rotação posterior de quadril ('enrolar a bacia')",
+    "Empurre o chão (protraia as escápulas)",
+    "Glonos e abdômen tensos; respiração curta mantendo pressão",
+    "Ombro-quadril-tornozelo em linha"
+   ],
+   "erros": [
+    "Quadril pendurado (lombar sofre)",
+    "Prender a respiração com medo de dor (mantenha tensão e respire)",
+    "Cabeça olhando o chão a 1 m"
+   ],
+   "rom": "Isométrico",
+   "regressoes": [
+    "prancha nos joelhos",
+    "elevada no banco"
+   ],
+   "progressoes": [
+    "prancha com toque no ombro",
+    "prancha unilateral (com anilha)",
+    "RKC (máxima tensão 20 s)"
+   ],
+   "sub": [
+    "prancha_lateral",
+    "deadbug",
+    "bird_dog"
+   ],
+   "xpBase": 14
+  },
+  {
+   "id": "prancha_lateral",
+   "n": "Prancha lateral (anti-flexão lateral)",
+   "pose": "plank",
+   "grp": "quadrado lombar, oblíquos, glúteo médio",
+   "sec": [
+    "deltoide"
+   ],
+   "eq": [
+    "peso_corporal",
+    "casa"
+   ],
+   "nivel": 1,
+   "padrao": "anti-movimento",
+   "rir": "n/a",
+   "tempo": "isométrico 15–45 s/lado",
+   "cues": [
+    "Quadril 'para o teto'",
+    "Punho/víbora abaixo do ombro",
+    "Régua de ombro a tornozelo"
+   ],
+   "erros": [
+    "Quadril 'despencando'",
+    "Prender respiração"
+   ],
+   "rom": "Isométrico",
+   "regressoes": [
+    "joelhos apoiados",
+    "prancha lateral na mesa"
+   ],
+   "progressoes": [
+    "com elevação de quadril",
+    "side plank with row"
+   ],
+   "sub": [
+    "prancha",
+    "pallof"
+   ],
+   "xpBase": 14
+  },
+  {
+   "id": "deadbug",
+   "n": "Dead bug (respiração + anti-extensão)",
+   "pose": "bird_dog",
+   "grp": "core profundo",
+   "sec": [
+    "flexores de quadril controlados"
+   ],
+   "eq": [
+    "peso_corporal",
+    "casa"
+   ],
+   "nivel": 0,
+   "padrao": "anti-movimento",
+   "rir": "n/a",
+   "tempo": "3 s por lado, 6–10 reps",
+   "cues": [
+    "Lombar 'pressionada' contra o chão — se descolar, reduza amplitude",
+    "Expire ao estender o braço/perna (o segredo anti-pressão)",
+    "Costelas descendo, quadril parado"
+   ],
+   "erros": [
+    "Perna esticada com lombar em arco",
+    "Reter respiração"
+   ],
+   "rom": "Amplitude em que mantém lombar colada",
+   "regressoes": [
+    "só braços",
+    "só pernas com apoio de calcanhar"
+   ],
+   "progressoes": [
+    "com elástico",
+    "dead bug press"
+   ],
+   "sub": [
+    "bird_dog",
+    "prancha"
+   ],
+   "xpBase": 12
+  },
+  {
+   "id": "bird_dog",
+   "n": "Bird dog (controle lombo-pélvico)",
+   "pose": "bird_dog",
+   "grp": "eretores, glúteo médio, core",
+   "sec": [
+    "escapular"
+   ],
+   "eq": [
+    "peso_corporal",
+    "casa"
+   ],
+   "nivel": 0,
+   "padrao": "anti-movimento",
+   "rir": "n/a",
+   "tempo": "3 s por rep, 6–10/lado",
+   "cues": [
+    "Quadril parado — 'copo d'água nas costas'",
+    "Estenda braço e perna opostos sem arquear lombar",
+    "Expire na extensão"
+   ],
+   "erros": [
+    "Girar o quadril",
+    "Dobrar cotovelo/perna"
+   ],
+   "rom": "Alinhamento neutro",
+   "regressoes": [
+    "só braço ou só perna",
+    "quadrupedia estático"
+   ],
+   "progressoes": [
+    "com elástico entre as mãos",
+    "pausa de 5 s"
+   ],
+   "sub": [
+    "deadbug",
+    "prancha"
+   ],
+   "xpBase": 12
+  },
+  {
+   "id": "pallof",
+   "n": "Pallof press (anti-rotação)",
+   "pose": "face_pull",
+   "grp": "core oblíquo/transverso",
+   "sec": [
+    "deltoide, glúteo médio"
+   ],
+   "eq": [
+    "cabo",
+    "elastico",
+    "casa"
+   ],
+   "nivel": 1,
+   "padrao": "anti-movimento",
+   "rir": "n/a",
+   "tempo": "3 s de isometria × 8",
+   "cues": [
+    "Pé externo contra a âncora, base atlética",
+    "Empurre as mãos à frente sem girar o tronco",
+    "Expire na extensão e resista no retorno"
+   ],
+   "erros": [
+    "Deixar o corpo rodar",
+    "Arquear lombar"
+   ],
+   "rom": "Extensão dos braços com resistência",
+   "regressoes": [
+    "pallof sentado",
+    "half-kneeling"
+   ],
+   "progressoes": [
+    "pallof walking",
+    "unilateral com rotação"
+   ],
+   "sub": [
+    "prancha_lateral",
+    "bird_dog"
+   ],
+   "xpBase": 14
+  },
+  {
+   "id": "farmer_carry",
+   "n": "Caminhada do fazendeiro",
+   "pose": "farmer",
+   "grp": "pegada, core, trapézio",
+   "sec": [
+    "oblíquos (anti-flexão lateral)",
+    "glúteo médio"
+   ],
+   "eq": [
+    "halter",
+    "kettlebell",
+    "academia",
+    "casa"
+   ],
+   "nivel": 1,
+   "padrao": "transporte",
+   "rir": "n/a",
+   "tempo": "30–60 s × 2–4",
+   "cues": [
+    "Ombros 'para baixo', cotovelos próximos",
+    "Passos curtos, peito alto",
+    "Costelas para baixo, respirar mantendo tensão",
+    "Unilateral (suitcase) = desafio anti-flexão lateral"
+   ],
+   "erros": [
+    "Encolher ombros para as orelhas",
+    "Pender para o lado da carga"
+   ],
+   "rom": "Coluna neutra em movimento",
+   "regressoes": [
+    "caminhada com uma mão leve",
+    "estático 30 s"
+   ],
+   "progressoes": [
+    "carga pesada",
+    "unilateral com pausado",
+    "carregar com os dois lados + degrau"
+   ],
+   "sub": [
+    "encolhimento",
+    "prancha_lateral"
+   ],
+   "xpBase": 20
+  },
+  {
+   "id": "salto_caixa",
+   "n": "Salto na caixa (pliometria)",
+   "pose": "jump",
+   "grp": "potência de quadríceps/glúteo",
+   "sec": [
+    "panturrilha",
+    "core"
+   ],
+   "eq": [
+    "caixa",
+    "peso_corporal",
+    "academia"
+   ],
+   "nivel": 2,
+   "padrao": "potência",
+   "rir": "n/a",
+   "tempo": "3–5 reps × 3–5 (foco em qualidade)",
+   "cues": [
+    "Contagem para baixo (amortecimento) e exploda",
+    "Aterrisagem 'mole', com joelhos na linha dos pés",
+    "Salte para cima da caixa e desça andando (ou salte para baixo apenas se treinado)"
+   ],
+   "erros": [
+    "Caixa alta demais",
+    "Continuar séries após perda de altura (o ponto da pliometria é velocidade)"
+   ],
+   "rom": "Aterrisagem estável",
+   "regressoes": [
+    "salto vertical sem caixa",
+    "salto em profundidade baixo",
+    "subida no step com explosão"
+   ],
+   "progressoes": [
+    "salto em profundidade (drop jump) 30–40 cm",
+    "salto lateral unilateral"
+   ],
+   "sub": [
+    "salto_no_lugar",
+    "agachamento_com_saltos"
+   ],
+   "xpBase": 34,
+   "contra": "Dor patelo-femoral, tendinopatia de Aquiles na fase reativa, osteoporose severa."
+  },
+  {
+   "id": "agachamento_com_saltos",
+   "n": "Salto vertical contínuo (saltos de potência)",
+   "pose": "jump",
+   "grp": "potência total",
+   "sec": [
+    "panturrilha",
+    "isquiotibiais"
+   ],
+   "eq": [
+    "peso_corporal",
+    "casa"
+   ],
+   "nivel": 1,
+   "padrao": "potência",
+   "rir": "n/a",
+   "tempo": "5 × 5 s/10 s",
+   "cues": [
+    "Contato curto e rápido",
+    "Quadril trabalha mais que joelho",
+    "Pare antes da fadiga técnica"
+   ],
+   "erros": [
+    "Fazer 'por tempo' com aterrissagem pesada",
+    "Ignorar sinal de dor no tendão"
+   ],
+   "rom": "Amortecimento 30–45° de joelho",
+   "regressoes": [
+    "marcha rápida",
+    "subida na ponta dos pés"
+   ],
+   "progressoes": [
+    "salto na caixa",
+    "sprint hill"
+   ],
+   "sub": [
+    "salto_caixa",
+    "sprint_subida"
+   ],
+   "xpBase": 26
+  },
+  {
+   "id": "corrida_leve",
+   "n": "Corrida/Zona 2 contínuo",
+   "pose": "run",
+   "grp": "sistema aeróbio",
+   "sec": [
+    "posterior chain",
+    "panturrilha"
+   ],
+   "eq": [
+    "casa",
+    "esteira",
+    "outdoor"
+   ],
+   "nivel": 0,
+   "padrao": "aerobio",
+   "rir": "n/a",
+   "tempo": "30–45 min a 'conversar com dificuldade'",
+   "cues": [
+    "Cadência ~170–180 passos/min (melhora economia e reduz impacto)",
+    "Passo sob o quadril, sem 'frear'",
+    "Respiração nasal quando possível, sem forçar"
+   ],
+   "erros": [
+    "Virar 'Z3' (nem leve, nem forte)",
+    "Aumentar volume >10% por semana"
+   ],
+   "rom": "Full ROM controlado na fase excêntrica; sem balanço.",
+   "regressoes": [
+    "caminhada rápida inclinada",
+    "bike elíptica",
+    "natação"
+   ],
+   "progressoes": [
+    "bloco de 45–60 min",
+    "ritmo levemente mais rápido mantendo conversa"
+   ],
+   "sub": [
+    "bike_ergometro",
+    "eliptico",
+    "caminhada_inclinada"
+   ],
+   "xpBase": 40,
+   "fonte": "Ekelund2019, Milanovic2015, Mandsager2018"
+  },
+  {
+   "id": "bike_ergometro",
+   "n": "Bike ergométrica (Z2) ",
+   "pose": "run",
+   "grp": "sistema aeróbio",
+   "sec": [
+    "quadríceps, glúteo"
+   ],
+   "eq": [
+    "bike",
+    "academia",
+    "casa"
+   ],
+   "nivel": 0,
+   "padrao": "aerobio",
+   "rir": "n/a",
+   "tempo": "30–60 min, RPE 4–6/10",
+   "cues": [
+    "Altura do selo: joelho ~25–35° no ponto mais baixo",
+    "Cadência 80–95 rpm em Z2",
+    "Cotovelo relaxado, sem 'segurar' o corpo com os braços"
+   ],
+   "erros": [
+    "Cadência baixa com marcha pesada (joelho)",
+    "Subir a carga para 'suar mais' e virar Z3"
+   ],
+   "rom": "Full ROM controlado na fase excêntrica; sem balanço.",
+   "regressoes": [
+    "caminhada",
+    "15–20 min"
+   ],
+   "progressoes": [
+    "bloco de 60–75 min",
+    "1×/semana: 4×4 min forte / 3 min leve"
+   ],
+   "sub": [
+    "corrida_leve",
+    "eliptico",
+    "natacao"
+   ],
+   "xpBase": 36
+  },
+  {
+   "id": "sprint_subida",
+   "n": "Tiro em subida / sprints",
+   "pose": "run",
+   "grp": "sistema anaeróbio, posterior chain",
+   "sec": [
+    "glúteo, panturrilha"
+   ],
+   "eq": [
+    "casa",
+    "outdoor",
+    "esteira"
+   ],
+   "nivel": 2,
+   "padrao": "HIIT",
+   "rir": "n/a",
+   "tempo": "6–10 × 15–30 s / recupe 1:3–5",
+   "cues": [
+    "Aqueça 8–10 min antes",
+    "Corrida na ponta/midfoot, quadril alto",
+    "Recupere de verdade (caminhe) — qualidade, não cansaço"
+   ],
+   "erros": [
+    "Recuperação curta (vira circuito e piora tudo)",
+    "Fazer em jejum absoluto com tontura"
+   ],
+   "rom": "Full ROM controlado na fase excêntrica; sem balanço.",
+   "regressoes": [
+    "tiro leve em plano",
+    "bike 10 × 20 s"
+   ],
+   "progressoes": [
+    "subida íngreme 8 × 20 s",
+    "sled push"
+   ],
+   "sub": [
+    "bike_ergometro",
+    "corrida_leve"
+   ],
+   "xpBase": 44,
+   "contra": "Dor lombar aguda, gestante (últimas semanas), sem adaptação prévia de tendão."
+  },
+  {
+   "id": "mobility_quadril",
+   "n": "Mobilidade de quadril (90/90 + rocks)",
+   "pose": "bird_dog",
+   "grp": "quadril (rotadores), eretores",
+   "sec": [],
+   "eq": [
+    "peso_corporal",
+    "casa"
+   ],
+   "nivel": 0,
+   "padrao": "mobilidade",
+   "rir": "n/a",
+   "tempo": "8–12 min",
+   "cues": [
+    "Respire fundo para dentro da amplitude",
+    "Sem dor aguda — desconforto de alongamento é aceitável",
+    "Trabalhe ambos os lados simetricamente"
+   ],
+   "erros": [
+    "Transformar em 'yoga olímpico' e não treinar depois",
+    "Prender respiração"
+   ],
+   "rom": "Rotação medial e lateral 90°",
+   "regressoes": [
+    "sentado no chão com apoio",
+    "rocks de quadril em quatro apoios"
+   ],
+   "progressoes": [
+    "com halter no overhead (hollow rock)",
+    "pistol mobility"
+   ],
+   "sub": [
+    "circulos_ombro",
+    "alongamento_isquio"
+   ],
+   "xpBase": 10
+  },
+  {
+   "id": "circulos_ombro",
+   "n": "Mobilidade de ombro (disco + wall slides)",
+   "pose": "face_pull",
+   "grp": "ombro (capsular, serrátil)",
+   "sec": [
+    "trapézio inferior"
+   ],
+   "eq": [
+    "peso_corporal",
+    "halter",
+    "casa"
+   ],
+   "nivel": 0,
+   "padrao": "mobilidade",
+   "rir": "n/a",
+   "tempo": "5–8 min",
+   "cues": [
+    "Wall slide: antebraços na parede, empurre e deslize sem arquear lombar",
+    "Disco/pass-through: amplitude que o ombro permitir",
+    "Pare antes de beliscar"
+   ],
+   "erros": [
+    "Hiperextensão de lombar como 'compensação de amplitude'",
+    "Forçar o overhead com dor"
+   ],
+   "rom": "Flexão total sem dor",
+   "regressoes": [
+    "sem carga",
+    "deitado"
+   ],
+   "progressoes": [
+    "disco pesado com bracing",
+    "wall slide + elevação"
+   ],
+   "sub": [
+    "face_pull",
+    "mobility_quadril"
+   ],
+   "xpBase": 10
+  },
+  {
+   "id": "stiff_unilateral",
+   "n": "Stiff unilateral (halter)",
+   "pose": "hinge",
+   "grp": "isquiotibiais, glúteo médio",
+   "sec": [
+    "adutores",
+    "eretores"
+   ],
+   "eq": [
+    "halter",
+    "casa"
+   ],
+   "nivel": 1,
+   "padrao": "dominante-quadril",
+   "rir": 2,
+   "tempo": "3-1-X-1",
+   "cues": [
+    "Quadril 'para cima e para trás', ombros para frente",
+    "Calcanhar sobe alinhado, quadril não gira",
+    "Mão livre na parede só para equilíbrio"
+   ],
+   "erros": [
+    "Girar o quadril para compensar",
+    "Perder equilíbrio e arredondar lombar"
+   ],
+   "rom": "Tronco até ~45-60° com tensão de isquio",
+   "regressoes": [
+    "stiff bilateral leve",
+    "apoio de mão na parede"
+   ],
+   "progressoes": [
+    "com barra",
+    "unilateral com pausa de 2s embaixo"
+   ],
+   "sub": [
+    "stiff",
+    "mesa_flexora"
+   ],
+   "xpBase": 30
+  },
+  {
+   "id": "mesa_flexora_uni",
+   "n": "Flexora unilateral (máquina ou caneleira)",
+   "pose": "leg_curl",
+   "grp": "isquiotibiais",
+   "sec": [
+    "panturrilha"
+   ],
+   "eq": [
+    "maquina",
+    "casa",
+    "halter"
+   ],
+   "nivel": 1,
+   "padrao": "isolador",
+   "rir": 1,
+   "tempo": "3-1-1-1",
+   "cues": [
+    "Caneleira/peso no tornozelo, quadril colado no banco",
+    "Aperte no topo 1s, desça em 3s"
+   ],
+   "erros": [
+    "Subir o quadril",
+    "Amplitude parcial"
+   ],
+   "rom": "Calcanhar ao glúteo",
+   "regressoes": [
+    "flexora bilateral",
+    "nordic excêntrico assistido"
+   ],
+   "progressoes": [
+    "com pausa excêntrica de 5s"
+   ],
+   "sub": [
+    "mesa_flexora",
+    "ponte_unilateral"
+   ],
+   "xpBase": 22
+  },
+  {
+   "id": "bom_dia_progressao",
+   "n": "Bom dia com bastão (aprendizado de hinge)",
+   "pose": "hinge",
+   "grp": "eretores, isquiotibiais",
+   "sec": [
+    "glúteo"
+   ],
+   "eq": [
+    "bastao",
+    "peso_corporal",
+    "casa"
+   ],
+   "nivel": 0,
+   "padrao": "dominante-quadril",
+   "rir": 3,
+   "tempo": "3-1-X-1",
+   "cues": [
+    "Bastão na coluna (cabeça-meio das costas-sacral em contato)",
+    "Empurre quadril para trás mantendo os 3 contatos"
+   ],
+   "erros": [
+    "Perder contato lombar (arredondar)",
+    "Dobrar joelhos demais"
+   ],
+   "rom": "Tronco a 45° no início",
+   "regressoes": [
+    "hinge sem carga com bastão"
+   ],
+   "progressoes": [
+    "boa_noite com barra leve"
+   ],
+   "sub": [
+    "stiff",
+    "hiperextensao_lombar"
+   ],
+   "xpBase": 16
+  },
+  {
+   "id": "ponte_no_cabo",
+   "n": "Ponte de glúteo no cabo (single-leg kickback)",
+   "pose": "hipthrust",
+   "grp": "glúteo máximo",
+   "sec": [
+    "isquiotibiais"
+   ],
+   "eq": [
+    "cabo",
+    "academia"
+   ],
+   "nivel": 1,
+   "padrao": "dominante-quadril",
+   "rir": 0,
+   "tempo": "2-1-1-1",
+   "cues": [
+    "Tronco inclinado à frente, core tenso",
+    "Chute para trás sem arquear lombar",
+    "Aperte no topo 1s"
+   ],
+   "erros": [
+    "Arquear lombar",
+    "Carga que encurta amplitude"
+   ],
+   "rom": "Extensão de quadril completa",
+   "regressoes": [
+    "ponte unilateral no solo"
+   ],
+   "progressoes": [
+    "com pausa e carga"
+   ],
+   "sub": [
+    "hip_thrust",
+    "ponte_unilateral"
+   ],
+   "xpBase": 18
+  },
+  {
+   "id": "salto_no_lugar",
+   "n": "Salto no lugar com contato curto",
+   "pose": "jump",
+   "grp": "panturrilha, potência",
+   "sec": [
+    "quadríceps"
+   ],
+   "eq": [
+    "peso_corporal",
+    "casa"
+   ],
+   "nivel": 0,
+   "padrao": "potência",
+   "rir": "n/a",
+   "tempo": "10-20 s × 4",
+   "cues": [
+    "Contato rápido, joelho amortecido",
+    "Cabeça na linha do quadril"
+   ],
+   "erros": [
+    "Aterrissar com joelho valgo",
+    "Tênis sem amortecimento em piso duro"
+   ],
+   "rom": "Full ROM controlado na fase excêntrica; sem balanço.",
+   "regressoes": [
+    "marcha rápida no lugar"
+   ],
+   "progressoes": [
+    "salto_caixa"
+   ],
+   "sub": [
+    "agachamento_com_saltos",
+    "corrida_leve"
+   ],
+   "xpBase": 12
+  },
+  {
+   "id": "flexao_fechada",
+   "n": "Flexão com pegada fechada (tríceps)",
+   "pose": "pushup",
+   "grp": "tríceps, peitoral medial",
+   "sec": [
+    "deltoide anterior"
+   ],
+   "eq": [
+    "peso_corporal",
+    "casa"
+   ],
+   "nivel": 1,
+   "padrao": "empurrar-horizontal",
+   "rir": 1,
+   "tempo": "2-1-X-0",
+   "cues": [
+    "Mãos sob o esterno, cotovelos raspando o corpo",
+    "Corpo em régua, desça até o peito tocar as mãos"
+   ],
+   "erros": [
+    "Cotovelos abrindo (vira flexão normal)",
+    "Quadril mole"
+   ],
+   "rom": "Peito às mãos",
+   "regressoes": [
+    "inclinada fechada",
+    "joelhos"
+   ],
+   "progressoes": [
+    "com pés elevados",
+    "diamond pushup"
+   ],
+   "sub": [
+    "triceps_polia",
+    "dip"
+   ],
+   "xpBase": 20
+  },
+  {
+   "id": "flexao_declinada",
+   "n": "Flexão declinada (pés elevados)",
+   "pose": "pushup",
+   "grp": "deltoide anterior, peitoral superior",
+   "sec": [
+    "tríceps",
+    "serrátil"
+   ],
+   "eq": [
+    "peso_corporal",
+    "banco",
+    "casa"
+   ],
+   "nivel": 2,
+   "padrao": "empurrar-vertical",
+   "rir": 1,
+   "tempo": "2-1-X-0",
+   "cues": [
+    "Pés em banco, mãos no chão largura dos ombros",
+    "Desça com cotovelos a ~45°",
+    "Empurre 'para o chão' mantendo quadril alto"
+   ],
+   "erros": [
+    "Quadril pendurado",
+    "Semi-reps"
+   ],
+   "rom": "Peito ao chão",
+   "regressoes": [
+    "flexão normal",
+    "elevação lateral isométrica"
+   ],
+   "progressoes": [
+    "pike pushup",
+    "handstand pushup na parede"
+   ],
+   "sub": [
+    "desenvolvimento",
+    "desenvolvimento_maq"
+   ],
+   "xpBase": 26
+  },
+  {
+   "id": "caminhada_inclinada",
+   "n": "Caminhada inclinada (Z2 em esteira)",
+   "pose": "run",
+   "grp": "sistema aeróbio, glúteo",
+   "sec": [
+    "panturrilha",
+    "isquiotibiais"
+   ],
+   "eq": [
+    "esteira",
+    "academia",
+    "casa"
+   ],
+   "nivel": 0,
+   "padrao": "aerobio",
+   "rir": "n/a",
+   "tempo": "30-45 min, inclin. 8-15%",
+   "cues": [
+    "Não segure no corrimão (mata a carga)",
+    "Passos naturais, sem 'frear'",
+    "Frequência em 60-70% FCmáx (conversa difícil)"
+   ],
+   "erros": [
+    "Segurar o console e inclinar o corpo",
+    "Aumentar velocidade e virar corrida de impacto"
+   ],
+   "rom": "Full ROM controlado na fase excêntrica; sem balanço.",
+   "regressoes": [
+    "caminhada plana 15 min"
+   ],
+   "progressoes": [
+    "60 min, inclinação maior"
+   ],
+   "sub": [
+    "bike_ergometro",
+    "corrida_leve"
+   ],
+   "xpBase": 28
+  },
+  {
+   "id": "eliptico",
+   "n": "Elíptico / transport (baixo impacto)",
+   "pose": "run",
+   "grp": "sistema aeróbio",
+   "sec": [
+    "quadríceps, braços"
+   ],
+   "eq": [
+    "maquina",
+    "academia"
+   ],
+   "nivel": 0,
+   "padrao": "aerobio",
+   "rir": "n/a",
+   "tempo": "25-45 min RPE 4-6",
+   "cues": [
+    "Pés colados na plataforma",
+    "Empurre/puxe os braços para incluir o tronco",
+    "Mantenha postura ereta"
+   ],
+   "erros": [
+    "Deixar o corpo 'deslizar' sem força",
+    "Resistência zero virar balanço"
+   ],
+   "rom": "Full ROM controlado na fase excêntrica; sem balanço.",
+   "regressoes": [
+    "15 min",
+    "bike leve"
+   ],
+   "progressoes": [
+    "com resistência maior",
+    "+4 x 60s forte"
+   ],
+   "sub": [
+    "bike_ergometro",
+    "corrida_leve"
+   ],
+   "xpBase": 28
+  },
+  {
+   "id": "natacao",
+   "n": "Natação (Z2 técnico)",
+   "pose": "run",
+   "grp": "sistema aeróbio, ombro, core",
+   "sec": [
+    "dorsal",
+    "glúteo"
+   ],
+   "eq": [
+    "piscina",
+    "casa"
+   ],
+   "nivel": 1,
+   "padrao": "aerobio",
+   "rir": "n/a",
+   "tempo": "20-40 min contínuos ou 10x50m",
+   "cues": [
+    "Foco em comprimento: menos braçadas por piscina",
+    "Rotação de corpo a partir do quadril",
+    "Expire na água (sem prender respiração)"
+   ],
+   "erros": [
+    "Puxar só com braço (ombro sofre)",
+    "Prender respiração e 'nadar ansioso'"
+   ],
+   "rom": "Full ROM controlado na fase excêntrica; sem balanço.",
+   "regressoes": [
+    "pull buoy + colete",
+    "caminhada na água"
+   ],
+   "progressoes": [
+    "4x100 com respiração bilateral"
+   ],
+   "sub": [
+    "bike_ergometro",
+    "caminhada_inclinada"
+   ],
+   "xpBase": 34
+  },
+  {
+   "id": "alongamento_isquio",
+   "n": "Alongamento de isquiotibiais (supino com faixa)",
+   "pose": "bird_dog",
+   "grp": "isquiotibiais, panturrilha",
+   "sec": [
+    "lombar (relaxamento)"
+   ],
+   "eq": [
+    "peso_corporal",
+    "faixa",
+    "casa"
+   ],
+   "nivel": 0,
+   "padrao": "mobilidade",
+   "rir": "n/a",
+   "tempo": "3-5 min por lado, respirando",
+   "cues": [
+    "Pelve neutra — se o quadril rodar, você alonga lombar, não isquio",
+    "Alongamento leve-moderado, sem dor",
+    "Expire aprofundando"
+   ],
+   "erros": [
+    "Bater no 'máximo' com dor",
+    "Alongar antes do aquecimento com carga alta na sequência"
+   ],
+   "rom": "Confortável",
+   "regressoes": [
+    "com apoio da faixa mais longa"
+   ],
+   "progressoes": [
+    "alongamento na parede com perna elevada"
+   ],
+   "sub": [
+    "mobility_quadril",
+    "deadbug"
+   ],
+   "xpBase": 8
+  },
+  {
+   "id": "remada_curvada_leve",
+   "n": "Remada curvada com halteres (mais ROM)",
+   "pose": "row",
+   "grp": "dorsal, romboides",
+   "sec": [
+    "deltoide posterior",
+    "eretores"
+   ],
+   "eq": [
+    "halter",
+    "casa",
+    "academia"
+   ],
+   "nivel": 1,
+   "padrao": "puxar",
+   "rir": 2,
+   "tempo": "2-1-X-1",
+   "cues": [
+    "Quadril para trás, halteres pendendo à frente dos joelhos",
+    "Puxe em direção aos quadris",
+    "Escápulas 'juntas' no topo"
+   ],
+   "erros": [
+    "Subir o tronco a cada rep",
+    "Ombros subindo"
+   ],
+   "rom": "Cotovelo passa do tronco",
+   "regressoes": [
+    "remada na máquina apoiada"
+   ],
+   "progressoes": [
+    "pausa de 1s no topo",
+    "carga alta com técnica"
+   ],
+   "sub": [
+    "remada_curvada",
+    "remada_serrote"
+   ],
+   "xpBase": 36
+  }
+ ]
+}

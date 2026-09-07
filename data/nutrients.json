@@ -1,0 +1,215 @@
+{
+  "recomendacoes": [
+    {
+      "id": "energia",
+      "nome": "Energia",
+      "unidade": "kcal/dia",
+      "como": "GEB (Mifflin-St Jeor) × fator de atividade + EAT (8-10% do total). Ajustado por tendência de peso de 2 semanas, não pela fórmula.",
+      "base": ["Mifflin1990", "Thomas2012"],
+      "faixas": { "deficit": "-0,4 a -0,8% do peso por semana (IMC<23: -0,25 a -0,5%)", "manutencao": "±0", "superavit": "+0,25 a +0,5% por semana; +0,5% só se %gordura <18 (homem) / <26 (mulher)" }
+    },
+    {
+      "id": "proteina",
+      "nome": "Proteína",
+      "unidade": "g/kg/dia",
+      "como": "Base 1,6; 2,0–2,4 em déficit; +0,2 se >70% da proteína vier de plantas; mínimo 30–40 g por refeição, 4 refeições.",
+      "base": ["Morton2018", "Clarys2014", "VanVliet2016", "Longland2016", "Helms2014", "Hamarshee2023"],
+      "leucina": "2,5–3 g por refeição (plantas: mirar 3–4 g → por isso a dose maior)",
+      "veg": "Proteína vegetal em média menos digestível (DIAAS <1 para cereais/leguminosas) — combinar fontes (arroz+feijão, milho+feijão, trigo+grão-de-bico) resolve o perfil de aminoácidos."
+    },
+    {
+      "id": "gordura",
+      "nome": "Gordura total",
+      "unidade": "g/kg/dia e %E",
+      "como": "0,7–1,2 g/kg, nunca <0,5 g/kg; saturada <10% da energia (AHA 2026), trans ~0.",
+      "base": ["AHA2026", "AHA2021"],
+      "nota": "Dieta vegana bem-feita tende a ficar baixa em gordura total e alta em poli-insaturada — adicionar azeite/abacate/oleaginosas resolve densidade energética."
+    },
+    {
+      "id": "carboidrato",
+      "nome": "Carboidrato",
+      "unidade": "g/kg/dia",
+      "como": "3,0–3,5 g/kg em dias de descanso; 4–5 g/kg em dias de força moderada; 5–7 g/kg em sessão longa/intensa. O resto do déficit vem de gordura.",
+      "base": ["Peos2021", "Thomas2016"],
+      "nota": "Dieta com pouco carboidrato não é melhor para perda de gordura (Sacks2009, Gardner2018) — mas reduz volume de treino em altas intensidades."
+    },
+    {
+      "id": "fibra",
+      "nome": "Fibra",
+      "unidade": "g/dia",
+      "como": "28–38 g/dia (ou ~14 g/1 000 kcal). Aumentar 3–5 g por semana para evitar desconforto.",
+      "base": ["Reynolds2019", "WCRF2018"],
+      "veg": "Vegano/vegetariano costuma bater 35–45 g naturalmente — se não bate, o problema é que o plano está cheio de 'veg ultraprocessado'."
+    },
+    {
+      "id": "agua",
+      "nome": "Água (ingestão total)",
+      "unidade": "L/dia",
+      "como": "30–35 mL/kg + 0,4–0,8 L por hora de exercício + 0,5–1,0 L em calor úmido. ~20–30% vem dos alimentos (EFSA).",
+      "base": ["EFSA2010", "Dennis2010", "Thomas2016"],
+      "sinais": "urina amarelo-clara (graus 1–3); sede; boca seca. Meta NÃO é urina transparente."
+    },
+    {
+      "id": "sodio",
+      "nome": "Sódio",
+      "unidade": "mg/dia",
+      "como": "<2 000 mg (~5 g de sal) fora de treino intenso em calor; +300–600 mg/L de suor em sessões >60–90 min.",
+      "base": ["WHO2013", "Thomas2016"]
+    },
+    {
+      "id": "potassio",
+      "nome": "Potássio",
+      "unidade": "mg/dia",
+      "como": "3 500 (mulheres) – 4 700 (homens). Dieta vegetal bate com folga — é uma das maiores vantagens mensuráveis do padrão vegetariano.",
+      "base": ["Aburto2013"],
+      "alerta": "Doença renal / IECA / BRA / diurético poupador de potássio: NÃO elevar por conta própria."
+    },
+    {
+      "id": "b12",
+      "nome": "Vitamina B12",
+      "unidade": "µg/dia",
+      "como": "RDA 2,4 µg. Para vegetarianos estritos/veganos: 500 µg/dia de cianocobalamina ou 2 000 µg 2×/semana; alimentos fortificados precisam somar ≥3 µg/d em 2–3 porções.",
+      "base": ["IOMB12", "AND2016"],
+      "quem_precisa": "vegano: obrigatório; lacto-ovo: fortemente recomendado (laticínios fornecem ~1,0–1,5 µg/xícara, ovos ~0,6 µg/unidade — muitas dietas ficam aquém); onívoro: só se vegetariano recente ou restrição calórica severa.",
+      "exame": "B12 sérica engana; se possível, pedir ácido metilmalônico/homocisteína. Hemograma com VCM alto é tardio.",
+      "perigo": "Deficiência prolongada causa dano neurológico irreversível — é o único 'defeito' previsível da dieta vegana e 100% corrigível."
+    },
+    {
+      "id": "ferro",
+      "nome": "Ferro",
+      "unidade": "mg/dia",
+      "como": "RDA 8 (homens/pós-menopausa), 18 (mulheres em idade fértil) ×1,8 em vegetarianos → 14 / 32 mg. Sempre com vitamina C; longe de chá/café/cálcio.",
+      "base": ["Hurrell2010", "Rogerson2021"],
+      "exame": "Ferritina anual (mulheres veg/vegetarianas e atletas de endurance a cada 6 meses). Alvo prático de performance: >30–40 ng/mL (consenso, não ECA).",
+      "alerta": "Suplementar ferro sem exame: risco de sobrecarga, estresse oxidativo, constipação — o app não recomenda."
+    },
+    {
+      "id": "calcio",
+      "nome": "Cálcio",
+      "unidade": "mg/dia",
+      "como": "1 000 mg (19–50 anos), 1 200 mg (>50 anos mulheres / >70 anos homens). Dividir em porções ≤500 mg. Fontes vegetais de baixa oxalato: brócolis, couve, bok choy, tofu coalhado em cálcio, bebidas fortificadas, feijão-branco, sardinha (onívoro).",
+      "base": ["Tong2020", "IOMB12"],
+      "veg": "Atenção vegana: maior risco de fratura em EPIC-Oxford. Cálcio + vitamina D + proteína + treino com carga axial reduzem o risco.",
+      "alerta": "Suplemento de cálcio isolado não é primeira escolha (associado a calcificação em algumas análises); priorizar alimento."
+    },
+    {
+      "id": "vitamina_d",
+      "nome": "Vitamina D",
+      "unidade": "UI/dia",
+      "como": "600–800 UI (RDA) → 1 000–2 000 UI se exposição solar baixa, pele morena, obesidade, idoso. Exame quando houver risco.",
+      "base": ["VITAL2022"],
+      "nota": "Não espere benefício de mortalidade/imunidade se você já é suficiente."
+    },
+    {
+      "id": "iodo",
+      "nome": "Iodo",
+      "unidade": "µg/dia",
+      "como": "RDA 150 µg. Veganos: maior risco (ausência de peixe/lácteo e uso de sal sem iodo). Opções: sal iodado (~40–60 µg/g), 1 folha de nori/dia (variável!), ou suplemento multimineral com 150 µg (evite kelp em excesso — o teor varia 100× e pode exceder o limite).",
+      "base": ["AND2016", "Rogerson2021"],
+      "alerta": "Gestação: 220–290 µg e suplemento pré-natal com 150 µg são mandatórios em dieta vegana."
+    },
+    {
+      "id": "zinco",
+      "nome": "Zinco",
+      "unidade": "mg/dia",
+      "como": "RDA 8 (mulheres) / 11 (homens), ×1,5 em dieta alta em fitato. Fontes: semente de abóbora, grão-de-bico, lentilha, castanha-de-caju, tofu, aveia. Remolho/broto/fermentação reduzem fitato.",
+      "base": ["Rogerson2021", "Clarys2014"]
+    },
+    {
+      "id": "omega3",
+      "nome": "Ômega-3 (ALA / EPA+DHA)",
+      "unidade": "g (ALA) + mg (EPA+DHA)",
+      "como": "AI de ALA: 1,6 g (homens) / 1,1 g (mulheres) → 1 colher de sopa de linhaça moída ou chia, ou 30 g de nozes. Conversão ALA→EPA/DHA é limitada (≈5–8% EPA, 2–5% DHA): adicionar 250–500 mg/d de EPA+DHA de óleo de algas em veganos; vegetarianos com ovo/lácteo podem alternar.",
+      "base": ["Rogerson2021", "Sublette2011"],
+      "extra": "EPA ≥60% da formulação, 1–2 g/d, tem efeito adjunto em humor depressivo — não é tratamento isolado."
+    },
+    {
+      "id": "magnesio",
+      "nome": "Magnésio",
+      "unidade": "mg/dia",
+      "como": "RDA 320 / 420 mg. Dieta vegetal rica em sementes, leguminosas e integrais cobre; 'cãibra e suplemento' são quase sempre desnecessários se você come bem e hidrata.",
+      "base": ["Guallar2013"]
+    },
+    {
+      "id": "colina",
+      "nome": "Colina",
+      "unidade": "mg/dia",
+      "como": "AI 425 (mulheres) / 550 (homens). Vegetarianos/veganos ficam consistentemente aquém: ovos e laticínios são as fontes fáceis; no vegano, priorizar soja, trigo-sarraceno, brócolis, batata, amendoim, e considerar suplemento só com orientação.",
+      "base": ["AND2016"]
+    },
+    {
+      "id": "creatina",
+      "nome": "Creatina monoidratada",
+      "unidade": "g/dia",
+      "como": "3–5 g/dia, todo dia, com ou sem carga. Maior resposta em vegetarianos/veganos (estoque inicial menor). Segurança bem estabelecida em rins saudáveis.",
+      "base": ["Kreider2017", "Wax2021", "Deminice2021", "Avgerinos2018"],
+      "prioridade": "1º suplemento recomendado pelo app para todos os perfis (inclusive sem carne). Custo baixo, evidência A."
+    },
+    {
+      "id": "cafeina",
+      "nome": "Cafeína (pré-treino)",
+      "unidade": "mg/kg",
+      "como": "3–6 mg/kg 30–60 min antes; teto ~400 mg/d (300 mg na gestação); nada 8 h antes do sono.",
+      "base": ["Guest2021"]
+    },
+    {
+      "id": "beta_alanina",
+      "nome": "Beta-alanina",
+      "unidade": "g/dia",
+      "como": "3,2–6,4 g/d divididos (parestesia é benigna). Relevante para esforço 60 s–4 min; vegetarianos têm carnosina muscular menor, logo maior ganho potencial.",
+      "base": ["Rogerson2021", "Kreider2017"]
+    },
+    {
+      "id": "nitrato",
+      "nome": "Nitrato (beterraba/ruca)",
+      "unidade": "mmol",
+      "como": "6–8 mmol (~2 h antes) melhora eficiência de exercício moderado; reduz pressão arterial sistólica de forma modesta. Suco de beterraba caseiro resolve.",
+      "base": ["Jenkins2019", "Guallar2013"]
+    },
+    {
+      "id": "leucina",
+      "nome": "Leucina por refeição",
+      "unidade": "g",
+      "como": "≥2,5 g (jovens) / ≥3 g (>50 anos). Em fontes vegetais, chegar nisso com 25–35 g de proteína exige escolha de alimentos (soja, ervilha+arroz, amendoim, trigo-sarraceno) e não 'pó de sabor'.",
+      "base": ["VanVliet2016", "Clarys2014", "Bauer2013"]
+    },
+    {
+      "id": "vitamina_k2",
+      "nome": "Vitamina K (K1/K2)",
+      "unidade": "µg/dia",
+      "como": "AI 90–120 µg de K1 (folhas verde-escuras — veganos costumam bater com folga). K2/MK-7 (natto) tem evidência pequena sobre densidade óssea em estudos orientais; não é obrigatório.",
+      "base": ["Tong2020", "Guallar2013"]
+    }
+  ],
+  "perfil_risco": [
+    { "perfil": "vegano", "riscos": ["B12", "iodo", "cálcio", "ferro", "zinco", "ômega-3 (EPA/DHA)", "energia total (densidade)", "proteína/refeição", "creatina/carnosina", "fratura óssea"], "grau": "planejamento obrigatório, não contraindicação" },
+    { "perfil": "ovovegetariano", "riscos": ["cálcio (se pouca folha/fortificado)", "ferro", "ômega-3", "creatina (leve)", "energia em dieta restritiva"], "grau": "planejamento leve" },
+    { "perfil": "lactovegetariano", "riscos": ["ferro", "ômega-3", "saturada alta se laticínio integral demais", "energia total alta"], "grau": "planejamento leve; cálcio e B12 normalmente cobertos" },
+    { "perfil": "lacto-ovo-vegetariano", "riscos": ["ferro", "ômega-3", "energia"], "grau": "planejamento leve" },
+    { "perfil": "onivoro", "riscos": ["fibra baixa", "sódio alto", "carne processada", "gordura saturada", "UPF", "potássio baixo", "energia alta"], "grau": "ajuste de padrão, não de nutriente único" },
+    { "perfil": "pescetariano", "riscos": ["fibra", "ferro (leve)", "energia"], "grau": "bom perfil nutricional; faltar fibras é o principal" }
+  ],
+  "exames_sugeridos": [
+    { "id": "hemograma", "nome": "Hemograma completo + VCM", "quando": "1×/ano (veg/vegetariano: 1×/ano; mulher com menstruação intensa: 6/12 meses)", "porque": "VCM alto → B12/folato; VCM baixo + ferritina baixa → ferro" },
+    { "id": "ferritina", "nome": "Ferritina sérica", "quando": "anual em vegetarianos/veganos com treino intenso ou mulheres; se <30 ng/mL, investigar", "porque": "reserva de ferro — performance, termorregulação, fadiga" },
+    { "id": "b12", "nome": "Vitamina B12 (+ ÁMM/homocisteína se disponível)", "quando": "anual em veg/vegetariano sem suplementação", "porque": "deficiência é silenciosa e neurológica" },
+    { "id": "vitd", "nome": "25(OH)D", "quando": "se risco (pele morena, pouca exposição, idoso, fratura) — não para rotina", "porque": "define quem suplementa" },
+    { "id": "lipidos", "nome": "Perfil lipídico (CT, LDL, HDL, TG) + Lp(a) 1× na vida", "quando": "a cada 4–6 anos (<40) e anual se risco alto", "porque": "AHA2026; dietas veganas melhoram — mas LDL alto genético não some com alface" },
+    { "id": "glicemia", "nome": "Glicemia de jejum + HbA1c", "quando": "IMC ≥25 ou histórico familiar; anual se pré-diabetes", "porque": "dieta vegetal melhora sensibilidade insulínica" },
+    { "id": "tsh", "nome": "TSH", "quando": "veganos com baixo iodo ou sintomas; não é rotina universal", "porque": "iodo/tireoide em dieta sem peixe/lácteo" },
+    { "id": "presso", "nome": "Pressão arterial medida corretamente", "quando": "a cada consulta / 1×/mês em casa", "porque": "potássio↑ e sódio↓ têm efeito mensurável (Aburto2013, WHO2013)" }
+  ],
+  "suplementos": [
+    { "id": "creatina", "nome": "Creatina monoidratada", "prioridade": "A (usar)", "dose": "3–5 g/dia", "para": "força, massa, recuperação, cognição sob privação de sono", "base": ["Wax2021", "Kreider2017", "Deminice2021"], "custo": "baixo", "veg_note": "maior efeito em quem não come carne" },
+    { "id": "b12", "nome": "Cianocobalamina", "prioridade": "A (obrigatório em veg; fortemente recomendado em vegetariano)", "dose": "500 µg/dia ou 2 000 µg 2×/semana", "para": "prevenção de anemia e dano neurológico", "base": ["IOMB12", "AND2016"], "custo": "muito baixo" },
+    { "id": "omega3_algas", "nome": "EPA/DHA de algas", "prioridade": "B (veg/vegetariano)", "dose": "250–500 mg/d de EPA+DHA (1 g se humor/depressão adjunta, com médico)", "base": ["Sublette2011", "Rogerson2021"], "custo": "médio" },
+    { "id": "vitd", "nome": "Colecalciferol (D3 veg de liquen/ D2)", "prioridade": "B se risco", "dose": "1 000–2 000 UI/d", "base": ["VITAL2022"], "custo": "baixo" },
+    { "id": "proteina_po", "nome": "Proteína em pó vegetal (ervilha+arroz ou soja)", "prioridade": "B (ferramenta prática)", "dose": "25–40 g/refeição conforme meta", "base": ["Tabri2019", "Morton2018"], "custo": "médio" },
+    { "id": "cafeina", "nome": "Cafeína em comprimido ou café coado", "prioridade": "B (opcional)", "dose": "3 mg/kg pré-treino", "base": ["Guest2021"], "custo": "muito baixo" },
+    { "id": "nitrato", "nome": "Suco de beterraba / folhas verdes (rúcula, agrião)", "prioridade": "C", "dose": "6–8 mmol 2 h antes", "base": ["Thomas2016"], "custo": "médio" },
+    { "id": "multivitaminico", "nome": "Multivitamínico 'de bem-estar'", "prioridade": "D (não recomendamos sem deficiência comprovada)", "motivo": "Sem efeito em desfechos duros em adultos bem nutridos; e o setor usa literatura patrocinada (ver Guallar2013 + casos de auditoria).", "base": ["Guallar2013", "VITAL2022"] },
+    { "id": "termogenicos", "nome": "Termogênicos / 'queimadores de gordura'", "prioridade": "E (evitar)", "motivo": "Efeito de perda de peso clinicamente desprezível; risco cardíaco/hepático reportado; alta incidência de produto adulterado. Nenhum ECA independente apoia uso crônico.", "base": ["Guallar2013"] },
+    { "id": "bcaa", "nome": "BCAA isolado", "prioridade": "E (desnecessário)", "motivo": "Se você bate proteína e leucina nas refeições, BCAA não adiciona nada; quando adiciona algo, é por falta de proteína total — mesmo efeito com comida.", "base": ["Morton2018", "VanVliet2016"] },
+    { "id": "detox", "nome": "Chás 'detox', sucos de limpeza e 'protocolos de desintoxicação'", "prioridade": "E (evitar)", "motivo": "Fígado e rim já fazem; produtos com efeito laxante/diurético podem causar dano e são vendidos com base em casos isolados.", "base": ["Guallar2013"] }
+  ]
+}

@@ -1,0 +1,993 @@
+{
+ "_meta": {
+  "descricao": "Base de conhecimento conversacional da Yayá. Cada item é uma 'cápsula': perguntas-gatilho, palavras-chave, resposta em pt-BR, fontes que a sustentam e o tipo de personalização aplicada ao perfil do usuário.",
+  "campos": {
+   "id": "chave",
+   "q": "perguntas que ativam a cápsula",
+   "kw": "palavras-chave (radicais, sem acento)",
+   "a": "resposta",
+   "refs": "ids de data/sources",
+   "pers": "none|alvos|dieta|treino|agua|sono|labs|risco",
+   "avisos": "alertas condicionais exibidos quando aplicáveis"
+  }
+ },
+ "capsulas": [
+  {
+   "id": "proteina_veg",
+   "q": [
+    "quanto de proteína eu preciso sem carne?",
+    "proteína vegetariano",
+    "proteína vegano",
+    "bater proteína sem carne",
+    "quantos gramas de proteína por dia",
+    "preciso de whey?"
+   ],
+   "kw": [
+    "proteina",
+    "proteico",
+    "whey",
+    "vegetal",
+    "leguminosa",
+    "tofu",
+    "soja",
+    "gramas",
+    "aminoacido",
+    "leucina"
+   ],
+   "a": "Meta: 1,6 g/kg/dia é o ponto em que o ganho de músculo satura na maioria das pessoas (Morton 2018, meta-análise de 49 ECA). Quando você está em déficit, suba para 2,0–2,4 g/kg. Se a maior parte da sua proteína vem de plantas, some ~0,2 g/kg (digestibilidade e leucina menores — Clarys 2014) e, em dieta vegana, distribua em 4 refeições de 30–40 g. Quando a dose total e a leucina são igualadas, não há diferença relevante de massa magra ou força entre proteína vegetal e animal (Hamarshee 2023; Tabri 2019). Ou seja: a diferença não está na carne, está na dose e na qualidade por refeição. Na prática: leguminosa em toda refeição principal + uma fonte concentrada (tofu/tempeh/PTS/soja, ou pó de ervilha+arroz/soja), e 200–300 g de iogurte/ovo se você consumir.",
+   "refs": [
+    "Morton2018",
+    "Clarys2014",
+    "Hamarshee2023",
+    "Tabri2019",
+    "VanVliet2016",
+    "Longland2016"
+   ],
+   "pers": "alvos"
+  },
+  {
+   "id": "carne_saude",
+   "q": [
+    "carne faz mal?",
+    "devo cortar carne?",
+    "carne vermelha e câncer",
+    "comer carne todo dia é ruim?",
+    "churrasco",
+    "bacon salsicha presunto"
+   ],
+   "kw": [
+    "carne",
+    "vermelha",
+    "processada",
+    "cancer",
+    "colorretal",
+    "bacon",
+    "salsicha",
+    "churrasco",
+    "hamburguer",
+    "proteina_animal"
+   ],
+   "a": "O que os dados mostram é dose e frequência: IARC classificou carne processada como carcinogênica (Grupo 1) — ~+18% de risco relativo de câncer colorretal por 50 g/dia — e carne vermelha como 'possivelmente' (2A, +17% por 100 g/dia). Mas risco relativo de um baseline de ~5% = um ou dois pontos percentuais de risco absoluto, não um 'veneno' (Bouvard 2015). O painel WCRF/AICR (independente, sem indústria de carne) recomenda ≤~500 g/semana de vermelha e evitar processadas, e as análises de substituição mostram mortalidade ~10% menor quando se troca ~3% da energia de carne vermelha por proteína vegetal (Huang 2020). Padrão prático do app: processada = ocasião; vermelha 0–3×/semana; peixe/frango/ovos/lácteos/leguminosas como base. Se você come carne e treina, não precisa cortar nada para ter saúde — só tirar os embutidos do dia a dia.",
+   "refs": [
+    "Bouvard2015",
+    "WCRF2018",
+    "Huang2020",
+    "AHA2026"
+   ],
+   "pers": "risco"
+  },
+  {
+   "id": "vegetariano_emagrece",
+   "q": [
+    "ser vegetariano ajuda a emagrecer?",
+    "dieta vegana emagrece?",
+    "por que não perdi peso sendo veg?",
+    "densidade energética"
+   ],
+   "kw": [
+    "emagrecer",
+    "perder peso",
+    "vegano",
+    "vegetariano",
+    "densidade",
+    "kcal",
+    "deficit",
+    "ultraprocessado"
+   ],
+   "a": "Média de coortes: vegetarianos têm IMC ~1,7 kg/m² menor e veganos um pouco mais baixo (Dinu 2018; Capodici 2024), mas isso não é efeito automático de 'não comer carne'. O que faz a diferença é (1) densidade energética — vegetais, leguminosas e grãos integrais enchem mais com menos caloria; (2) fibra alta, que ajuda na saciedade (Reynolds 2019); (3) menos ultraprocessados. É totalmente possível 'engordar sendo vegano': hambúrguer vegetal, barrinha, leite com açúcar e oleaginosa de pote são veganos e calóricos. Em déficit, mantenha proteína 2,0–2,4 g/kg, perca 0,4–0,8% do peso por semana e monitore fome (Sacks 2009 mostra que adesão, não o tipo de dieta, define o resultado).",
+   "refs": [
+    "Dinu2018",
+    "Capodici2024",
+    "Reynolds2019",
+    "Sacks2009",
+    "Gardner2018"
+   ],
+   "pers": "alvos"
+  },
+  {
+   "id": "b12",
+   "q": [
+    "preciso de B12?",
+    "vitamina b12 vegano",
+    "b12 causa dano neurológico?",
+    "quanta b12 por dia",
+    "sintomas de falta de b12"
+   ],
+   "kw": [
+    "b12",
+    "cobalamina",
+    "anemia",
+    "neurologico",
+    "formigamento",
+    "vegano",
+    "suplemento"
+   ],
+   "a": "Sim, se você não come carne: B12 não aparece em quantidade útil em alimentos vegetais não fortificados. Recomendação prática: cianocobalamina 500 µg/dia ou 2 000 µg duas vezes por semana; em gestação/lactação e em doença neurológica, siga seu médico (NIH/IOM; posição da AND 2016). A deficiência é traiçoeira: pode levar anos, aparecer como cansaço, formigamento, 'brain fog' e, depois, dano neurológico potencialmente irreversível — e o ácido fólico 'mascara' a anemia. Importante: B12 sérica é pouco sensível; quando possível, dose homocisteína/ácido metilmalônico. Lacto-ovo-vegetarianos: 2 porções de laticínios + 1–2 ovos/d cobrem, mas a maioria não cobre. Não use espirulina ou nori como sua fonte: são análogos inativos.",
+   "refs": [
+    "IOMB12",
+    "AND2016",
+    "Rogerson2021"
+   ],
+   "pers": "labs",
+   "avisos": [
+    "deficiencia_confirmada: encaminhar a médico (causa pode ser gástrica/perniciosa, não dieta)"
+   ]
+  },
+  {
+   "id": "ferro",
+   "q": [
+    "como ter ferro sem carne?",
+    "ferritina baixa",
+    "fico cansado sem carne",
+    "anemia vegetariano",
+    "vitamina c e ferro"
+   ],
+   "kw": [
+    "ferro",
+    "ferritina",
+    "anemia",
+    "hemoglobina",
+    "cansaco",
+    "absorcao",
+    "vitamina_c",
+    "fitato",
+    "vegetariano"
+   ],
+   "a": "Ferro não-heme (feijão, lentilha, grão-de-bico, tofu, aveia, folhas verdes escuras, castanhas, melado) é absorvido a ~2–20%, vs ~15–35% do ferro heme da carne — e a absorção é modulável: 25–50 mg de vitamina C na refeição (limão na salada, laranja na sobremesa, pimentão) multiplicam por 3–6×; chá/café (taninos/polióis), cálcio do laticínio e farelo de trigo em excesso inibem (Hurrell & Egli 2010). Por isso a RDA de ferro em vegetarianos é multiplicada por 1,8 (14 mg homens/pós-menopausa; 32 mg mulheres em idade fértil). Ajustes práticos: feijão de molho 8–12 h (reduz fitato), vitamina C na refeição, café longe das refeições, panela de ferro ajuda um pouco. E faça exame antes de suplementar: ferro sem deficiência não melhora energia e causa efeitos colaterais. Se você é atleta de endurance ou tem menstruação intensa, cheque ferritina a cada 6 meses.",
+   "refs": [
+    "Hurrell2010",
+    "Rogerson2021",
+    "IOMB12"
+   ],
+   "pers": "labs",
+   "avisos": [
+    "Não tome ferro em pó/cápsula por conta própria: excesso em quem não tem deficiência é desnecessário e, em dose alta, faz mal (e há hemocromatose hereditária, que ninguém deve 'achar' que não tem).",
+    "Cansaço + PALIDEZ + falta de ar ou tontura não é 'falta de carne': é para examinar hemograma, ferritina e TSH com um profissional.",
+    "Se você tem transferrina/saturação de transferrina alterada ou doença renal, a conduta é médica — o app só organiza a dieta."
+   ]
+  },
+  {
+   "id": "creatina_veg",
+   "q": [
+    "creatina serve para quem não come carne?",
+    "devo tomar creatina?",
+    "creatina faz mal ao rim?",
+    "creatina cérebro"
+   ],
+   "kw": [
+    "creatina",
+    "monoidratada",
+    "rim",
+    "forca",
+    "cerebro",
+    "cognicao",
+    "suplemento",
+    "vegano"
+   ],
+   "a": "É o suplemento nº 1 do app e o que mais ajuda vegetarianos/veganos: seu estoque muscular de creatina tende a ser menor (a fonte dietética é carne), e meta-análises mostram resposta de força/massa maior nesses grupos (Deminice 2021). Dose: 3–5 g/dia, todo dia, sem necessidade de carga ou ciclo. Segurança: revisões e posições da ISSN mostram ausência de dano renal em pessoas saudáveis em uso prolongado (Kreider 2017; Wax 2021) — o que não vale para quem tem doença renal pré-existente (aí, com médico). Bônus: há sinal de melhora de memória/raciocínio sobretudo em privação de sono e em vegetarianos (Avgerinos 2018). Compre monoidratada simples (não 'HCl', não 'etil-éster', não blends caros com 6 ingredientes e 0 evidência). Nota de honestidade: a ISSN tem laços comerciais com marcas de suplementos — a recomendação é sustentada por revisões independentes, então usamos o documento como apoio, não como autoridade.",
+   "refs": [
+    "Deminice2021",
+    "Kreider2017",
+    "Wax2021",
+    "Avgerinos2018"
+   ],
+   "pers": "treino"
+  },
+  {
+   "id": "soja_testo",
+   "q": [
+    "soja baixa testosterona?",
+    "soja é ruim para homem?",
+    "iso-flavona e hormônio",
+    "leite de soja e ginecomastia"
+   ],
+   "kw": [
+    "soja",
+    "isoflavona",
+    "testosterona",
+    "hormonio",
+    "ginecomastia",
+    "leite_de_soja",
+    "mito"
+   ],
+   "a": "Não: a maior meta-análise disponível (41 ECA + 18 coortes, >3 500 homens) não encontrou efeito de isoflavonas (nem em doses altas) nem de proteína de soja sobre testosterona total/livre, SHBG, estradiol, LH/FSH ou qualidade seminal (Reed 2021). O mito nasceu de um caso isolado (homem bebendo ~3 L/dia de leite de soja), estudos em roedores e artigos de marketing de empresas que vendem 'otimizadores de testosterona'. Para o seu plano: soja é uma das melhores fontes de proteína vegetal em leucina (tofu, tempeh, edamame, PTS). Se alguém usar o argumento 'é hormônio feminino' para justificar whey/carne, reconheça o interesse comercial por trás.",
+   "refs": [
+    "Reed2021",
+    "Tabri2019",
+    "Guallar2013"
+   ],
+   "pers": "dieta"
+  },
+  {
+   "id": "osso_veg",
+   "q": [
+    "vegetariano tem osso fraco?",
+    "como proteger ossos",
+    "cálcio vegano",
+    "fratura vegano"
+   ],
+   "kw": [
+    "osso",
+    "fratura",
+    "calcio",
+    "vitamina_d",
+    "densidade",
+    "osteoporose",
+    "colageno"
+   ],
+   "a": "A coorte EPIC-Oxford viu veganos com +43% de risco de fratura total e +131% de quadril vs onívoros; vegetarianos ficaram perto de igual (+11% total, mas quadril +25%) — e o excesso caiu ao ajustar por IMC, cálcio e proteína (Tong 2020). Tradução em ordens: (1) 1 000–1 200 mg/d de cálcio (tofu coalhado em cálcio, brócolis/couve/bok choy, feijão-branco, bebidas vegetais fortificadas, sardinha se você comer); (2) vitamina D se sua exposição solar for baixa (VITAL 2022 lembra: suplementar em quem já é suficiente não muda desfechos); (3) proteína e peso adequados — IMC <19 é fator de risco; (4) B12 e ferro, porque deficiência altera remodelamento ósseo; (5) treino de força com carga axial + pliometria leve: o osso responde a carga, e isso é o item que nenhuma pílula substitui.",
+   "refs": [
+    "Tong2020",
+    "VITAL2022",
+    "GarciaHermoso2018",
+    "IOMB12"
+   ],
+   "pers": "dieta"
+  },
+  {
+   "id": "agua",
+   "q": [
+    "quanta água por dia?",
+    "8 copos é mito?",
+    "como sei se estou hidratado?",
+    "beber água emagrece?"
+   ],
+   "kw": [
+    "agua",
+    "hidratacao",
+    "sede",
+    "urina",
+    "copos",
+    "beber",
+    "desintoxicar"
+   ],
+   "a": "Necessidade real: ingestão adequada total é ~2,5 L/d (homens) e ~2,0 L/d (mulheres), sendo que 20–30% já vem dos alimentos e o resto de todas as bebidas, inclusive café (EFSA 2010). Tradução em fórmula: ~30–35 mL/kg/dia + 0,4–0,8 L por hora de treino + 0,5–1,0 L em calor úmido. '8 copos' é convenção de marketing, não evidência, e beber além da sede não 'limpa' nada — em excesso pode causar hiponatremia (raro, mas existe). Sinais úteis: urina amarelo-clara 1–3 na escala, sede, boca seca, tontura em pé. Água antes das refeições ajuda a perder peso (~+1,4 kg em 12 semanas no ECA de Dennis 2010) por saciedade, não por 'metabolismo'. Lembrete no app: ele para só quando você marca 'feito' — a evidência de auto-monitoramento (Michie 2009) é justamente essa: registrar muda comportamento.",
+   "refs": [
+    "EFSA2010",
+    "Dennis2010",
+    "Thomas2016",
+    "Michie2009"
+   ],
+   "pers": "agua"
+  },
+  {
+   "id": "treino_mental",
+   "q": [
+    "exercício ajuda depressão?",
+    "quero treinar para a cabeça",
+    "ansiedade e musculação",
+    "caminhar acalma?",
+    "meditação funciona?"
+   ],
+   "kw": [
+    "depressao",
+    "ansiedade",
+    "estresse",
+    "mente",
+    "mental",
+    "humor",
+    "caminhada",
+    "meditacao",
+    "mindfulness",
+    "terapia"
+   ],
+   "a": "Sim, com efeito mensurável. Meta-análise de rede no BMJ (Noetel 2024, 929 comparações): caminhada/corrida g ≈ −0,63, yoga −0,55, musculação −0,49, contra medicação (SSRI) −0,26 e TCC −0,55. Coortes: 150 min/semana de atividade → ~25% menor risco de desenvolver depressão (Schuch 2018). Musculação sozinha reduz ansiedade com d ≈ 0,4 (Gordon 2018). Meditação traz melhora pequena-moderada (ansiedade 0,38; Goyal 2014) e não é melhor que outras intervenções ativas — o que a torna boa de manutenção, não de milagre. Ordem prática do app: (1) caminhar 20–30 min ao ar livre, (2) 3 sessões de força, (3) sono ≥7 h, (4) respiração/meditação 5–10 min. Se você tem ideação, diagnóstico psiquiátrico ou está em crise: exercício é adjunto, não substituto — e o app te lembra disso. Ligue 188 (CVV) ou procure atendimento.",
+   "refs": [
+    "Noetel2024",
+    "Schuch2018",
+    "Gordon2018",
+    "Goyal2014"
+   ],
+   "pers": "treino",
+   "avisos": [
+    "Exercício tem efeito real e grande em depressão leve a moderada (Noetel 2024), mas não substitui tratamento: se você pensa em se machucar, parou de funcionar ou não dorme há semanas, procure ajuda hoje — CVV 188 (24 h, gratuito) ou o CAPS/UBS mais próximo.",
+    "Se você já usa antidepressivo ou estabilizador, converse com quem prescreve antes de mudar cafeína, jejum ou volume de treino — nada disso é 'fraqueza', é segurança."
+   ]
+  },
+  {
+   "id": "sono",
+   "q": [
+    "quanto devo dormir?",
+    "dormir pouco atrapalha treino?",
+    "insônia o que fazer",
+    "acordo cansado"
+   ],
+   "kw": [
+    "sono",
+    "dormir",
+    "insomnia",
+    "melatonina",
+    "horario",
+    "recuperacao",
+    "descanso"
+   ],
+   "a": "Adultos: 7–9 h (e regularidade ≥80% na mesma hora ±45 min). Por quê: numa ECA com dieta idêntica, dormir 5,5 h em vez de 8,5 h reduziu a fração de gordura perdida de 78% para ~55% e dobrou a perda de massa magra, com mais fome (Nedeltcheva 2010). Uma semana de 5 h de sono já derruba a testosterona matinal ~10–15% em homens jovens (Leproux 2011). O sono é também o que sustenta o sistema cardiovascular e a sensibilidade insulínica (Watson 2015). Protocolo do app: luz natural 10–20 min de manhã, cafeína até 14–16 h antes de dormir, quarto frio/escuro, tela 'não' na última 30 min (o que ajuda é o ritual, não o óculos azul), e treino pesado 4 h antes é o gatilho de insônia em muitos casos. Para insônia crônica, TCC-I é o padrão-ouro (não Zolpidem/antihistamínico).",
+   "refs": [
+    "Nedeltcheva2010",
+    "Leproux2011",
+    "Watson2015",
+    "Hirshkowitz2015"
+   ],
+   "pers": "sono"
+  },
+  {
+   "id": "forca_antes_cardio",
+   "q": [
+    "faço musculação ou cardio primeiro?",
+    "corrida mata ganho de músculo?",
+    "treino em jejum?",
+    "HIIT ou caminhada?"
+   ],
+   "kw": [
+    "cardio",
+    "corrida",
+    "jejum",
+    "hiit",
+    "zona2",
+    "musculacao",
+    "interferencia",
+    "ordem"
+   ],
+   "a": "Ordem: força primeiro quando o objetivo é músculo (a fadiga do cardio reduz carga e técnica), cardio depois ou em outro dia. 'Interferência' existe, mas é pequena: corrida > bicicleta, sessões >90 min e frequência alta (>3×/sem) são os piores cenários; para a maioria, cardio+força é melhor que só força para saúde e só um pouco pior para hipertrofia (Wilson 2012). Jejum para treinar força: pode funcionar para volume moderado, mas tende a reduzir carga/potência e não melhora perda de gordura vs. comer (a diferença é adesão). HIIT: 1–2×/semana para VO2max, com 3,5 mL/kg/min de ganho acima do contínuo (Milanovic 2015), mas em iniciante a aderência do contínuo ganha — e 150 min/semana é o que prediz mortalidade (Ekelund 2019).",
+   "refs": [
+    "Wilson2012",
+    "Milanovic2015",
+    "Ekelund2019",
+    "Thomas2016"
+   ],
+   "pers": "treino",
+   "avisos": [
+    "Antes de teste de 1RM ou intensidade alta sendo sedentário, com dor no peito, falta de ar desproporcional ou arritmia: avalie com médico. Pare a série se tiver tontura, zumbido no ouvido ou visão embaçada (Valsalva pesado não é virtude).",
+    "Hérnia/discopatia recente, pós-cirúrgico ou gestante: escolha as regressões listadas no app e leve a lista ao fisioterapeuta/médico."
+   ]
+  },
+  {
+   "id": "como_ler_estudo",
+   "q": [
+    "como saber se um estudo é confiável?",
+    "quem patrocina o estudo",
+    "viés de financiamento",
+    "artigo patrocinado",
+    "como ler um paper"
+   ],
+   "kw": [
+    "viés",
+    "patrocinio",
+    "conflito",
+    "metodologia",
+    "ler",
+    "estudo",
+    "paper",
+    "grade",
+    "eca",
+    "observacional"
+   ],
+   "a": "Seis perguntas, nesta ordem: (1) Desenho — meta-análise de ECA > ECA > coorte > caso-controle > transversal > mecanismo em células/animais; (2) Desfecho — você quer saber sobre 'morte/infarto/câncer' ou sobre um marcador que pode não virar nada? (3) Tamanho e duração — 20 pessoas por 2 semanas não sustentam recomendação crônica; (4) Quem pagou — abra a seção 'Funding/Competing interests'; a revisão clássica (Lexchin 2003) achou patrocínio industrial ~4× associado a conclusão favorável ao patrocinador; (5) O texto limita as próprias conclusões ou exagera no resumo? (6) Replicação — existe revisão sistemática independente que chegou ao mesmo lugar? No app, a aba Auditoria faz isso automaticamente: cada fonte tem selo de risco comercial, e a busca na internet filtra por funder (fundação de empresa = sinalizado, retractado = removido).",
+   "refs": [
+    "Lexchin2003",
+    "Nestle2013",
+    "Guyatt2008GRADE",
+    "Ramirez2022",
+    "IntegrityTools"
+   ],
+   "pers": "none"
+  },
+  {
+   "id": "dieta_veg_atleta",
+   "q": [
+    "dieta vegana funciona para atleta?",
+    "musculação sendo vegano",
+    "perco massa se eu for vegano?"
+   ],
+   "kw": [
+    "vegano",
+    "atleta",
+    "musculacao",
+    "hipertrofia",
+    "desempenho",
+    "carnes",
+    "endurance",
+    "carnosina"
+   ],
+   "a": "Funciona, com mais itens no checklist. O que a literatura mostra: força e massa respondem igual quando você bate proteína e leucina (Hamarshee 2023, Tabri 2019); padrão vegano traz inflamação menor e melhor função endotelial, com desempenho aeróbio comparável (Rogerson 2021; Nieman 2016). O que te atrapalha, e como resolver: (1) densidade energética baixa → +1 refeição ou +1 col. de sopa de azeite/pasta de castanha; (2) creatina 3–5 g (você tem estoque menor — resposta maior); (3) carnosina/beta-alanina (opcional, só para esforço de 1–4 min); (4) ômega-3 de algas; (5) ferro + vitamina C, com exame anual; (6) iodo (sal iodado ou suplemento com 150 µg); (7) cálcio 1 000–1 200 mg + vitamina D (osso!); (8) B12, sem exceção. Nada disso é 'dieta difícil' — é um plano com 8 linhas.",
+   "refs": [
+    "Rogerson2021",
+    "Hamarshee2023",
+    "Tabri2019",
+    "AND2016",
+    "Deminice2021",
+    "Tong2020"
+   ],
+   "pers": "dieta",
+   "avisos": [
+    "Adolescente em crescimento, gestante/lactante, idoso com perda de peso não intencional ou pessoa em corte de peso: dieta vegana sem supervisão é onde as lacunas (energia, B12, iodo, ferro) aparecem. Planeje com profissional.",
+    "Se o seu exame deu B12/ferritina alterada, isso é conduta médica — o app organiza a comida, não trata anemia."
+   ]
+  },
+  {
+   "id": "ultraprocessado",
+   "q": [
+    "ultraprocessado faz mal?",
+    "o que é NOVA?",
+    "proteína barra é ultraprocessada?",
+    "preciso cortar tudo industrializado?"
+   ],
+   "kw": [
+    "ultraprocessado",
+    "nova",
+    "aditivo",
+    "industrializado",
+    "barra",
+    "refrigerante",
+    "embutido"
+   ],
+   "a": "Dois estudos fortes vão na mesma direção: o ECA internado do NIH, em que a dieta ultraprocessada 'ad libitum' gerou +508 kcal/dia e +0,9 kg em 2 semanas, sem que macros explicassem (Hall 2019); e a revisão-chuva no BMJ com 45 meta-análises e ~9,9 milhões de pessoas, que ligou maior exposição a mortalidade, DCV, diabetes tipo 2, obesidade e transtornos mentais comuns (Lane 2024) — e onde nenhum meta-análise incluída tinha dinheiro da indústria de alimentos. Mas: a classificação NOVA é grosseira, parte da evidência é observacional, e nem todo NOVA-4 é igual (refrigerante e 'pão integral industrial' não são a mesma coisa). Política do app: 70%+ das calorias de comida minimamente processada; cortar primeiro bebida adoçada, embutido, salgadinho e doces; não precisa virar refém de rótulo. Atenção a 'fitness/vegan/whey' como marketing: barra, nuggets e 'hambúrguer vegetal' podem ser NOVA-4.",
+   "refs": [
+    "Hall2019",
+    "Lane2024",
+    "AHA2026",
+    "Bouvard2015"
+   ],
+   "pers": "dieta",
+   "avisos": [
+    "O NOVA classifica o processamento, não a 'bondade' do nutriente: pão integral industrializado fortificado pode ser melhor escolha real que quinoa cara. Não use este tema para cortar comida acessível nem para alimentar regra de dieta restritiva.",
+    "Se pensar em 'comida proibida' te deixa ansioso ou em ciclo de restrição-compulsão, isso merece acompanhamento profissional (não é frescura)."
+   ]
+  },
+  {
+   "id": "suplementos_honesto",
+   "q": [
+    "quais suplementos valem?",
+    "multivitamínico é útil?",
+    "termogênico funciona?",
+    "gasta dinheiro com o quê?"
+   ],
+   "kw": [
+    "suplemento",
+    "multivitaminico",
+    "termogenico",
+    "queimador",
+    "gasto",
+    "dinheiro",
+    "comprar",
+    "pre-treino"
+   ],
+   "a": "Lista curta, em ordem de retorno: creatina 3–5 g (A); B12 se você não come carne (A, obrigatório); ômega-3 EPA/DHA de alga 250–500 mg (B) para veg/vegetariano; vitamina D 1 000–2 000 UI se você tem baixa exposição/deficiência (B, e nada de megadose); proteína em pó como conveniência, não como 'nutriente mágico' (B); cafeína 3 mg/kg antes do treino (B, opcional e barato); beta-alanina só para esforço 1–4 min (C); vitamina E/β-caroteno em altas doses podem aumentar risco — não use 'por precaução' (Guallar 2013). E 'termogênicos', 'detox', 'otimizadores de testosterona', BCAA isolado (se sua dieta tem proteína) e multivitamínicos 'para prevenção' em adulto bem nutrido: sem efeito em desfechos duros em revisões independentes (Guallar 2013; ACP 2019; VITAL 2022 para vitamina D). Ceticismo com 'estudos' de fabricante: é o padrão que a literatura de integridade mostra (Lexchin 2003).",
+   "refs": [
+    "Guallar2013",
+    "VITAL2022",
+    "Kreider2017",
+    "IOMB12",
+    "Lexchin2003"
+   ],
+   "pers": "dieta"
+  },
+  {
+   "id": "plato",
+   "q": [
+    "meu peso parou de descer",
+    "estagnou",
+    "platô no emagrecimento",
+    "não perco mais gordura"
+   ],
+   "kw": [
+    "plato",
+    "estagnou",
+    "parou",
+    "nao emagreco",
+    "metabolismo",
+    "adaptação"
+   ],
+   "a": "Primeiro, verifique se não é artefato: peso diário varia 1–2 kg com sódio, carboidrato, ciclo e intestino — use a média de 7 dias. Se a tendência está plana há ≥2 semanas com adesão boa: (1) sua energia caiu (adaptação metabólica real: déficit de 500 kcal rende ~4–5 kg em 6 meses, não 8; Thomas 2012) → reduza ~10–15% ou faça 'dieta break' de 1–2 semanas em manutenção; (2) subestimamos ingestão em 20–40% (a regra: pesar por 7 dias em balança, não 'no olho'); (3) proteína/fibra caíram, fome subiu; (4) NEAT caiu sem você notar — confira passos. Protocolo do app: refaça a meta de kcal com base na nova massa corporal, mantenha proteína alta (Longland 2016) e não aperte mais o déficit além de 1% do peso/semana.",
+   "refs": [
+    "Thomas2012",
+    "Longland2016",
+    "Helms2014",
+    "Hall2019"
+   ],
+   "pers": "alvos",
+   "avisos": [
+    "Com medicação para diabetes (insulina, sulfonilureia), hipertensão ou tireoide, reduzir calorias muda necessidade de remédio — ajuste com médico, não com o app.",
+    "Histórico de transtorno alimentar: não use déficit 'menor que a manutenção' por conta própria; ative o modo gentil e acompanhe com profissional."
+   ]
+  },
+  {
+   "id": "volume_lesao",
+   "q": [
+    "quantas séries por semana?",
+    "quanto treinar para hipertrofia?",
+    "dor no ombro no supino",
+    "o que é deload",
+    "preciso treinar até a falha?"
+   ],
+   "kw": [
+    "series",
+    "volume",
+    "deload",
+    "falha",
+    "rir",
+    "dor",
+    "lesao",
+    "frequencia",
+    "descanso_entre_series"
+   ],
+   "a": "Volume: 10–14 séries/semana por grupo muscular é onde a hipertrofia fica 'paga' e ainda há ganho até ~20 (Schoenfeld 2017; Lopez 2021). Frequência: 2× por grupo (Schoenfeld 2015). Falha: desnecessária para a maioria — para força, terminar a 2–3 reps da falha rende igual ou melhor e com menos fadiga (Refalo 2023; Maeo 2021); use a falha em 1–2 séries finais de isolados. Descanso: 2–3 min nos compostos (Baz-Valle 2022). Dor articular não é 'ganho': reduza amplitude, troque o exercício (a lista 'sub' resolve) e avalie o ombro com pegada/posição. Deload a cada 4–6 semanas, com a carga aguda:crônica entre 0,8–1,3 (Claudino 2020). Progressão dupla: feche o topo da faixa de reps em todas as séries com o RIR alvo → suba carga e volte ao fundo da faixa.",
+   "refs": [
+    "Schoenfeld2017",
+    "Lopez2021",
+    "Refalo2023",
+    "Maeo2021",
+    "BazValle2022",
+    "Claudino2020",
+    "Schoenfeld2015Freq"
+   ],
+   "pers": "treino"
+  },
+  {
+   "id": "dieta_carne_zero_vs_ovo",
+   "q": [
+    "qual é a diferença entre vegan, vegetariano e lacto-ovo?",
+    "ovo-lacto é melhor que vegano?",
+    "melhor tipo de dieta sem carne"
+   ],
+   "kw": [
+    "vegetariano",
+    "vegan",
+    "lacto",
+    "ovo",
+    "ovovegetariano",
+    "pescetariano",
+    "diferenca",
+    "tipo_dieta"
+   ],
+   "a": "Vegano: nada de origem animal. Ovo-vegetariano: ovos, sem carne/lácteo. Lacto-vegetariano: laticínios, sem carne/ovo. Lacto-ovo: ovos + laticínios. Pescetariano: peixe + base vegetal. Sobre saúde: vegetarianos e veganos têm melhores marcadores cardiometabólicos e menos DCV isquêmica (Dinu 2018; Capodici 2024), e todos os padrões vegetais são adequados quando bem planejados (AND 2016) — mas o custo de planejamento cresce na ordem onívoro → lacto-ovo → vegano. O 'risco' de ser vegano não é faltar 'nutriente mágico', são 8 itens: B12, iodo, cálcio, ferro, ômega-3, zinco, creatina e densidade energética — todos mensuráveis e corrigíveis (Rogerson 2021, Tong 2020). O app tem uma aba para cada tipo, com o plano, a lista de compras e as metas ajustadas.",
+   "refs": [
+    "AND2016",
+    "Rogerson2021",
+    "Dinu2018",
+    "Tong2020",
+    "Capodici2024"
+   ],
+   "pers": "dieta"
+  },
+  {
+   "id": "ganhar_massa",
+   "q": [
+    "quero ganhar massa magra",
+    "como crescer",
+    "hipertrofia plano",
+    "superávit calórico",
+    "bulking"
+   ],
+   "kw": [
+    "massa",
+    "hipertrofia",
+    "crescer",
+    "bulking",
+    "superavit",
+    "ganhar",
+    "musculo",
+    "volume_muscular"
+   ],
+   "a": "Receita honesta, em ordem de impacto: (1) estímulo — 10–14 séries/semana por grupo, perto da falha, técnica boa, progressão dupla (Schoenfeld 2017); (2) energia — superávit de +0,25 a +0,5% do peso corporal por semana; acima disso você ganha mais gordura do que massa (Helms 2014); (3) proteína 1,6–2,2 g/kg (Morton 2018), 30–40 g por refeição, mínimo 4; (4) carboidrato 4–5 g/kg para segurar o volume de treino (Peos 2021); (5) sono 7–9 h; (6) creatina 3–5 g. Sem carne: use soja/tofu/tempeh/PTS + leguminosa + oleaginosa e um pó vegetal para fechar a dose, com 30–40 g por refeição. Ganho realista: 0,25–0,5% do peso/semana de quem já treina (0,5–1 kg/mês). Julgue por carga nos exercícios + circunferência a cada 4 semanas, não por peso na terça.",
+   "refs": [
+    "Schoenfeld2017",
+    "Morton2018",
+    "Helms2014",
+    "Peos2021",
+    "Kreider2017"
+   ],
+   "pers": "alvos"
+  },
+  {
+   "id": "fibra_microbiota",
+   "q": [
+    "quanta fibra?",
+    "intestino preso",
+    "fibra e colesterol",
+    "leguminosa todo dia"
+   ],
+   "kw": [
+    "fibra",
+    "intestino",
+    "microbiota",
+    "prisao_de_ventre",
+    "aveia",
+    "psyllium",
+    "colesterol"
+   ],
+   "a": "Meta: 28–38 g/dia (ou 14 g/1 000 kcal). A série de meta-análises na Lancet (Reynolds 2019) mostra 15–30% menor mortalidade/DCV/diabetes/câncer colorretal em quem consome 25–29 g+, com efeito dose-dependente. Fontes práticas no plano vegetal: feijão/lentilha/grão-de-bico (6–8 g/100 g cozidos), aveia (10 g/100), linhaça/chia (30 g/100, mas porção real é 15–20 g), pão 100% integral, frutas com casca, abóbora, brócolis. Efeito no colesterol: fibras viscosas (aveia/psyllium) e proteína de soja somadas ao padrão reduzem LDL ~8–14% (Jenkins 2019). Suba 3–5 g por semana (gases são transitórios) e aumente água junto. Dieta vegana/vegetariana bem-feita chega naturalmente a 35–45 g — é a maior vantagem 'silenciosa' desses padrões.",
+   "refs": [
+    "Reynolds2019",
+    "Jenkins2019",
+    "WCRF2018",
+    "Lane2024"
+   ],
+   "pers": "alvos"
+  },
+  {
+   "id": "oleaginosas_pesos",
+   "q": [
+    "castanha engorda?",
+    "quantas castanhas por dia?",
+    "amendoim é saudável?",
+    "abacate emagrece?"
+   ],
+   "kw": [
+    "castanha",
+    "oleaginosa",
+    "amendoim",
+    "abacate",
+    "gordura_boa",
+    "peso",
+    "nozes",
+    "caloria"
+   ],
+   "a": "São densas (550–650 kcal/100 g), mas o consumo habitual se associa a ~20% menor mortalidade e melhor perfil lipídico (Bao 2013; Jenkins 2019) e não 'engorda' na dieta real — substituem gordura ruim e aumentam saciedade. Porção prática: 25–30 g/dia (≈1 punhado) de castanha/noze/amêndoa, ou 2 colheres de sopa de pasta de amendoim, ou 1/4–1/2 abacate, + 1–2 castanhas-do-pará (selênio; não mais que 3/dia). Amendoim é oleaginosa 'do povo': mais proteína, metade do preço, e 28 g/d seguem o mesmo sinal de benefício. No emagrecimento: pese, não 'belisque do pacote' — é onde essas calorias somem da dieta.",
+   "refs": [
+    "Bao2013",
+    "Jenkins2019",
+    "Reynolds2019"
+   ],
+   "pers": "alvos"
+  },
+  {
+   "id": "caminhada_dia",
+   "q": [
+    "o que fazer quando não quero treinar?",
+    "dia ruim",
+    "só vou caminhar",
+    "preguiça de ir na academia"
+   ],
+   "kw": [
+    "preguica",
+    "sem_vontade",
+    "caminhada",
+    "dia_ruim",
+    "nao_quero",
+    "aderencia",
+    "motivacao",
+    "micro"
+   ],
+   "a": "Use a versão mínima: 10–20 min de caminhada + 1 série de 3 coisas (agachamento na cadeira, flexão na parede, prancha 30 s). Por quê funciona: (1) os primeiros 120–150 min/semana concentram a maior queda de risco (Schuch 2018; Ekelund 2019); (2) cada +1 000 passos acima de 2 000 já reduz mortalidade (Paluch 2025); (3) a 'versão fraca' mantém a streak de hábito e a autoeficácia (Lally 2010; Michie 2009) — o que faz a maioria desistir não é o dia ruim, é a percepção de quebrou a sequência. Regra do app: 1 dia livre por semana não zera streak. E se a ideia de ir à academia te dá ansiedade há semanas, mude o formato (casa, parque, 4×30) — aderência > modalidade.",
+   "refs": [
+    "Schuch2018",
+    "Ekelund2019",
+    "Paluch2025",
+    "Lally2010",
+    "Michie2009"
+   ],
+   "pers": "treino",
+   "avisos": [
+    "Dor no peito, falta de ar desproporcional, tontura ou palpitação: pare e procure atendimento — passo extra não vale risco.",
+    "Pé diabético, úlcera, fasciíte ou pós-operatório de quadril/joelho: ajuste meta e calçado com fisioterapeuta/médico; o app aceita 'tempo em vez de passos'."
+   ]
+  },
+  {
+   "id": "exames",
+   "q": [
+    "quais exames devo fazer?",
+    "checkup anual",
+    "o que checar sendo vegetariano",
+    "quais laboratoriais"
+   ],
+   "kw": [
+    "exame",
+    "laboratorio",
+    "checkup",
+    "hemograma",
+    "ferritina",
+    "b12",
+    "tsh",
+    "lipidico",
+    "hba1c"
+   ],
+   "a": "Painel anual mínimo (para adultos saudáveis em dieta vegetariana/vegana + treino): hemograma completo (VCM alto → B12/folato; baixo → ferro), ferritina, B12 (+ homocisteína/ácido metilmalônico se possível), perfil lipídico (com Lp(a) uma vez na vida), glicemia/HbA1c se IMC ≥25 ou histórico familiar, creatinina/eGFR (para checar rim antes de 'proteína alta'), TSH se baixo iodo ou sintomas, vitamina D se risco, pressão arterial medida corretamente. Mulheres com menstruação intensa: 6/12 meses para ferritina. Não faça: 'painel de micronutrientes por cabelo', testes de intolerância alimentar por IgG, 'bioimpedância de farmácia' como verdade, nem exames de 'toxicidade por metais' para justificar detox. E lembre: exame alterado = conversar com um médico. O app prioriza, mas não interpreta sozinho.",
+   "refs": [
+    "IOMB12",
+    "Hurrell2010",
+    "VITAL2022",
+    "Tong2020",
+    "AHA2026"
+   ],
+   "pers": "labs",
+   "avisos": [
+    "Não comece ferro, iodo, hormônio de tireoide, anticoagulante ou vitamina D em megadose por conta própria com base em um número — sobretudo se você usa outras medicações.",
+    "Referências variam entre laboratórios e não existem 'valores ideais de performance' validados: interpretação é do médico, junto com histórico e sintomas."
+   ]
+  },
+  {
+   "id": "veg_proteina_alimentos",
+   "q": [
+    "quais alimentos têm mais proteína sem carne?",
+    "tabela de proteína vegetal",
+    "o que comer no almoço sem carne"
+   ],
+   "kw": [
+    "alimentos",
+    "proteina_vegetal",
+    "tofu",
+    "seitan",
+    "feijao",
+    "lentilha",
+    "grao_de_bico",
+    "lista",
+    "substituicao"
+   ],
+   "a": "Mais proteína por porção (sem carne): PTS/seitan (25–50 g/100 g), tofu firme (12 g/100 g; 120 g ≈ 15 g), tempeh (19 g), edamame/soja cozida (12–17 g), iogurte grego/cottage/queijos magros (se você come laticínios: 9–23 g), ovos (13 g/100 g; 6 g/unidade), grão-de-bico/lentilha cozidos (7–8 g/100 g = 1 concha e meia), aveia (14 g/100 g), pão integral (4,5 g/2 fatias), oleaginosas (5–8 g/30 g). Estrutura de refeição que fecha a meta: 1 fonte concentrada (150–200 g de tofu / 40–50 g de PTS / 1 dose de pó) + 1 concha de leguminosa + 1 guarnição de grão integral + vegetais + 1 fio de azeite. Isso costuma dar 30–40 g de proteína por refeição, com 8–12 g de fibra.",
+   "refs": [
+    "Morton2018",
+    "Clarys2014",
+    "Tabri2019",
+    "AND2016"
+   ],
+   "pers": "alvos"
+  },
+  {
+   "id": "treino_3x_basta",
+   "q": [
+    "3 vezes por semana é suficiente?",
+    "quantos dias treinar",
+    "posso treinar 6 dias?",
+    "descanso entre treinos"
+   ],
+   "kw": [
+    "dias",
+    "frequencia",
+    "tres",
+    "seis",
+    "descanso",
+    "recuperacao",
+    "suficiente"
+   ],
+   "a": "Sim: 3×/semana é suficiente para quase todo objetivo (força, massa, saúde e composição corporal) — desde que as 3 sessões somem 10–12 séries por grupo muscular por semana. Evidência: a relação volume-hipertrofia (Schoenfeld 2017) e o achado de que frequência ≥2× por grupo ajuda (Schoenfeld 2015). 4–6 dias fazem sentido quando você precisa distribuir volume ou quer condicionamento adicional. Se você só pode 2×: full-body pesado + uma sessão de caminhada/mobilidade; se só 1×: corpo todo com 6 exercícios, 3 séries cada. E lembre que a parte 'saúde/longevidade' vem de 150–300 min de aeróbico + 7 000 passos (Ekelund 2019; Paluch 2025), que não exigem academia.",
+   "refs": [
+    "Schoenfeld2017",
+    "Schoenfeld2015Freq",
+    "Ekelund2019",
+    "Paluch2025"
+   ],
+   "pers": "treino"
+  },
+  {
+   "id": "refeicoes_timing",
+   "q": [
+    "quantas refeições por dia?",
+    "anabólico window é mito?",
+    "o que comer antes e depois do treino",
+    "jejum intermitente serve?"
+   ],
+   "kw": [
+    "refeicoes",
+    "horarios",
+    "antes",
+    "depois",
+    "janela",
+    "anabolico",
+    "jejum",
+    "pre_treino",
+    "pos_treino"
+   ],
+   "a": "Total > timing. A 'janela anabólica de 30 min' foi exagerada: quando a proteína diária bate o alvo, o horário importa pouco (Aragon/Schoenfeld; corroborado em Morton 2018). O que faz diferença prática: 3–5 refeições com 30–40 g de proteína (leucina ≥2,5 g) e refeição pré-treino 1–3 h antes com carboidrato 0,5–1,0 g/kg; pós-treino dentro de ~2 h, com 30–40 g de proteína. Jejum intermitente: funciona para parte das pessoas como ferramenta de controle de apetite e aderência — não tem vantagem metabólica sobre restrição igual (Sacks 2009; Gardner 2018). Se você tem refluxo, histórico de transtorno alimentar ou treina cedo: jejum não é para você, e o app avisa.",
+   "refs": [
+    "Morton2018",
+    "Sacks2009",
+    "Gardner2018",
+    "Peos2021",
+    "Thomas2016"
+   ],
+   "pers": "alvos",
+   "avisos": [
+    "Gestante/lactante e histórico de transtorno alimentar: não usar jejum nem 'encaixar refeições' por conta; o app mantém as 3–5 janelas normais.",
+    "Se você usa insulina ou sulfonilureia, pular refeição ou fazer jejum prolongado pode causar hipoglicemia: ajuste com quem prescreve."
+   ]
+  },
+  {
+   "id": "sodio_pressao",
+   "q": [
+    "sal faz mal?",
+    "pressão alta o que fazer",
+    "quanto de sódio",
+    "potássio"
+   ],
+   "kw": [
+    "sodio",
+    "sal",
+    "pressao",
+    "hipertensao",
+    "potassio",
+    "tempere",
+    "saleiro"
+   ],
+   "a": "Meta: <2 000 mg de sódio (~5 g de sal) por dia — mas a maior parte vem do alimento processado, não do saleiro (OMS 2013). Alavanca mais forte: aumentar potássio com comida de verdade (leguminosas, batata-doce, banana, abacate, folhas verdes, água de coco) — meta-análise mostra −2,8 mmHg de PAS e ~11% menos AVC sem efeito colateral em rim saudável (Aburto 2013). Saleiro com potássio ajuda, exceto se você tem doença renal, usa IECA/BRA ou diurético poupador de potássio (aí, risco de hipercalemia — o app bloqueia a recomendação). Somando: reduzir bebida adoçada e embutido, dormir 7 h, treinar 3×, perder 5% do peso e limitar álcool costuma baixar PAS mais que 'cortar o sal do arroz'.",
+   "refs": [
+    "WHO2013",
+    "Aburto2013",
+    "AHA2026",
+    "Watson2015"
+   ],
+   "pers": "risco",
+   "avisos": [
+    "Sal 'light' (cloreto de potássio) é contraindicado em doença renal e no uso de IECA/BRA/espironolactona/diurético poupador de potássio — pergunte ao médico antes.",
+    "Se você toma anti-hipertensivo, cortar sódio não é motivo para reduzir/remediar a dose por conta própria."
+   ]
+  },
+  {
+   "id": "gamificacao_funciona",
+   "q": [
+    "por que o app tem nível e XP?",
+    "gamificação funciona de verdade?",
+    "para que serve streak"
+   ],
+   "kw": [
+    "xp",
+    "nivel",
+    "game",
+    "gamificacao",
+    "streak",
+    "emblema",
+    "por_que"
+   ],
+   "a": "Porque aderência é o maior preditor modificável — e a evidência de gamificação é real, mas modesta: meta-análise de ECA (Howe 2022) mostrou que pontos, níveis, desafios e rankings aumentam atividade física em magnitude pequena a moderada, com efeito maior com metas + feedback imediato + competição saudável, e queda quando os elementos somem. XP e níveis do app não são 'recompensa' fisiológica: eles transformam algo invisível (3 semanas de consistência) em algo visível, e o 'chefe' (reavaliação) força você a medir em vez de sentir. Dois avisos embutidos no design: (1) dias ruins não zeram streak (a regra dos ~66 dias e a tolerância a um 'pulo' vêm de Lally 2010); (2) se ranking te deixa mal, ative 'modo privado' — competição também tem custo.",
+   "refs": [
+    "Howe2022",
+    "Lally2010",
+    "Michie2009"
+   ],
+   "pers": "none"
+  },
+  {
+   "id": "gestante_veg",
+   "q": [
+    "dieta vegana na gravidez",
+    "gestante vegetariana",
+    "preciso de suplemento na gravidez"
+   ],
+   "kw": [
+    "gestacao",
+    "gravidez",
+    "gestante",
+    "folato",
+    "acido_folico",
+    "iodo",
+    "ferro",
+    "omega3"
+   ],
+   "a": "Posições oficiais (AND 2016; revisão de dietas veganas na gestação) afirmam que é viável com monitoramento, e a lista de obrigações cresce: ácido fólico 400 µg/d antes da concepção e no 1º trimestre (no 2º/3º e em dietas muito restritas alguns protocolos usam 600 µg — siga o obstetra), ferro (RDA gravídica 27 mg; vegetarianas multiplicadas por 1,8 e ferritina monitorada), iodo 220–290 µg (suplemento com 150 µg é padrão em vegana), B12 (≥2,6 µg/d; suplemente, não confie em fortificado), cálcio 1 000 mg, vitamina D conforme exame, ômega-3 DHA 200–300 mg (óleo de alga), colina 450 mg (ovo/lácteo ajudam; vegana: soja/brócolis + conversa com médico) e proteína +25 g/d no 2º/3º trimestre. Importante: não é um assunto para resolver sozinho com app — pré-natal com médico/nutricionista é obrigatório, e o app serve para registro e lembretes. Nunca use 'detox', retrição severa nem jejum na gestação.",
+   "refs": [
+    "AND2016",
+    "IOMB12",
+    "Rogerson2021",
+    "Hurrell2010"
+   ],
+   "pers": "risco",
+   "avisos": [
+    "gestante: encaminhar a pré-natal; o app não substitui"
+   ]
+  },
+  {
+   "id": "transicao",
+   "q": [
+    "quero virar vegetariano",
+    "como parar de comer carne",
+    "transição para dieta vegetal"
+   ],
+   "kw": [
+    "transicao",
+    "parar_de_comer_carne",
+    "virar_vegetariano",
+    "comecar",
+    "substituir",
+    "etico"
+   ],
+   "a": "Transição mais sustentável = substituições que preservam o que você gosta, não cortar tudo. Protocolo de 4 semanas do app: semana 1, mantenha a dieta e adicione 1 concha de leguminosa + 1 porção de oleaginosa por dia (para criar o 'novo' antes de tirar o 'velho'); semana 2, troque 2–3 refeições da semana (hambúrguer caseiro de feijão, chili, falafel, stroganoff de cogumelos e grão-de-bico); semana 3, troque mais 3 e adicione B12 + creatina + iodada; semana 4, avalie saciedade/energia e ajuste proteína por refeição (30–40 g). Erros comuns: ficar com 'arroz + batata + alface' (proteína 25 g/dia = fome + perda de massa magra); comer salsicha vegetal todo dia como 'compensação'; não ajustar cálcio/ferro/iodo. E se a motivação for ética, tudo bem — o app não te julga, só garante que você não fique doente no caminho.",
+   "refs": [
+    "AND2016",
+    "Rogerson2021",
+    "IOMB12",
+    "Dinu2018"
+   ],
+   "pers": "dieta"
+  },
+  {
+   "id": "veg_e_vitd_iodo_zinco",
+   "q": [
+    "o que falta em dieta vegetariana?",
+    "deficiências mais comuns sem carne",
+    "iodo e zinco"
+   ],
+   "kw": [
+    "deficiencia",
+    "iodo",
+    "zinco",
+    "selenio",
+    "vitamina_d",
+    "nutriente_critico",
+    "faltam"
+   ],
+   "a": "Os 'nutrientes críticos' com evidência razoável: B12 (vegano: quase sempre precisa suplementar), ferro (mulheres em idade fértil + atletas de endurance), cálcio e vitamina D (osso — ver Tong 2020), iodo (sem peixe/lácteo e usando sal não-iodado, a ingestão cai: RDA 150 µg), zinco (fitato reduz absorção; ×1,5 da RDA), ômega-3 EPA/DHA (conversão de ALA é limitada), selênio (2 castanhas-do-pará/d resolvem) e, em dieta muito restrita, energia/proteína e colina. Não é 'lista do pânico': 4 hábitos cobrem quase tudo — leguminosa diária + folhosas + oleaginosas; sal iodado; B12 (e creatina se você for vegano/vegetariano); e exame anual de hemograma/ferritina/B12. Coortes mostram que vegetarianos têm menos sobrecarga de ferro e mais deficiência subclínica.",
+   "refs": [
+    "Rogerson2021",
+    "AND2016",
+    "Hurrell2010",
+    "Tong2020",
+    "Bao2013"
+   ],
+   "pers": "dieta",
+   "avisos": [
+    "Gestante/lactante: iodo 220–290 µg/d e B12 são críticos e a conduta é do pré-natal.",
+    "Iodo em excesso pode piorar tireoidite de Hashimoto; zinco em dose alta por meses derruba cobre; vitamina D em megadose sem exame não é 'segura só por ser vitamina'. Doses acima do RDA: com exame e profissional."
+   ]
+  },
+  {
+   "id": "tontura_fraco",
+   "q": [
+    "sinto tontura treinando",
+    "fico fraco sem carne",
+    "bater o coração rápido depois do treino",
+    "tontura ao levantar"
+   ],
+   "kw": [
+    "tontura",
+    "fraco",
+    "moleza",
+    "coracao",
+    "taquicardia",
+    "fraqueza",
+    "desmaio"
+   ],
+   "a": "Causas comuns e benignas: hidratação/sódio baixos (especialmente em treino em calor + dieta com pouco sal), refeição pré-treino muito leve (carboidrato), cafeína em excesso, respiração malfeita com bracing (vale a manobra de Valsalva até o ponto de 'quase desmaiar' não — expire no esforço), e privação de sono. Causas que exigem avaliação: anemia/ferro baixo (muito plausível em vegetariana com menstruação intensa), arritmia, hipotensão ortostática, hipoglicemia reativa, distúrbio tireoidiano. Ação imediata do app: +500 mL de água com uma pitada de sal antes da sessão, 20–30 g de carboidrato 45–60 min antes, e reduzir 1 série por exercício por 2 semanas. Ação de saúde: hemograma + ferritina + B12 + TSH. Se houver desmaio, dor torácica, palpitação sustentada ou falta de ar desproporcional: pare e procure atendimento — não 'confie no app'.",
+   "refs": [
+    "Hurrell2010",
+    "Thomas2016",
+    "IOMB12",
+    "EFSA2010"
+   ],
+   "pers": "risco"
+  },
+  {
+   "id": "custo_veg",
+   "q": [
+    "dieta vegana é cara?",
+    "comer bem gastando pouco",
+    "proteína barata"
+   ],
+   "kw": [
+    "custo",
+    "barato",
+    "preco",
+    "economia",
+    "comida",
+    "mercado",
+    "lista_de_compras"
+   ],
+   "a": "O padrão mais barato e nutricionalmente forte no Brasil é justamente o vegetal: arroz + feijão (7–8 g de proteína/porção e ferro + fibra), ovo (se você come), sardinha em lata (cálcio + ômega-3), PTS/soja em grão (50 g de proteína/100 g de pó seco), amendoim (25 g/100), aveia, lentilha, banana, couve, abóbora, congelados de legumes. 'Vegano caro' é o de prateleira de loja de suplemento (hambúrguer de marca, 'queijo' vegano, leite de amêndoa, barrinha) — e, coincidentemente, é também o mais ultraprocessado. O app tem o módulo 'cesta' com a lista de compras e o custo médio por grama de proteína calculado: feijão/soja/amendoim costumam ganhar de whey por 5–10× em custo/proteína (e perder por conveniência).",
+   "refs": [
+    "Reynolds2019",
+    "AND2016",
+    "Guallar2013"
+   ],
+   "pers": "dieta"
+  }
+ ]
+}

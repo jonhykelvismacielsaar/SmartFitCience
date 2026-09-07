@@ -1,0 +1,23 @@
+{
+  "name": "SmartFit Science — personal + nutri de bolso",
+  "short_name": "SmartFit",
+  "description": "Prescrição de treino e dieta baseada em literatura auditada (sem patrocínio da indústria), com níveis de jogo, lembretes que não desistem e a Yayá, IA que só responde citando a fonte.",
+  "lang": "pt-BR",
+  "dir": "ltr",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#05070f",
+  "theme_color": "#05070f",
+  "categories": ["health", "fitness", "lifestyle", "education"],
+  "icons": [
+    { "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "/icon-maskable.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "Registrar copo de água", "short_name": "Água", "url": "/?aba=hoje&acao=agua", "icons": [{ "src": "/icon.svg", "sizes": "any" }] },
+    { "name": "Treino de hoje", "short_name": "Treino", "url": "/?aba=treino", "icons": [{ "src": "/icon.svg", "sizes": "any" }] },
+    { "name": "Perguntar à Yayá", "short_name": "Yayá", "url": "/?aba=yaya", "icons": [{ "src": "/icon.svg", "sizes": "any" }] }
+  ]
+}

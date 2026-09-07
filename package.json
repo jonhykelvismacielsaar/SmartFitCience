@@ -1,0 +1,35 @@
+{
+  "name": "smartfit-saude",
+  "version": "1.0.0",
+  "private": true,
+  "description": "SmartFit Science — personal trainer + nutricionista baseado em evidência (veg/omnívoro), com Yayá (IA de bolso), gamificação e comunidade.",
+  "type": "module",
+  "engines": {
+    "node": ">=22.5"
+  },
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "dev:web": "vite --host 0.0.0.0 --port 5173",
+    "dev:api": "node --disable-warning=ExperimentalWarning server/index.js",
+    "build": "vite build",
+    "preview": "npm run build && node server/index.js --serve-static",
+    "start": "node scripts/start-server.mjs",
+    "typecheck": "tsc --noEmit",
+    "smoke": "node scripts/smoke.mjs",
+    "validate": "node scripts/validate-data.mjs",
+    "test": "node --test tests/*.test.ts",
+    "check": "npm run validate && npm run typecheck && npm test"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^26.5.0",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "typescript": "^5.7.2",
+    "vite": "^5.4.11"
+  }
+}

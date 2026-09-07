@@ -1,0 +1,150 @@
+{
+  "_meta": {
+    "descricao": "Módulo de auditoria de viés comercial: como esta base foi selecionada, que tipos de tendência existem, casos documentados, e as listas usadas pelo filtro de busca científica ao vivo."
+  },
+  "metodo_selecao": {
+    "objetivo": "Dar instrução de nutrição/treino baseada apenas em literatura com baixo risco de tendência comercial, sem ignorar que 'ausência de conflito' não prova verdade.",
+    "passos": [
+      "1. Priorizamos revisões sistemáticas, meta-análises, meta-análises de rede, revisões-chuva (umbrella) e ECA grandes, porque são o nível mais alto que responde 'isso muda resultado?' e não 'isso mudou um marcador'.",
+      "2. Preferimos documentos de órgãos públicos e de sociedades sem patrocínio comercial (AHA, OMS, EFSA, NIH/IOM, WCRF/AICR) para recomendações de padrão alimentar — e lemos as declarações de conflito.",
+      "3. Todo item tem 4 campos de auditoria: financiamento declarado, conflito dos autores, risco comercial (nenhum/baixo/moderado/alto) e limitação que impede a extrapolação.",
+      "4. Fontes com risco comercial ALTO (position stands de sociedades apoiadas por marcas, estudos de fabricante) não são usadas sozinhas: entram apenas quando corroboradas por 1+ fonte independente. Exemplo: ISSN para creatina; ACSM/AND para bebidas esportivas; estudos de laticínio para 'proteína'.",
+      "5. Fontes com viés de 'agenda' (não comercial) também são sinalizadas: PCRM e grupos de defesa animal tendem a exagerar benefícios veganos; grupos de consumidores de carne e empresas de carne tendem a exagerar null results. O app mantém a direção dos achados, mas não repete a retórica de nenhum lado.",
+      "6. Excluímos automaticamente o que está retractado (campos is_retracted do OpenAlex/Crossref) e marcamos 'expression of concern'/correções.",
+      "7. Números citados aqui foram conferidos contra a fonte primária (ou resumo estruturado publicado) na montagem desta base; cada card tem botão 'abrir na fonte'.",
+      "8. Hierarquia prática adotada: padrões > nutrientes isolados > suplementos > timing. Se um achado só existe em mecanismo/célula, rotulamos E e não viramos recomendação dele."
+    ],
+    "o_que_nao_e": "Não somos uma revisão sistemática registrada (não há PROSPERO, dupla extração independente por 2 revisores ou meta-análise própria). É uma curadoria transparente, projetada para decisão individual. Para conduta clínica, nutricionista/médico com avaliação presencial é o caminho — inclusive sobre a qualidade desta curadoria.",
+    "atualizacao": "A base local tem data fixa; o botão 'buscar literatura ao vivo' consulta OpenAlex e Crossref (públicos, sem chave) e aplica o mesmo filtro, marcando a data de cada consulta."
+  },
+  "riscos_comerciais": [
+    { "nivel": "nenhum", "cor": "green", "descricao": "Financiamento exclusivamente público/institucional, autores declaram ausência de conflito, e achado replicado por revisões independentes." },
+    { "nivel": "baixo", "cor": "lime", "descricao": "Órgão ou universidade pública com algum relacionamento institucional antigo com empresas (ex.: AHA aceita doações), mas o artigo/declaração em si não foi pago por interessado no resultado." },
+    { "nivel": "moderado", "cor": "amber", "descricao": "Autores com consultorias/royalties na área, ou instituição com programa de patrocínio — mas conclusão coerente com literatura independente. Usamos com ressalva explícita." },
+    { "nivel": "alto", "cor": "red", "descricao": "Patrocínio direto de quem vende o produto/desfecho avaliado, ou sociedade cuja sustentação vem de marcas do setor. Só é usado quando corroborado — e nunca para recomendação isolada." }
+  ],
+  "casos": [
+    {
+      "id": "issn",
+      "nome": "Position stands da ISSN (suplementos esportivos)",
+      "como_dizer": "Journal of the International Society of Sports Nutrition / International Society of Sports Nutrition",
+      "o_que_aconteceu": "As 'positions' da ISSN (proteína, creatina, cafeína, beta-alanina, dietas de corte de peso) são muito citadas como 'a' referência de nutrição esportiva. A revisão de 2018 da própria ISSN lista, nos conflitos, autores que 'consultam e recebem financiamento de empresas que vendem proteína suplementar', 'recebem financiamento externo de empresas de suplementos', 'são advogados de empresas de suplementos' e um autor que é 'Chief Science Officer da Dymatize Nutrition'. A sociedade depende de patrocínios e de taxas de publicação para existir.",
+      "por_que_importa": "Isso não torna errado o que está escrito — e em creatina a conclusão está certa (há meta-análises independentes). Mas significa que uma recomendação que só existe na ISSN, e que favorece um produto, merece ceticismo (ex.: dezenas de 'ingredientes' com evidência 'fraca' que continuam no mercado por causa do selo).",
+      "o_app_faz": "Uso ISSN como apoio, nunca como única fonte. Para cada recomendação, o app exige ao menos 1 fonte sem conflito (Wax 2021, Lexchin 2003, Guallar 2013).",
+      "refs": ["Kreider2017", "Guest2021", "Helms2014", "Lexchin2003"]
+    },
+    {
+      "id": "academia_nutricao",
+      "nome": "Captura corporativa da Academy of Nutrition and Dietetics (AND)",
+      "como_dizer": "Position of the Academy of Nutrition and Dietetics",
+      "o_que_aconteceu": "Estudo em Public Health Nutrition (com documentos obtidos via leis de acesso à informação) encontrou >US$ 15 milhões de doações corporativas entre 2011 e 2013–2017 — maiores contribuintes incluíram National Dairy Council (~US$ 1,5 mi), Conagra, Abbott Nutrition/Abbott Labs, PepsiCo, Coca-Cola, Hershey — além de ações de Nestlé e PepsiCo na carteira de investimento e cursos de educação continuada oferecidos por Coca-Cola/Kraft/Nestlé. A Academia respondeu que o estudo é parcial, que menos de 3% dos investimentos são em empresas de alimentos e que nenhuma posição foi alterada por pedido de patrocinador.",
+      "por_que_importa": "É a posição que quase todo nutricionista dos EUA usa para validar dietas vegetarianas — e o documento de 2016 é, no conteúdo, conservador e correto. Mas a dependência institucional de laticínio e bebidas explica o 'não dito': quase nada sobre carne processada, quase nada sobre bebidas adoçadas, e a defesa de laticínios como única rota de cálcio em algumas edições.",
+      "o_app_faz": "A posição de 2016 aparece rotulada como 'risco moderado' e sempre pareada com evidência independente (Dinu 2018, Capodici 2024, Tong 2020, NIH/IOM).",
+      "refs": ["AND2016", "Ramirez2022", "Dinu2018", "Tong2020"]
+    },
+    {
+      "id": "gebncocacola",
+      "nome": "Global Energy Balance Network e a narrativa 'exercício > dieta'",
+      "o_que_aconteceu": "Entre 2013 e 2015 foi criado nos EUA um 'grupo de pesquisadores' promovendo a ideia de que a obesidade é problema de falta de exercício e não de bebida adoçada, com o lema 'Energy Balance'. Reportagem (NYT) e análises subsequentes revelaram financiamento da Coca-Cola via organizações intermediárias e a participação de acadêmicos de peso — que em dezembro de 2015 reconheceram ter recebido dinheiro sem saber a origem plena do fluxo; o grupo foi dissolvido. O episódio virou caso de estudo em integridade científica e em editorial na JAMA Internal Medicine sobre 'follow the money' em pesquisa de obesidade.",
+      "por_que_importa": "Exemplo didático: a 'descoberta' de que 'não importa o que você come' é exatamente a hipótese comercial de quem vende o que você come. Isso não significa que movimento não ajude (ajuda, muito — Ekelund 2019, Noetel 2024) — significa que a *inversão* da mensagem foi comprada.",
+      "o_app_faz": "O app mantém 'déficit é o motor da perda de gordura' e 'exercício é o motor da saúde/mente', sem deixar um anular o outro — as duas coisas vêm de fontes independentes.",
+      "refs": ["Gardner2018", "Sacks2009", "Ekelund2019", "Nestle2013"]
+    },
+    {
+      "id": "usana",
+      "nome": "Estudo 'multivitamínico/suplemento reduz mortalidade' (financiado por fabricante)",
+      "o_que_aconteceu": "Em 2022, um artigo em Annals of Internal Medicine (Zhang, Chopick, McCarty, Cherniack) usando NHANES associou 'uso de suplementos' a mortalidade menor. Os autores listavam vínculos com USANA Health Sciences (fabricante de suplementos) — um deles chefe científico da empresa e coautor; o estudo foi amplamente criticado por métodos (autorrelato de suplementos, prevalente usuário saudável, comparação sem randomização), e o periódico acrescentou nota do editor com as críticas. Nenhum desfecho duro mudou em ninguém por causa dele.",
+      "por_que_importa": "Mostra o padrão de leitura enviesada: 'um montão de gente que toma suplemento viveu mais' ≠ 'suplemento faz viver mais'. É o oposto do que a literatura de revisão sistemática mostra para a maioria dos suplementos em adultos bem nutridos (Guallar 2013; ACP 2019).",
+      "o_app_faz": "Todo card de suplemento no app mostra a pergunta 'isso mudou desfecho duro em quem já come bem?' — e a resposta costuma ser não, exceto para B12/creatina/vitamina D em quem tem deficiência ou demanda.",
+      "refs": ["Guallar2013", "VITAL2022", "IOMB12"]
+    },
+    {
+      "id": "nutrirecs",
+      "nome": "NutriRECS (2019): 'não mude sua carne'",
+      "o_que_aconteceu": "Cinco artigos coordenados pelo grupo NutriRECS (incluindo o Cochrane-style 'GRADE de baixo certeza') publicados em Annals of Internal Medicine recomendaram 'não reduzir' carne vermelha e processada, com base na pequena magnitude de risco relativo e na baixa certeza das coortes. Gerou cartas, respostas públicas e um comunicado de desacordo de sociedades (AHA, Harvard T.H. Chan, entre outras), além de críticas de que a mesma regra de downgrade não é aplicada a outros alimentos. Os autores declararam ausência de financiamento por indústria da carne.",
+      "por_que_importa": "É o caso mais instrutivo: viés aqui é metodológico/interpretativo, não necessariamente comprado. Ensina que 'baixa certeza' ≠ 'seguro', e que a decisão de saúde usa a direção consistente da evidência (IARC/WCRF), o custo de oportunidade (o que você come no lugar) e a dose — não o rótulo de certeza isolado.",
+      "o_app_faz": "No card de carne vermelha, o app mostra as duas leituras lado a lado (IARC/WCRF vs NutriRECS) e diz qual padrão recomenda, com o 'porquê' explicitado.",
+      "refs": ["Bouvard2015", "WCRF2018", "Huang2020", "Lexchin2003"]
+    },
+    {
+      "id": "hidratacao_industria",
+      "nome": "Indústria de bebidas e a 'ciência da hidratação'",
+      "o_que_aconteceu": "Recomendações de 'beba 2–3 L de água pura', 'bebida esportiva para todo treino' e 'hidrate antes da sede' vieram de uma mistura de fisiologia de endurance (válida para atletas em calor, >60–90 min) com marketing. A literatura de equilíbrio hídrico mostra que a sede é um regulador adequado para a maioria dos adultos em vida cotidiana, e o EFSA fixou IA total (não 'X litros de água') em 2,5/2,0 L. Estudos sobre adoçante não calórico/hidratação têm histórico de patrocínio de fabricantes de bebidas e edulcorantes.",
+      "por_que_importa": "Serve para o app vender o oposto de 'meta de água punitiva' e para o usuário não comprar garrafa com marca, 'eletrólito' de academia de 40 min ou 'kit hidratação'.",
+      "o_app_faz": "Meta calculada por peso + suor + clima, lembretes que só param quando você confirma, cor da urina como controle (não como obsessão), e eletrólito recomendado apenas em sessão longa/calor intenso.",
+      "refs": ["EFSA2010", "Thomas2016", "Dennis2010", "Lane2024"]
+    },
+    {
+      "id": "ilsi",
+      "nome": "ILSI (International Life Sciences Institute) — a 'ONG' da indústria",
+      "o_que_aconteceu": "O ILSI é financiado majoritariamente por empresas de alimentos, bebidas e agroquímicos, publica revisões e 'consensos' e organiza simpósios; análises acadêmicas e reportagens documentaram sua atuação em torno de diretrizes (sódio, adoçantes, rotulagem, atividade física) e em comitês de avaliação de dietas. Casos de autores de comitês com vínculo simultâneo a ILSI e a agências regulatórias geraram renúncias e revisões de processo.",
+      "por_que_importa": "Quando um resumo 'institucional' cita 'consenso científico', pergunte quem financiou a instituição que produziu o consenso. O app faz isso automaticamente na busca ao vivo (campo funder).",
+      "o_app_faz": "ILSI, 'Global Beef / Beef Initiative', 'Institute of Food Technologists (parcerias específicas)' e nomes parecidos estão na lista de bloqueio de recomendação da busca, que sinaliza o artigo em vez de usá-lo.",
+      "refs": ["Nestle2013", "Lexchin2003"]
+    },
+    {
+      "id": "lowcarb_vegan_hype",
+      "nome": "Viés ideológico (não comercial) dos dois lados",
+      "o_que_aconteceu": "Tanto o marketing 'low carb/cetogênico' (editoras, marcas de manteiga, 'carnes de pastagem' com selos) quanto o marketing 'plant-based' (livros, documentários, startups de proteína vegetal, PCRM e PETA) produzem narrativas que exageram efeitos e escolhem os estudos favoráveis. Exemplo clássico de má leitura: o estudo que usou randomization mendeliana para dizer que 'evitar carne aumenta risco de depressão' (pequenas amostras, variantes instrumentais fracas, desfecho por autorrelato) — que virou manchete e não se sustentou.",
+      "por_que_importa": "O usuário pediu 'artigos não tendenciosos'. Viés não é só dinheiro: é também ideologia, seleção de desfechos, e a pressa do periódico em publicar resultado bonito.",
+      "o_app_faz": "Os planos e as metas vêm só de evidência A/B com direção consistente; a 'aba Ciência' mostra o número bruto, a certeza (GRADE), a direção oposta e o aviso de 'não interprete isto como causa'.",
+      "refs": ["Guyatt2008GRADE", "Dinu2018", "Sacks2009", "Gardner2018"]
+    }
+  ],
+  "taticas_comerciais": [
+    { "id": "t1", "nome": "Marcador substituto", "como": "Trocar desfecho duro (infarto, câncer, morte) por LDL, citocina, 'inflamação', microbiota, ou espessura cortical — e anunciar como se fosse saúde.", "defesa": "Pergunte 'que desfecho foi medido e por quanto tempo?'. No app, cards sem desfecho duro aparecem com selo E." },
+    { "id": "t2", "nome": "Autoridade emprestada", "como": "Citar universidade/revista (que não endossa o achado) ou colocar um autor famoso com conflito como 'especialista'.", "defesa": "Ler conflitos e financiamento. O app mostra os dois." },
+    { "id": "t3", "nome": "Risco relativo sem base", "como": "'+18% de câncer!' sem dizer que é de ~5% para ~5,9%.", "defesa": "Sempre pedir risco absoluto e número necessário para causar dano/benefício (o app calcula quando possível)." },
+    { "id": "t4", "nome": "Estudo em animais/células virando protocolo humano", "como": "Dose absurda em camundongo extrapolada para 'capsula X 2/dia'.", "defesa": "Evidência E não gera conduta no app (só hipótese)." },
+    { "id": "t5", "nome": "Consenso comprado", "como": "Painel organizado pela associação de setor com a 'ciência' de apoio.", "defesa": "Ver quem organizou, quem pagou, quem assinou; comparar com painel público (OMS, AHA, WCRF)." },
+    { "id": "t6", "nome": "Publicidade por 'patrocínio de pesquisa'", "como": "Criar institutos/fundos e dar bolsas para grupos influentes, sem vínculo direto com o artigo.", "defesa": "Rastrear funding statement + afiliações + histórico de declarações do autor (o app faz busca de 'conflitos' na busca ao vivo via OpenAlex grants)." },
+    { "id": "t7", "nome": "Chamada 'natural' ou 'sem química'", "como": "'Sem açúcar', 'zero químico', 'com colágeno hidrolisado' — apelo à natureza em vez de evidência.", "defesa": "Nada no app recomenda por 'ser natural'. Colágeno para pele/articulação: evidência limitada e frequentemente patrocinada." },
+    { "id": "t8", "nome": "Ancoragem em um único ECA", "como": "'Um estudo mostrou' sem replicação.", "defesa": "O app só recomenda com ≥2 fontes independentes ou meta-análise (A/B)." }
+  ],
+  "listas_filtro": {
+    "bloqueio_recomendacao": {
+      "descricao": "Financiadores/trade bodies que, quando presentes em 'grants/funding', fazem o app NÃO usar o artigo como base de recomendação (marca em vermelho e oferece leitura como contexto).",
+      "padroes": ["Coca-Cola", "PepsiCo", "Keurig Dr Pepper", "Nestle", "Nestlé", "Mondelez", "Kraft Heinz", "General Mills", "Kellogg", "Conagra", "Tyson Foods", "Cargill", "ADM", "Archer Daniels Midland", "Bunge", "BRF", "JBS", "Marfrig", "Minerva", "Searle", "Abbott Nutrition", "Abbott Laboratories", "Nutricia", "Danone", "Fonterra", "Arla", "FrieslandCampina", "NIZO", "Wageningen Food", "Ajinomoto", "DSM", "BASF", "Givaudan", "IFF", "Kerry Group", "Ingredion", "Tate & Lyle", "Sugar Association", "Sugar Association (US)", "Sugar Industry", "ILSI", "International Life Sciences Institute", "Global Beef", "National Cattlemen's Beef Association", "North American Meat Institute", "Meat Institute", "National Pork Board", "USA Poultry", "National Dairy Council", "Dairy Management", "Institute of Food Technologists", "Gatorade Sports Science Institute", "PepsiCo Nutrition", "USANA", "Herbalife", "Amway", "Nuskin", "Nu Skin", "Glanbia", "Fonterra Brands", "Arla Foods", "Dymatize", "Optimum Nutrition", "MuscleTech", "Myprotein", "Ehp Laboratories", "BSN", "Beverage Institute", "Calorie Control Council", "Aspartame Safety Board", "Artificial Sweetener Association", "Popcorn Board", "Popcorn Institute", "Peanut Institute", "California Prune Council", "Almond Board"]
+    },
+    "sinalizacao_observacao": {
+      "descricao": "Não invalida por si, mas o app avisa e procura corroboração independente.",
+      "padroes": ["National Cattlemen's Beef Association", "Dairy Council of California", "Eggs Nutrition Center", "Institute of Food Technologists", "Snack Foods", "Food Industry Association", "American Beverage Association", "Fundação/Instituto de marca de suplemento", "GSSI", "Nutricia Research"]
+    },
+    "preferencia_publicos": {
+      "descricao": "Financiadores que aumentam a confiança na isenção comercial do resultado.",
+      "padroes": ["NIH", "National Institutes of Health", "NCI", "NIDDK", "Wellcome", "MRC", "UKRI", "FAPESP", "CNPq", "CAPES", "Conselho Nacional", "European Commission", "Horizon", "DFG", "NWO", "Research Foundation Flanders", "CIHR", "Canadian Institutes of Health Research", "Heart and Stroke Foundation", "Heart Foundation", "Cancer Research UK", "World Cancer Research Fund", "AICR", "American Heart Association (institucional)", "Fundação de Amparo", "Ministério da Saúde", "SUS/PDP", "Bill & Melinda Gates Foundation", "Robert Wood Johnson", "Intramural (NIH)"]
+    },
+    "tipos_desenho_peso": {
+      "meta-analysis": 1.0, "systematic-review": 0.92, "randomized controlled trial": 0.9, "controlled clinical trial": 0.7, "clinical trial": 0.7, "cohort study": 0.55, "observational study": 0.4, "review": 0.4, "editorial/material": 0.25, "journal-article": 0.35
+    },
+    "desenhos_boas_praticas": ["meta-analysis", "systematic review", "umbrella review", "overview of systematic reviews", "prisma", "registered protocol", "individual participant data meta-analysis"]
+  },
+  "mitos": [
+    { "id": "m_metabolismo_lento", "titulo": "'Meu metabolismo é lento'", "realidade": "A adaptação ao déficit é real (Thomas 2012) mas a magnitude individual raramente explica 'não perder peso': o que explica é estimativa de ingestão (20–40% subestimada) e aderência. Diagnóstico de 'metabolismo lento' exige TSH/altra investigação, não 'termogênico'.", "refs": ["Thomas2012", "Guallar2013", "Mifflin1990"] },
+    { "id": "m_detox", "titulo": "'Preciso desintoxicar / limpar o fígado'", "realidade": "Fígado e rim fazem; chás/sucos 'detox' são laxativos ou diuréticos. Nenhuma revisão independente mostra benefício em desfecho duro, e há relatos de dano hepático por chás de 'emagrecedor'.", "refs": ["Guallar2013"] },
+    { "id": "m_alcalino", "titulo": "'Dieta alcalina/ pH do sangue'", "realidade": "pH sanguíneo é regulado (7,35–7,45) e o que você come não muda — muda a urina, que é só excreção de ácidos. Nada de benefícios em câncer/obesidade em revisões independentes.", "refs": ["Guallar2013", "Reynolds2019"] },
+    { "id": "m_gluten_leite", "titulo": "'Glúten e leite inflamam'", "realidade": "Doença celíaca (~1% da população) e alergia à proteína do leite são condições reais; em pessoas sem elas, retirar glúten não melhora marcadores inflamatórios nem desempenho (ensaios cegos com desafio cruzado). Leite integral: o problema é a gordura saturada no padrão global, não 'inflamação mística'.", "refs": ["Gardner2018", "AHA2026", "Lane2024"] },
+    { "id": "m_carne_soja", "titulo": "'Sem carne você fica fraco/anêmico'", "realidade": "Sem B12 e ferro você fica em risco, sim — e isso é 100% corrigível com plano. Força e massa não diferem com dose igual de proteína vegetal (Hamarshee 2023, Tabri 2019). AHS-2: veganos com IMC menor e menos síndrome metabólica.", "refs": ["Hamarshee2023", "Tabri2019", "Tonstad2009", "IOMB12", "Hurrell2010"] },
+    { "id": "m_soja_masculino", "titulo": "'Soja afeminiza'", "realidade": "Meta-análise com 41 ECA + 18 coortes: nenhum efeito em testosterona, SHBG, estradiol ou sêmen (Reed 2021). O mito é alimentado por 1 caso extremo e por marcas de 'test booster'.", "refs": ["Reed2021"] },
+    { "id": "m_proteina_limite_rim", "titulo": "'2 g de proteína destrói o rim'", "realidade": "Em rins saudáveis, não há evidência de dano (inclusive com creatina); em DRC, a dose é assunto do nefrologista (o app bloqueia meta alta e avisa).", "refs": ["Kreider2017", "Morton2018", "Helms2014"] },
+    { "id": "m_janela_anabolica", "titulo": "'Se não beber o shake em 30 min, perdi o treino'", "realidade": "O que importa é o total do dia; refeição proteica em 1–2 h pré ou pós treino é suficiente (Morton 2018; Thomas 2016).", "refs": ["Morton2018", "Thomas2016"] },
+    { "id": "m_10000_passos", "titulo": "'10 mil passos ou nada'", "realidade": "O número '10 000' veio de um medidor comercial japonês dos anos 60, não de evidência. Benefício grande aparece em 4 000–7 000; platô por volta de 8–10 mil (<60 anos) e 6–8 mil (60+) (Paluch 2022/2025).", "refs": ["Paluch2025", "Ekelund2019"] },
+    { "id": "m_zumba_danca_queima_mais", "titulo": "'Suar mais = perder mais'", "realidade": "Gasto de curto prazo é pequeno comparado ao déficit alimentar e ao NEAT; a 'queima' de pós-treino (EPOC) é de ~6–15% do gasto da sessão. Intensidade alta importa para VO2max e humor (Noetel 2024, Milanovic 2015), não para emagrecimento por si.", "refs": ["Milanovic2015", "Ekelund2019", "Thomas2012"] },
+    { "id": "m_colageno", "titulo": "'Colágeno para pele/articulação'", "realidade": "Há sinais pequenos em peptídeos bioativos para hidratação/elasticidade e tendinopatia, mas muitos ensaios são patrocinados por fabricantes de colágeno e os desfechos são cosméticos. Colágeno não é proteína completa (pobre em triptofano) e não serve como fonte proteica principal — hidrolisado ingerido é digerido em aminoácidos como qualquer proteína.", "refs": ["Guallar2013", "Lexchin2003", "Clarys2014"] },
+    { "id": "m_ovo_colesterol", "titulo": "'Ovo entope artéria'", "realidade": "1–2 ovos/dia em dieta com pouca saturada não pioram desfechos na maioria (a AHA 2026 'permite ovo moderado'); o sinal aparece em padrões com bacon/pão branco e em subgrupos (diabetes, hiper-respondedores). Para quem quer B12/colina/leucina com custo baixo, ovo é ótimo.", "refs": ["AHA2026", "AHA2021", "Huang2020"] },
+    { "id": "m_dieta_veg_crianca", "titulo": "'Criança não pode ser vegana'", "realidade": "Posições oficiais (AND 2016) dizem que sim, com planejamento — e a prática mostra risco real de deficiência de energia, B12, ferro, zinco, iodo e vitamina D quando a dieta é 'a comida dos pais sem carne'. Ou seja: é possível, mas não espontânea.", "refs": ["AND2016", "IOMB12", "Rogerson2021"] },
+    { "id": "m_beber_comida_gorda", "titulo": "'Beber água na refeição dilui o suco gástrico'", "realidade": "Não dilui nada clinicamente relevante; beber água antes da refeição aumenta saciedade e ajuda déficit (Dennis 2010).", "refs": ["Dennis2010"] }
+  ],
+  "modulos_extra": [
+    { "id": "cesta", "nome": "Cesta & custo-proteína", "descricao": "Lista de compras gerada do plano da semana (por grupo alimentar) + ranking de custo por grama de proteína e por grama de leucina. Ajusta por 'veg' e por orçamento." },
+    { "id": "cozinha", "nome": "Kit de 12 preparações", "descricao": "Bases prontas (grão-de-bico assado, 'carne' de soja temperada, molhos, pasta de amendoim, overnight oats) com validade na geladeira/freezer para montar refeições em 10 min e fechar proteína por refeição." },
+    { "id": "viagem", "nome": "Modo restaurante/hotel/posto", "descricao": "Receita de decisão: onde pedir comendo carne e onde pedir sem (combo de proteína + leguminosa + vegetal), 'menu de hotel' para não voltar da viagem com 4 refeições de 'pão e frios', e o que levar na mala." },
+    { "id": "emergencia_fome", "nome": "Protocolo de compulsão", "descricao": "O que fazer na hora (5 passos de ancoragem + plano de refeição de resgate sem punição), gatilhos registrados, e um aviso: se há 3 episódios/semana há 3 meses, o caminho é profissional (TCC-EAN).", "refs": ["Gardner2018", "Sacks2009"] },
+    { "id": "saude_masculina", "nome": "Painel hormônio/sono/estresse", "descricao": "Não para 'testosterona booster': sono, força, IMC, álcool, tempo sentado. Inclui checagem de libido/fadiga como sinal de exame (não de suplemento).", "refs": ["Leproux2011", "Nedeltcheva2010", "Goyal2014"] },
+    { "id": "saude_feminina", "nome": "Ciclo, ferro e ossos", "descricao": "Ajustes de treino/energia por fase do ciclo (heurística, não 'biohacking'), monitor de menstruação intensa → ferritina, e protocolo de osso para quem não come lácteo.", "refs": ["Hurrell2010", "Tong2020", "GarciaHermoso2018"] },
+    { "id": "envelhecer", "nome": "Módulo 45+ / 60+", "descricao": "Proteína 1,4–1,8 g/kg com mínimo 35 g/refeição, leucina ≥3 g, força 2×/semana + equilíbrio + potência (pliometria adaptada), vitamina D e cálcio, e meta de passos. Justificado por resistência anabólica e mortalidade por força (Bauer 2013; García-Hermoso 2018).", "refs": ["Bauer2013", "GarciaHermoso2018", "VITAL2022", "Tong2020"] },
+    { "id": "mente_paz", "nome": "Protocolo 'mente em paz, corpo leve'", "descricao": "Rotina diária de 4 alavancas (sol de manhã, caminhada 20 min, 5 min respiração, tela fora do quarto) + alerta de sobrecarga de treino e de sono baixo. Base: Noetel 2024, Goyal 2014, Watson 2015.", "refs": ["Noetel2024", "Goyal2014", "Watson2015", "Schuch2018"] },
+    { "id": "social", "nome": "Clube, desafios e 'duelo'", "descricao": "Feed com check-ins (opcional com foto), perfil público mostrando tipo de dieta e nível, ranking do clã, desafio semanal de 14 dias e 'duelo' de aderência — com modo privado e sem 'like' público em foto de corpo (só em evolução medida)." },
+    { "id": "laboratorio", "nome": "Laboratório pessoal", "descricao": "Comparação de suas medidas (força estimada 1RM, cintura, peso, %gordura por dobras/naval, VO2 estimado por teste de 1 milha/step) ao longo do tempo com gráficos e predição de tendência." }
+  ]
+}
