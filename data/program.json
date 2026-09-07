@@ -1,0 +1,1755 @@
+{
+ "_meta": {
+  "descricao": "Estrutura de progressão tipo jogo: níveis, XP, programas de treino por nível com deload e desbloqueio, missões, emblemas e 'chefes' (reavaliações). Cada regra de treino referencia a base científica (ids em data/sources).",
+  "progressao": "dupla progressão: dentro da faixa de reps, subir carga quando todas as séries fecham no RIR alvo; ao fechar o topo da faixa, reinicia-se no fundo da faixa com +2,5-5% de carga (ver Schoenfeld2017, Lopez2021, Refalo2023)."
+ },
+ "regras_xp": {
+  "série_concluída": {
+   "base": 10,
+   "bônus_por_série_valida": 1,
+   "cap_por_sessao": 90,
+   "xp_regra": "XP = séries válidas × 10 + bônus (técnica 15, amplitude 10, RIR dentro da meta 5). Sessão completa de força dá ~45-90 XP."
+  },
+  "treino_cardio": "XP = minutos × 1,2 (cap 60) + 15 se sessão estruturada (intervalada/bloco de Z2 ≥30 min)",
+  "agua_copo": "6 XP por copo de 250 ml registrado, cap 48 XP/dia (impede 'grind' de água)",
+  "refeicao_registrada": 8,
+  "meta_proteina_batida": 25,
+  "meta_fibra_batida": 18,
+  "sono_ok": "16 XP se ≥7 h; 24 se ≥7,5 h e dentro da janela ±45 min",
+  "mindfulness": "10 XP por sessão de 5 min (cap 20/dia)",
+  "checkin_foto": 12,
+  "missao_diaria": "bônus de 30 XP quando todas as 4 quests do dia fecham",
+  "streak_mult": "1.0 (0-2d) → 1.15 (3-6) → 1.3 (7-13) → 1.5 (14-29) → 1.7 (30+). Um dia de pausa por semana não zera a streak (Lally2010).",
+  "penalidade": "XP não cai por dias ruins. Sem streak quebrada = só volta o multiplicador a 1.0 (evitar punição que gera abandono)."
+ },
+ "níveis": [
+  {
+   "n": 0,
+   "nome": "Descoberta",
+   "xp": 0,
+   "titulo": "Calibrando o corpo",
+   "unlocked": [
+    "prog_adaptacao",
+    "checkin_basico",
+    "yaya_completo",
+    "biblioteca"
+   ],
+   "mensagem": "Nível 0 existe para criar o hábito com carga técnica. Não é 'treino fraco': é o treino que faz você chegar ao nível 3 sem lesão."
+  },
+  {
+   "n": 1,
+   "nome": "Fundação",
+   "xp": 260,
+   "titulo": "Adaptação neural",
+   "unlocked": [
+    "prog_fullbody_3x",
+    "mobilidade",
+    "diario_alimentar"
+   ],
+   "mensagem": "Ganhos das primeiras 6-8 semanas são majoritariamente neurais (Folland2006). Julgue por técnica e carga, não por espelho."
+  },
+  {
+   "n": 2,
+   "nome": "Construtor",
+   "xp": 700,
+   "titulo": "Volume progressivo",
+   "unlocked": [
+    "prog_upper_lower_4x",
+    "agua_smart",
+    "foto_progresso"
+   ],
+   "mensagem": "Aqui entra a meta de volume: 8-12 séries/semana por grupo muscular (Schoenfeld2017)."
+  },
+  {
+   "n": 3,
+   "nome": "Arquiteto",
+   "xp": 1500,
+   "titulo": "Método com plano",
+   "unlocked": [
+    "substituicoes_livres",
+    "refeds",
+    "suplementos_basico"
+   ],
+   "mensagem": "Desbloqueia creatina/B12/ômega-3 no protocolo, refeed e ajustes finos de carboidrato."
+  },
+  {
+   "n": 4,
+   "nome": "Atleta",
+   "xp": 2600,
+   "titulo": "Intensidade e método",
+   "unlocked": [
+    "prog_ppl_5x",
+    "bloco_hiit",
+    "carga_aguda_cronica"
+   ],
+   "mensagem": "Agora sim: intervalados, séries com drop e gestão de carga (Claudino2020, Milanovic2015)."
+  },
+  {
+   "n": 5,
+   "nome": "Forja",
+   "xp": 4200,
+   "titulo": "Bloco de força",
+   "unlocked": [
+    "prog_forca_5_3_1",
+    "periodizacao_ondulante"
+   ],
+   "mensagem": "Trabalho em 3-6 reps com descanso 2-3 min (BazValle2022) — hipertrofia não some, ela espera."
+  },
+  {
+   "n": 6,
+   "nome": "Escultor",
+   "xp": 6400,
+   "titulo": "Prioridades e fraquezas",
+   "unlocked": [
+    "prog_arnold_ppl",
+    "micro_ajustes"
+   ],
+   "mensagem": "Personalização real: você escolhe 1 grupo prioritário e o app redistribui volume."
+  },
+  {
+   "n": 7,
+   "nome": "Pico",
+   "xp": 9500,
+   "titulo": "Performance",
+   "unlocked": [
+    "prog_pico",
+    "teste_vo2_campo",
+    "nutricao_periodizada"
+   ],
+   "mensagem": "Periodização de carboidrato em torno das sessões (Peos2021), pliometria, sprints."
+  },
+  {
+   "n": 8,
+   "nome": "Mestre de Si",
+   "xp": 14000,
+   "titulo": "Manutenção e ensino",
+   "unlocked": [
+    "mentor",
+    "compartilhar_blocos"
+   ],
+   "mensagem": "Você passa a treinar para não perder: volume menor, intensidade e aderência máximas — e pode publicar blocos para a comunidade."
+  },
+  {
+   "n": 9,
+   "nome": "Lenda do Hábito",
+   "xp": 21000,
+   "titulo": "Identidade",
+   "unlocked": [
+    "trofeu_final",
+    "modo_treinador"
+   ],
+   "mensagem": "O nível alto não é sobre físico. É sobre 1 000 decisões pequenas que ninguém vê."
+  }
+ ],
+ "programas": [
+  {
+   "id": "prog_adaptacao",
+   "nome": "Adaptação (3 dias, corpo todo)",
+   "min_nivel": 0,
+   "dias": 3,
+   "dur_min": 32,
+   "eq": [
+    "casa",
+    "halter",
+    "peso_corporal"
+   ],
+   "foco": "aprender padrão motor + criar hábito",
+   "bloco": {
+    "semanas": 4,
+    "deload": "semana 4 opcional (menos 1 série por exercício)",
+    "progressao": "adicionar 1 série por exercício na semana 2 e 3; na semana 4 manter e subir carga se RIR ≥3"
+   },
+   "sessoes": [
+    {
+     "id": "A",
+     "nome": "Empurrar + Pernas + Core",
+     "exercicios": [
+      {
+       "ex": "squat_goblet",
+       "series": 3,
+       "reps": "10-12",
+       "rir": 3,
+       "descanso": 90
+      },
+      {
+       "ex": "flexao",
+       "series": 3,
+       "reps": "6-12",
+       "rir": 3,
+       "descanso": 90
+      },
+      {
+       "ex": "ponte_unilateral",
+       "series": 2,
+       "reps": "12",
+       "rir": 2,
+       "descanso": 60
+      },
+      {
+       "ex": "elevacao_lateral",
+       "series": 2,
+       "reps": "12-15",
+       "rir": 2,
+       "descanso": 60
+      },
+      {
+       "ex": "prancha",
+       "series": 3,
+       "tempo": "20-30 s",
+       "rir": "n/a",
+       "descanso": 45
+      }
+     ]
+    },
+    {
+     "id": "B",
+     "nome": "Puxar + Dobradiça + Core",
+     "exercicios": [
+      {
+       "ex": "bom_dia_progressao",
+       "series": 3,
+       "reps": "10",
+       "rir": 3,
+       "descanso": 90
+      },
+      {
+       "ex": "remada_serrote",
+       "series": 3,
+       "reps": "10-12",
+       "rir": 2,
+       "descanso": 90
+      },
+      {
+       "ex": "face_pull",
+       "series": 3,
+       "reps": "15",
+       "rir": 2,
+       "descanso": 60
+      },
+      {
+       "ex": "deadbug",
+       "series": 3,
+       "reps": "8/lado",
+       "rir": "n/a",
+       "descanso": 45
+      },
+      {
+       "ex": "panturrilha_em_pe",
+       "series": 2,
+       "reps": "15",
+       "rir": 1,
+       "descanso": 45
+      }
+     ]
+    },
+    {
+     "id": "C",
+     "nome": "Corpo todo (metabólico leve)",
+     "exercicios": [
+      {
+       "ex": "afundo",
+       "series": 3,
+       "reps": "10/perna",
+       "rir": 3,
+       "descanso": 75
+      },
+      {
+       "ex": "banquinta_supino",
+       "series": 3,
+       "reps": "10-12",
+       "rir": 2,
+       "descanso": 90
+      },
+      {
+       "ex": "bird_dog",
+       "series": 3,
+       "reps": "8/lado",
+       "rir": "n/a",
+       "descanso": 45
+      },
+      {
+       "ex": "farmer_carry",
+       "series": 3,
+       "tempo": "30 s",
+       "rir": "n/a",
+       "descanso": 60
+      },
+      {
+       "ex": "bike_ergometro",
+       "series": 1,
+       "tempo": "10 min RPE 5",
+       "rir": "n/a"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "prog_fullbody_3x",
+   "nome": "Full Body 3× (hipertrofia base)",
+   "min_nivel": 1,
+   "dias": 3,
+   "dur_min": 45,
+   "eq": [
+    "academia",
+    "halter",
+    "barra"
+   ],
+   "foco": "10-12 séries/semana por grupo",
+   "bloco": {
+    "semanas": 6,
+    "deload": "semana 6: −30% de séries, carga mantida",
+    "progressao": "dupla progressão por exercício; +2,5-5% carga ao fechar o topo da faixa"
+   },
+   "sessoes": [
+    {
+     "id": "A",
+     "nome": "Perna dom. joelho + Push + Puxa",
+     "exercicios": [
+      {
+       "ex": "squat_goblet",
+       "series": 4,
+       "reps": "8-12",
+       "rir": 2,
+       "descanso": 150
+      },
+      {
+       "ex": "banquinta_supino",
+       "series": 4,
+       "reps": "8-12",
+       "rir": 2,
+       "descanso": 120
+      },
+      {
+       "ex": "remada_maq",
+       "series": 3,
+       "reps": "10-12",
+       "rir": 1,
+       "descanso": 100
+      },
+      {
+       "ex": "elevacao_lateral",
+       "series": 3,
+       "reps": "12-15",
+       "rir": 0,
+       "descanso": 60
+      },
+      {
+       "ex": "prancha",
+       "series": 3,
+       "tempo": "30-45 s",
+       "descanso": 45
+      }
+     ]
+    },
+    {
+     "id": "B",
+     "nome": "Dobradiça + Vertical",
+     "exercicios": [
+      {
+       "ex": "stiff",
+       "series": 4,
+       "reps": "8-10",
+       "rir": 3,
+       "descanso": 150
+      },
+      {
+       "ex": "desenvolvimento",
+       "series": 4,
+       "reps": "8-12",
+       "rir": 2,
+       "descanso": 120
+      },
+      {
+       "ex": "pulldown",
+       "series": 4,
+       "reps": "8-12",
+       "rir": 1,
+       "descanso": 120
+      },
+      {
+       "ex": "panturrilha_em_pe",
+       "series": 3,
+       "reps": "12-15",
+       "rir": 0,
+       "descanso": 60
+      },
+      {
+       "ex": "deadbug",
+       "series": 3,
+       "reps": "8/lado",
+       "descanso": 45
+      }
+     ]
+    },
+    {
+     "id": "C",
+     "nome": "Unilateral + Braços",
+     "exercicios": [
+      {
+       "ex": "bulgaro",
+       "series": 3,
+       "reps": "8-12",
+       "rir": 2,
+       "descanso": 120
+      },
+      {
+       "ex": "mesa_flexora",
+       "series": 3,
+       "reps": "10-12",
+       "rir": 1,
+       "descanso": 90
+      },
+      {
+       "ex": "flexao_aberta",
+       "series": 3,
+       "reps": "10-15",
+       "rir": 1,
+       "descanso": 90
+      },
+      {
+       "ex": "rosca_direta",
+       "series": 3,
+       "reps": "10-12",
+       "rir": 0,
+       "descanso": 60
+      },
+      {
+       "ex": "triceps_polia",
+       "series": 3,
+       "reps": "10-12",
+       "rir": 0,
+       "descanso": 60
+      },
+      {
+       "ex": "corrida_leve",
+       "series": 1,
+       "tempo": "12-18 min RPE 5",
+       "descanso": 0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "prog_upper_lower_4x",
+   "nome": "Upper/Lower 4×",
+   "min_nivel": 2,
+   "dias": 4,
+   "dur_min": 55,
+   "eq": [
+    "academia",
+    "halter",
+    "barra"
+   ],
+   "foco": "2× por grupo com mais volume (12-16 séries)",
+   "bloco": {
+    "semanas": 8,
+    "deload": "semana 8 (−30% séries) e micro-reload na semana 5 (−1 série por exercício)",
+    "progressao": "cargas anotadas por exercício; subir carga no 1º exercício quando RIR ≥3 em todas as séries"
+   },
+   "sessoes": [
+    {
+     "id": "U1",
+     "nome": "Upper força",
+     "exercicios": [
+      {
+       "ex": "supino_barra",
+       "series": 4,
+       "reps": "5-8",
+       "rir": 2,
+       "descanso": 180
+      },
+      {
+       "ex": "barra_fixa",
+       "series": 4,
+       "reps": "6-10",
+       "rir": 2,
+       "descanso": 180,
+       "swap": [
+        "barra_fixa_elastico",
+        "pulldown"
+       ]
+      },
+      {
+       "ex": "remada_curvada",
+       "series": 3,
+       "reps": "8-10",
+       "rir": 2,
+       "descanso": 120
+      },
+      {
+       "ex": "desenvolvimento_maq",
+       "series": 3,
+       "reps": "10-12",
+       "rir": 1,
+       "descanso": 100
+      },
+      {
+       "ex": "face_pull",
+       "series": 3,
+       "reps": "15-20",
+       "rir": 1,
+       "descanso": 60
+      },
+      {
+       "ex": "rosca_martelo",
+       "series": 2,
+       "reps": "12",
+       "rir": 0,
+       "descanso": 60
+      }
+     ]
+    },
+    {
+     "id": "L1",
+     "nome": "Lower força",
+     "exercicios": [
+      {
+       "ex": "squat_livre",
+       "series": 4,
+       "reps": "5-8",
+       "rir": 3,
+       "descanso": 180,
+       "swap": [
+        "squat_goblet",
+        "hack_levanta",
+        "leg_press"
+       ]
+      },
+      {
+       "ex": "hip_thrust",
+       "series": 3,
+       "reps": "10-12",
+       "rir": 1,
+       "descanso": 120
+      },
+      {
+       "ex": "mesa_flexora",
+       "series": 3,
+       "reps": "10-12",
+       "rir": 1,
+       "descanso": 100
+      },
+      {
+       "ex": "panturrilha_sentado",
+       "series": 3,
+       "reps": "12-15",
+       "rir": 0,
+       "descanso": 60
+      },
+      {
+       "ex": "pallof",
+       "series": 3,
+       "reps": "8/lado",
+       "descanso": 60
+      }
+     ]
+    },
+    {
+     "id": "U2",
+     "nome": "Upper volume",
+     "exercicios": [
+      {
+       "ex": "banquinta_supino",
+       "series": 3,
+       "reps": "10-15",
+       "rir": 1,
+       "descanso": 100
+      },
+      {
+       "ex": "remada_serrote",
+       "series": 3,
+       "reps": "10-12",
+       "rir": 1,
+       "descanso": 100
+      },
+      {
+       "ex": "crucifixo",
+       "series": 3,
+       "reps": "12-15",
+       "rir": 0,
+       "descanso": 75
+      },
+      {
+       "ex": "pulldown",
+       "series": 3,
+       "reps": "12-15",
+       "rir": 0,
+       "descanso": 75
+      },
+      {
+       "ex": "elevacao_lateral_polia",
+       "series": 3,
+       "reps": "15",
+       "rir": 0,
+       "descanso": 60
+      },
+      {
+       "ex": "triceps_testa",
+       "series": 2,
+       "reps": "12-15",
+       "rir": 0,
+       "descanso": 60
+      },
+      {
+       "ex": "rosca_scott",
+       "series": 2,
+       "reps": "12-15",
+       "rir": 0,
+       "descanso": 60
+      }
+     ]
+    },
+    {
+     "id": "L2",
+     "nome": "Lower + condicionamento",
+     "exercicios": [
+      {
+       "ex": "bulgaro",
+       "series": 3,
+       "reps": "10-12",
+       "rir": 2,
+       "descanso": 120
+      },
+      {
+       "ex": "stiff_unilateral",
+       "series": 3,
+       "reps": "10-12",
+       "rir": 2,
+       "descanso": 100
+      },
+      {
+       "ex": "cadeira_extensora",
+       "series": 3,
+       "reps": "12-15",
+       "rir": 0,
+       "descanso": 75
+      },
+      {
+       "ex": "ponte_no_cabo",
+       "series": 3,
+       "reps": "12-15",
+       "rir": 0,
+       "descanso": 60
+      },
+      {
+       "ex": "bird_dog",
+       "series": 3,
+       "reps": "8/lado",
+       "descanso": 45
+      },
+      {
+       "ex": "bike_ergometro",
+       "series": 1,
+       "tempo": "20 min RPE 5-6",
+       "descanso": 0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "prog_ppl_5x",
+   "nome": "Push / Pull / Legs 5×",
+   "min_nivel": 4,
+   "dias": 5,
+   "dur_min": 62,
+   "eq": [
+    "academia",
+    "barra",
+    "halter"
+   ],
+   "foco": "alta frequência por grupo, 14-20 séries",
+   "bloco": {
+    "semanas": 6,
+    "deload": "semana 6 (−40% séries) ou após sinal de carga aguda:crônica >1,45",
+    "progressao": "ondulante: semana 1 6-8, semana 2 8-10, semana 3 10-14, repete"
+   },
+   "sessoes": [
+    {
+     "id": "Push",
+     "nome": "Peito/Ombro/Tríceps",
+     "exercicios": [
+      {
+       "ex": "supino_barra",
+       "series": 4,
+       "reps": "6-10",
+       "rir": 2,
+       "descanso": 150
+      },
+      {
+       "ex": "desenvolvimento",
+       "series": 3,
+       "reps": "8-10",
+       "rir": 2,
+       "descanso": 150
+      },
+      {
+       "ex": "banquinta_supino",
+       "series": 3,
+       "reps": "10-14",
+       "rir": 1,
+       "descanso": 100
+      },
+      {
+       "ex": "elevacao_lateral",
+       "series": 4,
+       "reps": "12-20",
+       "rir": 0,
+       "descanso": 60
+      },
+      {
+       "ex": "triceps_polia",
+       "series": 3,
+       "reps": "10-15",
+       "rir": 0,
+       "descanso": 75
+      },
+      {
+       "ex": "flexao_fechada",
+       "series": 2,
+       "reps": "AMRAP-2",
+       "rir": 0,
+       "descanso": 60
+      }
+     ]
+    },
+    {
+     "id": "Pull",
+     "nome": "Costas/Deltoide posterior/Bíceps",
+     "exercicios": [
+      {
+       "ex": "barra_fixa",
+       "series": 4,
+       "reps": "6-10",
+       "rir": 2,
+       "descanso": 150
+      },
+      {
+       "ex": "remada_curvada",
+       "series": 3,
+       "reps": "8-10",
+       "rir": 2,
+       "descanso": 150
+      },
+      {
+       "ex": "remada_serrote",
+       "series": 3,
+       "reps": "10-12",
+       "rir": 1,
+       "descanso": 100
+      },
+      {
+       "ex": "face_pull",
+       "series": 3,
+       "reps": "15-20",
+       "rir": 1,
+       "descanso": 60
+      },
+      {
+       "ex": "rosca_direta",
+       "series": 3,
+       "reps": "8-12",
+       "rir": 0,
+       "descanso": 75
+      },
+      {
+       "ex": "rosca_martelo",
+       "series": 2,
+       "reps": "12-15",
+       "rir": 0,
+       "descanso": 60
+      }
+     ]
+    },
+    {
+     "id": "Legs",
+     "nome": "Pernas completo",
+     "exercicios": [
+      {
+       "ex": "squat_livre",
+       "series": 4,
+       "reps": "6-10",
+       "rir": 3,
+       "descanso": 180
+      },
+      {
+       "ex": "stiff",
+       "series": 3,
+       "reps": "8-10",
+       "rir": 3,
+       "descanso": 150
+      },
+      {
+       "ex": "hack_levanta",
+       "series": 3,
+       "reps": "10-12",
+       "rir": 1,
+       "descanso": 120
+      },
+      {
+       "ex": "mesa_flexora",
+       "series": 3,
+       "reps": "10-12",
+       "rir": 1,
+       "descanso": 100
+      },
+      {
+       "ex": "hip_thrust",
+       "series": 3,
+       "reps": "10-12",
+       "rir": 1,
+       "descanso": 100
+      },
+      {
+       "ex": "panturrilha_em_pe",
+       "series": 4,
+       "reps": "10-15",
+       "rir": 0,
+       "descanso": 60
+      }
+     ]
+    },
+    {
+     "id": "Push2",
+     "nome": "Ombro/Braço + core",
+     "exercicios": [
+      {
+       "ex": "flexao_declinada",
+       "series": 3,
+       "reps": "10-15",
+       "rir": 1,
+       "descanso": 90
+      },
+      {
+       "ex": "elevacao_lateral_polia",
+       "series": 4,
+       "reps": "12-20",
+       "rir": 0,
+       "descanso": 60
+      },
+      {
+       "ex": "remada_alta",
+       "series": 3,
+       "reps": "12-15",
+       "rir": 1,
+       "descanso": 60
+      },
+      {
+       "ex": "encolhimento",
+       "series": 3,
+       "reps": "12-15",
+       "rir": 0,
+       "descanso": 60
+      },
+      {
+       "ex": "prancha_lateral",
+       "series": 3,
+       "tempo": "30 s/lado",
+       "descanso": 45
+      },
+      {
+       "ex": "farmer_carry",
+       "series": 3,
+       "tempo": "40 s",
+       "descanso": 75
+      }
+     ]
+    },
+    {
+     "id": "Legs2",
+     "nome": "Posterior + potência leve",
+     "exercicios": [
+      {
+       "ex": "salto_caixa",
+       "series": 4,
+       "reps": "4",
+       "descanso": 120,
+       "swap": [
+        "agachamento_com_saltos"
+       ]
+      },
+      {
+       "ex": "bulgaro",
+       "series": 3,
+       "reps": "8-12",
+       "rir": 2,
+       "descanso": 120
+      },
+      {
+       "ex": "stiff_unilateral",
+       "series": 3,
+       "reps": "10-12",
+       "rir": 2,
+       "descanso": 100
+      },
+      {
+       "ex": "mesa_flexora_uni",
+       "series": 3,
+       "reps": "12-15",
+       "rir": 0,
+       "descanso": 75
+      },
+      {
+       "ex": "panturrilha_sentado",
+       "series": 3,
+       "reps": "12-20",
+       "rir": 0,
+       "descanso": 60
+      },
+      {
+       "ex": "corrida_leve",
+       "series": 1,
+       "tempo": "20 min RPE 5",
+       "descanso": 0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "prog_forca_5_3_1",
+   "nome": "Bloco de Força (5/3/1 adaptado)",
+   "min_nivel": 5,
+   "dias": 4,
+   "dur_min": 65,
+   "eq": [
+    "barra",
+    "academia"
+   ],
+   "foco": "força máxima + manutenção de massa",
+   "bloco": {
+    "semanas": 4,
+    "deload": "semana 4 do ciclo (40-50% das cargas principais) e recomeço com +2,5 kg nos compostos",
+    "progressao": "ciclo de 4 semanas com ondas 5/3/1 no principal + acessórios em 8-12 (força >1,2 g/kg proteína obrigatório)"
+   },
+   "sessoes": [
+    {
+     "id": "S1",
+     "nome": "Agachamento pesado",
+     "exercicios": [
+      {
+       "ex": "squat_livre",
+       "series": 5,
+       "reps": "5-3-1 (onda)",
+       "rir": 2,
+       "descanso": 240
+      },
+      {
+       "ex": "bulgaro",
+       "series": 3,
+       "reps": "8-10",
+       "rir": 2,
+       "descanso": 120
+      },
+      {
+       "ex": "pallof",
+       "series": 3,
+       "reps": "8/lado",
+       "descanso": 60
+      }
+     ]
+    },
+    {
+     "id": "S2",
+     "nome": "Supino pesado",
+     "exercicios": [
+      {
+       "ex": "supino_barra",
+       "series": 5,
+       "reps": "5-3-1",
+       "rir": 2,
+       "descanso": 240
+      },
+      {
+       "ex": "remada_curvada",
+       "series": 4,
+       "reps": "8-10",
+       "rir": 2,
+       "descanso": 120
+      },
+      {
+       "ex": "elevacao_lateral",
+       "series": 3,
+       "reps": "12-20",
+       "rir": 0,
+       "descanso": 60
+      }
+     ]
+    },
+    {
+     "id": "S3",
+     "nome": "Terra pesado",
+     "exercicios": [
+      {
+       "ex": "terra_terra",
+       "series": 4,
+       "reps": "5-3-1",
+       "rir": 3,
+       "descanso": 240,
+       "swap": [
+        "stiff",
+        "remada_curvada_leve"
+       ]
+      },
+      {
+       "ex": "mesa_flexora",
+       "series": 3,
+       "reps": "10-12",
+       "rir": 1,
+       "descanso": 90
+      },
+      {
+       "ex": "prancha",
+       "series": 3,
+       "tempo": "40 s",
+       "descanso": 45
+      }
+     ]
+    },
+    {
+     "id": "S4",
+     "nome": "Desenvolvimento + volume",
+     "exercicios": [
+      {
+       "ex": "desenvolvimento",
+       "series": 5,
+       "reps": "5-3-1",
+       "rir": 2,
+       "descanso": 180
+      },
+      {
+       "ex": "barra_fixa",
+       "series": 4,
+       "reps": "6-10",
+       "rir": 2,
+       "descanso": 150
+      },
+      {
+       "ex": "ponte_unilateral",
+       "series": 3,
+       "reps": "15",
+       "rir": 0,
+       "descanso": 60
+      },
+      {
+       "ex": "rosca_direta",
+       "series": 3,
+       "reps": "10-12",
+       "rir": 0,
+       "descanso": 60
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "prog_casa_halter",
+   "nome": "Casa com halteres (3-4 dias)",
+   "min_nivel": 0,
+   "dias": 4,
+   "dur_min": 40,
+   "eq": [
+    "halter",
+    "casa",
+    "elastico"
+   ],
+   "foco": "aderência máxima sem academia",
+   "bloco": {
+    "semanas": 8,
+    "deload": "semana 5 (−30% séries)",
+    "progressao": "aumente amplitude, pausa e tempo antes da carga — e faça pausas de 2 s na descida"
+   },
+   "sessoes": [
+    {
+     "id": "A",
+     "nome": "Lower + core",
+     "exercicios": [
+      {
+       "ex": "squat_goblet",
+       "series": 4,
+       "reps": "10-15",
+       "rir": 2,
+       "descanso": 90
+      },
+      {
+       "ex": "stiff_unilateral",
+       "series": 3,
+       "reps": "10-12",
+       "rir": 2,
+       "descanso": 90
+      },
+      {
+       "ex": "afundo",
+       "series": 3,
+       "reps": "12/perna",
+       "rir": 1,
+       "descanso": 75
+      },
+      {
+       "ex": "panturrilha_em_pe",
+       "series": 4,
+       "reps": "15-20",
+       "rir": 0,
+       "descanso": 45
+      },
+      {
+       "ex": "deadbug",
+       "series": 3,
+       "reps": "10/lado",
+       "descanso": 45
+      }
+     ]
+    },
+    {
+     "id": "B",
+     "nome": "Upper push + pull",
+     "exercicios": [
+      {
+       "ex": "banquinta_supino",
+       "series": 4,
+       "reps": "10-15",
+       "rir": 2,
+       "descanso": 90
+      },
+      {
+       "ex": "flexao",
+       "series": 3,
+       "reps": "8-15",
+       "rir": 1,
+       "descanso": 75
+      },
+      {
+       "ex": "pull_apart",
+       "series": 3,
+       "reps": "15-20",
+       "rir": 1,
+       "descanso": 45
+      },
+      {
+       "ex": "desenvolvimento",
+       "series": 3,
+       "reps": "8-12",
+       "rir": 2,
+       "descanso": 100
+      },
+      {
+       "ex": "encolhimento",
+       "series": 2,
+       "reps": "15",
+       "rir": 0,
+       "descanso": 45
+      }
+     ]
+    },
+    {
+     "id": "C",
+     "nome": "Posterior + fazendeiro",
+     "exercicios": [
+      {
+       "ex": "ponte_unilateral",
+       "series": 4,
+       "reps": "12-20",
+       "rir": 1,
+       "descanso": 60
+      },
+      {
+       "ex": "mesa_flexora_uni",
+       "series": 3,
+       "reps": "12-15",
+       "rir": 0,
+       "descanso": 60
+      },
+      {
+       "ex": "farmer_carry",
+       "series": 4,
+       "tempo": "40 s",
+       "descanso": 60
+      },
+      {
+       "ex": "mobility_quadril",
+       "series": 1,
+       "tempo": "8 min",
+       "descanso": 0
+      }
+     ]
+    },
+    {
+     "id": "D",
+     "nome": "Condicionamento",
+     "exercicios": [
+      {
+       "ex": "agachamento_com_saltos",
+       "series": 4,
+       "reps": "10 s on / 40 s off",
+       "descanso": 60
+      },
+      {
+       "ex": "caminhada_inclinada",
+       "series": 1,
+       "tempo": "25 min",
+       "descanso": 0
+      },
+      {
+       "ex": "bird_dog",
+       "series": 3,
+       "reps": "8/lado",
+       "descanso": 45
+      },
+      {
+       "ex": "alongamento_isquio",
+       "series": 1,
+       "tempo": "5 min",
+       "descanso": 0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "prog_arnold_ppl",
+   "nome": "Arnold Split (Peito+Costas / Ombro+Braço / Perna)",
+   "min_nivel": 6,
+   "dias": 6,
+   "dur_min": 60,
+   "eq": [
+    "academia",
+    "barra",
+    "halter"
+   ],
+   "foco": "antagonistas no mesmo dia, frequência 2× com volume alto",
+   "bloco": {
+    "semanas": 4,
+    "deload": "1 dia de deload a cada 4 semanas (−40% séries) — obrigatório, não opcional",
+    "progressao": "manter 1 composto pesado por sessão e fazer progressão em acessórios por pausa/ROM"
+   },
+   "sessoes": [
+    {
+     "id": "PC",
+     "nome": "Peito + Costas",
+     "exercicios": [
+      {
+       "ex": "supino_barra",
+       "series": 4,
+       "reps": "6-10",
+       "rir": 2,
+       "descanso": 150
+      },
+      {
+       "ex": "barra_fixa",
+       "series": 4,
+       "reps": "6-10",
+       "rir": 2,
+       "descanso": 150
+      },
+      {
+       "ex": "crucifixo",
+       "series": 3,
+       "reps": "12-15",
+       "rir": 0,
+       "descanso": 75
+      },
+      {
+       "ex": "remada_curvada",
+       "series": 3,
+       "reps": "10-12",
+       "rir": 1,
+       "descanso": 100
+      }
+     ]
+    },
+    {
+     "id": "OB",
+     "nome": "Ombro + Braço",
+     "exercicios": [
+      {
+       "ex": "desenvolvimento",
+       "series": 4,
+       "reps": "6-10",
+       "rir": 2,
+       "descanso": 150
+      },
+      {
+       "ex": "elevacao_lateral_polia",
+       "series": 4,
+       "reps": "12-20",
+       "rir": 0,
+       "descanso": 60
+      },
+      {
+       "ex": "face_pull",
+       "series": 3,
+       "reps": "15",
+       "rir": 1,
+       "descanso": 60
+      },
+      {
+       "ex": "rosca_scott",
+       "series": 3,
+       "reps": "10-12",
+       "rir": 0,
+       "descanso": 75
+      },
+      {
+       "ex": "triceps_testa",
+       "series": 3,
+       "reps": "10-12",
+       "rir": 0,
+       "descanso": 75
+      }
+     ]
+    },
+    {
+     "id": "Leg",
+     "nome": "Pernas",
+     "exercicios": [
+      {
+       "ex": "squat_livre",
+       "series": 4,
+       "reps": "6-10",
+       "rir": 3,
+       "descanso": 180
+      },
+      {
+       "ex": "hack_levanta",
+       "series": 3,
+       "reps": "10-15",
+       "rir": 1,
+       "descanso": 120
+      },
+      {
+       "ex": "stiff",
+       "series": 3,
+       "reps": "8-12",
+       "rir": 2,
+       "descanso": 120
+      },
+      {
+       "ex": "mesa_flexora",
+       "series": 3,
+       "reps": "12-15",
+       "rir": 0,
+       "descanso": 90
+      },
+      {
+       "ex": "panturrilha_sentado",
+       "series": 4,
+       "reps": "12-20",
+       "rir": 0,
+       "descanso": 60
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "add_on_cardio": [
+  {
+   "id": "base_z2",
+   "nome": "Base aeróbia (Zona 2)",
+   "freq": "2-3×/sem",
+   "dur": "30-50 min",
+   "regra": "RPE 4-6/10, consegue conversar em frases; FC 60-70% da reserva. Fonte: Mandsager2018, Ekelund2019.",
+   "min_nivel": 0
+  },
+  {
+   "id": "bloco_hiit",
+   "nome": "Intervalado 4×4 / 10×20s",
+   "freq": "1-2×/sem",
+   "dur": "20-30 min",
+   "regra": "Apenas com 6 semanas de base e sem dor articular. 4×4 min a 85-95% FCmáx / 3 min leve, ou 10×20 s forte/40 s leve na bike. Fonte: Milanovic2015, Thomas2016.",
+   "min_nivel": 4
+  },
+  {
+   "id": "passos",
+   "nome": "Meta de passos",
+   "freq": "diária",
+   "dur": "—",
+   "regra": "Nível inicial 4 000-5 000; alvo saúde 7 000; ótimo 9 000. Cada +1 000 passos acima de 2 000 já reduz risco. Fonte: Paluch2025.",
+   "min_nivel": 0
+  },
+  {
+   "id": "microburst",
+   "nome": "Micro-rampas (1-2 min de esforço forte)",
+   "freq": "3×/dia se sedentário",
+   "dur": "1-2 min",
+   "regra": "Escada, subida, agachamentos rápidos — útil para quebrar tempo sentado; sinal de que a frequência importa tanto quanto o total.",
+   "min_nivel": 0
+  }
+ ],
+ "chefes_reavaliacao": [
+  {
+   "id": "boss1",
+   "nome": "Chefe: Fundação",
+   "min_nivel": 1,
+   "requisitos": [
+    "14 dias de streak",
+    "3 sessões de força concluídas",
+    "7 check-ins de refeição"
+   ],
+   "teste": "Teste de 12 flexões em 60 s + 20 air squats com técnica + prancha 45 s"
+  },
+  {
+   "id": "boss2",
+   "nome": "Chefe: Construtor",
+   "min_nivel": 2,
+   "requisitos": [
+    "4 semanas de bloco com ≥80% de aderência",
+    "pesagem de 2 semanas estável"
+   ],
+   "teste": "Reavaliar medidas (cintura, peso, foto) + teste de RIR calibrado (2 repetições a mais do que você 'acha')"
+  },
+  {
+   "id": "boss3",
+   "nome": "Chefe: Nutrição",
+   "min_nivel": 3,
+   "requisitos": [
+    "21 dias com meta de proteína ≥90%",
+    "14 dias com fibra batida",
+    "B12 suplementada (veg/vegetariano)"
+   ],
+   "teste": "Marcar exame do painel anual (hemograma, ferritina, B12, perfil lipídico, glicemia/HbA1c)"
+  },
+  {
+   "id": "boss4",
+   "nome": "Chefe: Força",
+   "min_nivel": 4,
+   "requisitos": [
+    "3 sessões/semana por 8 semanas",
+    "deload concluído"
+   ],
+   "teste": "Nova 1RM estimada (Epley) nos 2 compostos principais + circunferências"
+  },
+  {
+   "id": "boss5",
+   "nome": "Chefe: Mente",
+   "min_nivel": 3,
+   "requisitos": [
+    "10 sessões de 5 min de respiração/meditação",
+    "5 caminhadas 'só para a cabeça'"
+   ],
+   "teste": "Escala GAD-7/PHQ-9 autorreportada (o app armazena para você ver a curva) + plano de dormir 7 h 5×/semana"
+  }
+ ],
+ "quests": {
+  "diarias": [
+   {
+    "id": "q_agua",
+    "nome": "Hidratar",
+    "meta": "bater meta de água (com lembretes confirmados)",
+    "xp": "60 (48 XP de copos + 12 bônus)"
+   },
+   {
+    "id": "q_proteina",
+    "nome": "Proteger o músculo",
+    "meta": "bater proteína do dia",
+    "xp": 25
+   },
+   {
+    "id": "q_movimento",
+    "nome": "Mover",
+    "meta": "concluir treino do dia ou 20 min de caminhada",
+    "xp": 45
+   },
+   {
+    "id": "q_mente",
+    "nome": "Acalmar",
+    "meta": "5 min de respiração/meditação OU 10 min sem tela antes de dormir",
+    "xp": 20
+   }
+  ],
+  "semanais": [
+   {
+    "id": "w_forca",
+    "nome": "Três sessões de força",
+    "recompensa": "120 XP + 1 'escudo de streak'"
+   },
+   {
+    "id": "w_fibra",
+    "nome": "Fibra ≥ 28 g em 5 dias",
+    "recompensa": "80 XP"
+   },
+   {
+    "id": "w_sono",
+    "nome": "Dormir ≥7 h em 5 noites",
+    "recompensa": "80 XP"
+   },
+   {
+    "id": "w_veg",
+    "nome": "5 refeições com leguminosa ou oleaginosa",
+    "recompensa": "60 XP (força padrão vegetal)"
+   },
+   {
+    "id": "w_sol",
+    "nome": "15 min de luz natural pela manhã",
+    "recompensa": "50 XP (ritmo circadiano)"
+   },
+   {
+    "id": "w_estudo",
+    "nome": "Ler 2 artigos na Biblioteca e marcar 1 como 'entendido'",
+    "recompensa": "70 XP + badge 'Cético'"
+   }
+  ],
+  "mensais": [
+   {
+    "id": "m_reavaliacao",
+    "nome": "Chefe do mês (teste + fotos + medidas)",
+    "recompensa": "300 XP + desbloqueio de novo bloco"
+   },
+   {
+    "id": "m_sem_processado",
+    "nome": "≤ 2 refeições ultraprocessadas/semana por 3 semanas",
+    "recompensa": "200 XP (Lane2024, Hall2019)"
+   },
+   {
+    "id": "m_compartilhar",
+    "nome": "Publicar 1 check-in e ajudar 3 pessoas no feed",
+    "recompensa": "150 XP"
+   }
+  ]
+ },
+ "emblemas": [
+  {
+   "id": "b_hydra",
+   "nome": "Hidratado consistente",
+   "como": "30 dias seguidos com meta de água batida",
+   "icon": "💧"
+  },
+  {
+   "id": "b_ferro",
+   "nome": "Forja de ferro",
+   "como": "100 sessões de força concluídas",
+   "icon": "🏋️"
+  },
+  {
+   "id": "b_verde",
+   "nome": "Padrão vegetal",
+   "como": "60 dias com 4+ porções de vegetais/frutas registradas",
+   "icon": "🌱"
+  },
+  {
+   "id": "b_b12",
+   "nome": "Sem desculpa",
+   "como": "365 dias de suplementação de B12 registrada (veg/vegetariano)",
+   "icon": "🧪"
+  },
+  {
+   "id": "b_cetic",
+   "nome": "Cético",
+   "como": "Marcar 10 artigos como lidos + 3 artigos sinalizados por conflito de interesse na Auditoria",
+   "icon": "🔍"
+  },
+  {
+   "id": "b_soneca",
+   "nome": "Máquina de recuperação",
+   "como": "21 noites com sono ≥7 h e horário regular ≥80%",
+   "icon": "😴"
+  },
+  {
+   "id": "b_mental",
+   "nome": "Mente leve",
+   "como": "20 sessões de respiração/meditação + 10 caminhadas 'só para a cabeça'",
+   "icon": "🧘"
+  },
+  {
+   "id": "b_foto",
+   "nome": "Diário visual",
+   "como": "12 check-ins com foto (comida, treino, progresso)",
+   "icon": "📸"
+  },
+  {
+   "id": "b_clube",
+   "nome": "Bom vizinho",
+   "como": "25 reações/comentários úteis no feed da comunidade",
+   "icon": "🤝"
+  },
+  {
+   "id": "b_recomeco",
+   "nome": "Não desisti",
+   "como": "Voltar a bater 100% das quests após 5+ dias parado",
+   "icon": "🔥"
+  },
+  {
+   "id": "b_paciencia",
+   "nome": "Jogo longo",
+   "como": "180 dias com pelo menos 2 treinos/semana",
+   "icon": "🧗"
+  },
+  {
+   "id": "b_anti_hype",
+   "nome": "Antivendedor",
+   "como": "Recusar 5 sugestões de 'produto milagroso' no módulo de mitos",
+   "icon": "🛡️"
+  }
+ ],
+ "clas": [
+  {
+   "id": "clan_verde",
+   "nome": "Tribo Verde",
+   "descricao": "Veganos e vegetarianos — foco em proteína, ferro, B12, osso.",
+   "cor": "#7CFFB2"
+  },
+  {
+   "id": "clan_onivoro",
+   "nome": "Padrão Onívoro Consciente",
+   "descricao": "Comem carne mas seguem o padrão vegetal: pouca processada, fibra alta.",
+   "cor": "#FFC46B"
+  },
+  {
+   "id": "clan_ferro",
+   "nome": "Ordem do Ferro",
+   "descricao": "Força de potência: foco em carga, RIR, bracing e sono.",
+   "cor": "#9AA7FF"
+  },
+  {
+   "id": "clan_mental",
+   "nome": "Clã Mente Leve",
+   "descricao": "Saúde mental via exercício, caminhada, sol e respiração.",
+   "cor": "#FF9BD2"
+  }
+ ],
+ "ajustes_diet": {
+  "veg": {
+   "nome": "Vegano",
+   "flags": [
+    "v"
+   ],
+   "notes": [
+    "B12 obrigatório",
+    "creatina recomendada",
+    "cálcio/vit D vigiados (Tong2020)",
+    "densidade energética: +1 refeição ou +1 col. sopa de azeite"
+   ]
+  },
+  "ovo": {
+   "nome": "Ovo-vegetariano",
+   "flags": [
+    "v",
+    "o"
+   ],
+   "notes": [
+    "B12 fortemente recomendado",
+    "colina ok com ovos",
+    "ferro ainda é foco"
+   ]
+  },
+  "lacto": {
+   "nome": "Lacto-vegetariano",
+   "flags": [
+    "v",
+    "l"
+   ],
+   "notes": [
+    "cálcio e B12 parciais (verificar)",
+    "cuidado com saturada de queijo",
+    "ferro: afastar laticínio das refeições ricas em ferro"
+   ]
+  },
+  "lacto_ovo": {
+   "nome": "Lacto-ovo-vegetariano",
+   "flags": [
+    "v",
+    "l",
+    "o"
+   ],
+   "notes": [
+    "o padrão mais fácil de cobrir nutrientes",
+    "B12: checar, suplementar se <2 porções de lácteo/ovo/dia"
+   ]
+  },
+  "pesc": {
+   "nome": "Pescetariano",
+   "flags": [
+    "v",
+    "l",
+    "o",
+    "p"
+   ],
+   "notes": [
+    "ômega-3 resolvido com 2 porções de peixe gordo/semana",
+    "fibra ainda é o elo fraco típico"
+   ]
+  },
+  "omni": {
+   "nome": "Onívoro",
+   "flags": [
+    "v",
+    "l",
+    "o",
+    "p",
+    "a"
+   ],
+   "notes": [
+    "processados = limite (IARC/Bouvard2015)",
+    "fibra e potássio: os dois déficits clássicos",
+    "saturada <10% (AHA2026)"
+   ]
+  }
+ },
+ "regras_xp_num": {
+  "_meta": "Números acima são os mesmos das regras em prosa (regras_xp), em formato que o app pode somar. cap é teto por dia (ou por sessão, quando indicado).",
+  "serie_concluida": {
+   "base": 10,
+   "bonus": 1,
+   "cap": 90,
+   "por": "sessão"
+  },
+  "treino_cardio": {
+   "base": 1.2,
+   "cap": 60,
+   "bonus_estruturado": 15,
+   "por": "minuto"
+  },
+  "agua_copo": {
+   "base": 6,
+   "cap": 48,
+   "por": "copo"
+  },
+  "refeicao_registrada": {
+   "base": 8,
+   "cap": 48,
+   "por": "refeição"
+  },
+  "meta_proteina_batida": {
+   "base": 25,
+   "cap": 25
+  },
+  "meta_fibra_batida": {
+   "base": 18,
+   "cap": 18
+  },
+  "sono_ok": {
+   "base": 16,
+   "bonus": 8,
+   "cap": 24
+  },
+  "mindfulness": {
+   "base": 10,
+   "cap": 20,
+   "por": "sessão de 5 min"
+  },
+  "checkin_foto": {
+   "base": 12,
+   "cap": 24
+  },
+  "missao_diaria": {
+   "base": 30,
+   "cap": 30
+  },
+  "chefes_reavaliacao": {
+   "base": 120,
+   "cap": 120
+  },
+  "nivel_novo": {
+   "base": 60,
+   "cap": 60
+  },
+  "streak_mult": {
+   "3": 1.15,
+   "7": 1.3,
+   "14": 1.5,
+   "30": 1.7
+  }
+ }
+}
