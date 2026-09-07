@@ -14,7 +14,10 @@ const UPLOAD_DIR = join(ROOT, 'server', 'uploads');
 mkdirSync(DATA_DIR, { recursive: true });
 mkdirSync(UPLOAD_DIR, { recursive: true });
 
-const SERVE_STATIC = process.argv.includes('--serve-static');
+// Serve o build estático automaticamente se dist/ existir — assim a porta da API (8787) também
+// abre o site completo, e não só JSON. `--no-static` força o modo "só API" (usado no dev com Vite).
+const SERVE_STATIC = !process.argv.includes('--no-static') &&
+  (process.argv.includes('--serve-static') || existsSync(join(ROOT, 'dist', 'index.html')));
 const PORT = Number(process.env.PORT || 8787);
 const SECRET_FILE = join(DATA_DIR, 'secret.key');
 if (!existsSync(SECRET_FILE)) writeFileSync(SECRET_FILE, randomUUID() + randomUUID());
@@ -318,9 +321,19 @@ const server = createServer(async (req, res) => {
       res.writeHead(200, { 'content-type': MIME[extname(f)] || 'application/octet-stream' });
       return res.end(readFileSync(f));
     }
-    if (path.startsWith('/api/')) return json(res, 404, { error: 'rota não encontrada' });
-    res.writeHead(200, { 'content-type': 'text/plain; charset=utf-8' });
-    return res.end('SmartFit Science API — use `npm run dev` (Vite) ou `npm start` (build estático).');
+    if (path.startsWith('/api/')) return json(res, 404, { error: 'rota não encontrada', rotas: ['/api/health', '/api/feed', '/api/leaderboard', '/api/users?handle=', '/api/state', '/api/posts', '/api/media', '/api/lit'] });
+    res.writeHead(200, { 'content-type': 'text/html; charset=utf-8' });
+    return res.end(`<!doctype html><meta charset="utf-8"><title>SmartFit · API</title>
+<style>body{font:15px/1.6 ui-sans-serif,system-ui;color:#e8f0ff;background:#05070f;margin:0;padding:38px}
+code{background:#101a2e;padding:2px 6px;border-radius:6px}a{color:#6ef3c0}</style>
+<h2>SmartFit Science — só a API</h2>
+<p>Ista porta (<code>${PORT}</code>) é a <b>API</b>: ela devolve JSON, não o site. O site fica em
+<b><code>http://localhost:5173</code></b> (Vite, com <code>npm run dev</code>).</p>
+<p>Se você rodar <code>npm run build</code>, esta mesma porta passa a servir o app inteiro
+(<code>dist/</code>) e o <code>/api</code> continua no mesmo endereço.</p>
+<p>Endpoints vivos: <a href="/api/health">/api/health</a> ·
+<a href="/api/feed?limit=5">/api/feed</a> · <a href="/api/leaderboard">/api/leaderboard</a> ·
+<a href="/api/users?handle=ju">/api/users?handle=ju</a></p>`);
   } catch (e) {
     json(res, 500, { error: String(e && e.message || e) });
   }
