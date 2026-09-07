@@ -4,7 +4,7 @@
  * GET /api/lit = stale-while-revalidate curto (a busca ao vivo pode responder de cache offline);
  * POST/PUT (estado, feed, mídia) nunca são cacheados — são escrita, não leitura.
  */
-const CACHE = 'smartfit-v1';
+const CACHE = 'smartfit-v2';
 const SHELL = ['/', '/index.html', '/manifest.webmanifest', '/icon.svg', '/icon-maskable.svg'];
 const TTL_LIT = 24 * 3600 * 1000;
 
