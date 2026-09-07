@@ -95,7 +95,10 @@ src/components/  ui.tsx (design system: Card/Chip/Seg/Bar/Ring/Stat/Modal/Source
                  Figure.tsx (ExerciseFigure, BodyHeat, AlinhamentoPlancha, RomBarra)
 src/views/       Onboarding, Dashboard, Nutricao, Treino, Ciencia, Yaya, Comunidade, Evolucao, Config
 server/index.js  API: auth (scrypt + HMAC), /state, /feed, /posts, /leaderboard, /users, /media, /lit (proxy de
-                 busca) em node:sqlite — zero dependência de terceiros
+                 busca) em node:sqlite — zero dependência de terceiros. Serve dist/ quando existir.
+scripts/         dev.mjs (web+api com tolerância a porta ocupada), start-server.mjs (build-then-serve para
+                 Render/Fly), validate-data.mjs, smoke.mjs
+render.yaml      blueprint do Render (1 serviço: site + API, health check, Node 22, SF_SECRET gerado)
 ```
 
 **Regra de ouro do projeto:** os JSONs de `data/` só são importados em `src/lib/db.ts` e `src/lib/lit.ts`. Toda view
@@ -131,6 +134,72 @@ Detalhes, casos e limitações: [`docs/metodologia-auditoria.md`](docs/metodolog
 - Sem e-mail obrigatório, sem telemetria, sem anúncio, sem patrocinador — o repositório não tem chave de terceiros.
 - A busca ao vivo sai do **seu** navegador para OpenAlex/Crossref; quando o servidor está no ar, a mesma chamada passa
   por `/api/lit` e é cacheada 24 h (para funcionar offline depois).
+
+## Hospedar no Render (o caminho curto)
+
+O app foi escrito para caber em **um único serviço**: o mesmo processo serve o `dist/` e a API
+(`/api/*`, `/media/*`), e o front só usa caminho relativo — nada de `http://localhost` no código do
+navegador (se você separar site e API em dois serviços, defina `VITE_API_BASE` no build).
+
+### Opção A — Blueprint (recomendado, 3 cliques)
+
+1. Suba este repositório no GitHub e **mergeie** a branch (o `render.yaml` aponta para `main`; se quiser
+   testar antes, troque `branch:` para o seu branch).
+2. No Render: **New + → Blueprint → escolha o repo**. Ele lê `render.yaml` e mostra o serviço pronto
+   (`smartfit-science`, Node 22, free, region ohio).
+3. **Create Blueprint**. Fim. O endereço vem como `https://smartfit-science.onrender.com`.
+
+O que o blueprint já configura por você:
+
+| Campo | Valor |
+| --- | --- |
+| Build | `npm ci && npm run build` |
+| Start | `node scripts/start-server.mjs` (esse script **refaz o build se `dist/` sumiu** e liga a API com `--serve-static`) |
+| Health check | `/api/health` |
+| Node | `NODE_VERSION=22` (a API usa `node:sqlite`, que exige **≥ 22.5**) |
+| Segredo dos tokens | `SF_SECRET` gerado pelo Render (`generateValue`) — sem ele, todo redeploy invalida os logins |
+| HTTPS / domínio | automáticos |
+
+### Opção B — criar à mão (se não quiser usar o YAML)
+
+**New + → Web Service** (não use "Static Site" para isto, senão a API fica de fora):
+
+- Runtime: **Node**, region: a mais perto de você (Ohio/Virginia), instance: **Free**
+- Build command: `npm ci && npm run build`
+- Start command: `node scripts/start-server.mjs`
+- Environment: `NODE_VERSION = 22`, `NODE_ENV = production`, `SF_SECRET = <string aleatória longa>`
+- Health check path: `/api/health`
+
+### O que funciona de cara e o que o plano free limita
+
+- **Funciona 100%**: onboarding, metas, as 6 abas de dieta, gerador de cardápio, treino por níveis com
+  XP/emblemas, Yayá, auditoria, evolution, PWA instalável. **Tudo que é seu mora no `localStorage` do
+  navegador**, então o servidor não guarda peso, medidas, exames nem diário — o que também significa que
+  trocar de aparelho/clear nos dados exige o exportar/importar da aba Evolução.
+- **Spin-down**: no plano free o serviço dorme após ~15 min sem tráfego; a primeira visita custa ~30 s
+  de cold start. Se incomodar, mude para **Starter** (USD 7/mês) — sem código para isso.
+- **Disco efêmero**: no free, `SF_DATA_DIR` não existe; o SQLite (feed, usuários, fotos) é recriado com o
+  seed de 12 perfis a cada redeploy/restart. Para persistir de verdade: plano pago + **Disk** montado em
+  `/var/data` e as env vars `SF_DATA_DIR=/var/data` e `SF_UPLOAD_DIR=/var/data/uploads` (o servidor já
+  respeita as duas; sem elas o log de boot diz `cache: efêmero (re-seed no boot)`).
+- **Busca ao vivo** (OpenAlex/Crossref) funciona no navegador do usuário; o proxy `/api/lit` no servidor só
+  responde se o Render tiver saída de rede para as APIs públicas (tem, por padrão).
+
+### Depois do deploy, conferir em 20 segundos
+
+```bash
+curl https://SEU-DOMINIO.onrender.com/api/health      # → {"ok":true,...,"users":12}
+curl -I https://SEU-DOMINIO.onrender.com/              # → 200, cache-control: no-cache
+```
+
+Abra o site, faça o onboarding, registre uma sessão de treino e publique um post — se o post aparecer no
+feed, a API + SQLite + auth estão de pé. Se aparecer `⚠ API fora` no topo, olhe os logs
+(**Logs**) e confira se o Node está em 22+ (`NODE_VERSION`).
+
+### Atualizar
+
+`git push` no branch configurado → o Render redeploya sozinho (`autoDeploy: true`). Para validar antes de
+subir: `npm run check && npm run build`.
 
 ## Testes
 

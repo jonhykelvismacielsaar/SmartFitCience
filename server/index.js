@@ -4,13 +4,15 @@ import { createServer } from 'node:http';
 import { DatabaseSync } from 'node:sqlite';
 import { randomUUID, scryptSync, timingSafeEqual, createHmac } from 'node:crypto';
 import { mkdirSync, writeFileSync, readFileSync, existsSync } from 'node:fs';
-import { join, extname } from 'node:path';
+import { join, extname, resolve, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
 const ROOT = join(__dirname, '..');
-const DATA_DIR = join(ROOT, '.data');
-const UPLOAD_DIR = join(ROOT, 'server', 'uploads');
+// Em PaaS (Render/Fly) o disco é efêmero: aponte SF_DATA_DIR/SF_UPLOAD_DIR para um Disk montado
+// se você quiser que o feed e as fotos sobrevivam a redeploy. Sem isso, tudo re-seed no boot.
+const DATA_DIR = process.env.SF_DATA_DIR ? resolve(process.env.SF_DATA_DIR) : join(ROOT, '.data');
+const UPLOAD_DIR = process.env.SF_UPLOAD_DIR ? resolve(process.env.SF_UPLOAD_DIR) : join(ROOT, 'server', 'uploads');
 mkdirSync(DATA_DIR, { recursive: true });
 mkdirSync(UPLOAD_DIR, { recursive: true });
 
@@ -304,6 +306,17 @@ const MIME = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript', '.
 const server = createServer(async (req, res) => {
   const url = new URL(req.url, 'http://' + (req.headers.host || 'localhost'));
   const path = decodeURIComponent(url.pathname);
+  // CORS: o front normally vem da mesma origem (o próprio serviço serve dist/), mas se você
+  // hospedar o site como Static Site em outro subdomínio, isto aqui evita precisar de proxy.
+  const origem = req.headers.origin;
+  if (origem) {
+    res.setHeader('access-control-allow-origin', origem);
+    res.setHeader('vary', 'Origin');
+    res.setHeader('access-control-allow-headers', 'Authorization, Content-Type');
+    res.setHeader('access-control-allow-methods', 'GET,POST,PUT,DELETE,OPTIONS');
+    res.setHeader('access-control-max-age', '600');
+  }
+  if ((req.method || 'GET') === 'OPTIONS') { res.writeHead(204); return res.end(); }
   try {
     if (path.startsWith('/media/')) {
       const f = join(UPLOAD_DIR, path.slice(7).replace(/[^a-zA-Z0-9.\-_]/g, ''));
@@ -314,11 +327,16 @@ const server = createServer(async (req, res) => {
     const key = (req.method || 'GET') + ' ' + path;
     if (routes[key]) return await routes[key](req, res, url);
     if (SERVE_STATIC) {
-      const dist = join(ROOT, 'dist');
+      const dist = process.env.SF_STATIC_DIR ? resolve(process.env.SF_STATIC_DIR) : join(ROOT, 'dist');
       let f = join(dist, path === '/' ? 'index.html' : path.replace(/^\/+/, ''));
       if (!f.startsWith(dist)) { res.writeHead(403); return res.end(); }
-      if (!existsSync(f) || !MIME[extname(f)]) f = join(dist, 'index.html');
-      res.writeHead(200, { 'content-type': MIME[extname(f)] || 'application/octet-stream' });
+      const achado = existsSync(f) && MIME[extname(f)];
+      if (!achado) f = join(dist, 'index.html');
+      // assets com hash no nome = imutáveis; index.html = sempre revalidar (senão o SW segura versão velha)
+      const cache = /^\/assets\/[\w.-]+-[\w_-]{6,}\.(js|css|svg|png|woff2?)$/.test(path)
+        ? 'public, max-age=31536000, immutable'
+        : 'no-cache';
+      res.writeHead(200, { 'content-type': MIME[extname(f)] || 'application/octet-stream', 'cache-control': cache });
       return res.end(readFileSync(f));
     }
     if (path.startsWith('/api/')) return json(res, 404, { error: 'rota não encontrada', rotas: ['/api/health', '/api/feed', '/api/leaderboard', '/api/users?handle=', '/api/state', '/api/posts', '/api/media', '/api/lit'] });
@@ -338,6 +356,12 @@ code{background:#101a2e;padding:2px 6px;border-radius:6px}a{color:#6ef3c0}</styl
     json(res, 500, { error: String(e && e.message || e) });
   }
 });
-server.listen(PORT, '0.0.0.0', () => {
-  console.log(`[api] SmartFit Science → http://0.0.0.0:${PORT}  (db: .data/smartfit.db, static: ${SERVE_STATIC ? 'dist/' : 'off'})`);
+const HOST = process.env.HOST || '0.0.0.0';
+server.listen(PORT, HOST, () => {
+  const mostra = (d) => { const r = relative(ROOT, d) || '.'; return r.startsWith('..') ? d : r; };
+  console.log(
+    `[api] SmartFit Science → http://${HOST}:${PORT} · db: ${mostra(DATA_DIR)}/smartfit.db · uploads: ${mostra(UPLOAD_DIR)}` +
+    ` · static: ${SERVE_STATIC ? (process.env.SF_STATIC_DIR ? resolve(process.env.SF_STATIC_DIR) : 'dist/') : 'off'}` +
+    ` · cache: ${process.env.SF_DATA_DIR ? 'SF_DATA_DIR (persistente se houver Disk)' : 'efêmero (re-seed no boot)'}`,
+  );
 });

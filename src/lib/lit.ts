@@ -1,6 +1,7 @@
 // Busca ao vivo na literatura + filtro de viés comercial (OpenAlex / Crossref, direto do navegador).
 // Nada aqui é mágica: o app puxa metadados públicos (inclusive a lista de financiadores quando existe)
 // e usa as listas do módulo de auditoria para classificar risco. Número de citação nunca "aprova" um artigo.
+import { API_BASE } from './db.ts';
 import AUDITORIA from '../../data/audits.json';
 import { classificar, listasDe, pesoDesign, type Candidato, type Listas, type Risco } from './bias.ts';
 
@@ -89,7 +90,7 @@ export async function buscar(busca: Busca): Promise<{ resultados: Trabalho[]; fo
 
   if (busca.usarProxyPrimeiro !== false) {
     try {
-      const r = await fetch('/api/lit', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ q: termos, termos, anosDe: busca.anosDe, rows: 45 }) });
+      const r = await fetch(API_BASE + '/api/lit', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ q: termos, termos, anosDe: busca.anosDe, rows: 45 }) });
       if (r.ok) {
         const j = await r.json();
         const brutos = j?.works || j?.results || j?.message?.items || [];

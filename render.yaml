@@ -1,0 +1,53 @@
+# Blueprint do Render — https://render.com/docs/blueprint-spec
+# Jeito rápido: commite este arquivo no repositório e, no painel do Render, use
+# "New +" → "Blueprint" → escolha o repo. O Render lê este YAML e cria tudo.
+#
+# Uma única web service serve as DUAS coisas: o build estático do site (dist/) e a API
+# (/api/*, /media/*). É de propósito — o front fala com a API por caminho relativo
+# (/api/...), então não existe CORS nem "endereço do backend" para configurar.
+
+services:
+  - type: web
+    name: smartfit-science
+    runtime: node
+    plan: free # free tem spin-down após ~15 min parado (a 1ª visita depois custa ~30 s); starter = sempre acordado
+    region: ohio # mais perto do Brasil que oregon; singapore/frankfurt também servem
+    branch: main
+    buildCommand: npm ci && npm run build
+    startCommand: node scripts/start-server.mjs
+    healthCheckPath: /api/health
+    autoDeploy: true # push no branch = deploy novo
+    envVars:
+      - key: NODE_VERSION
+        value: "22" # precisa ser >= 22.5: a API usa o SQLite embutido do Node (node:sqlite)
+      - key: NODE_ENV
+        value: production
+      - key: SF_SECRET
+        generateValue: true # assina os tokens de login; gerado 1x e estável entre deploys
+
+      # Sem Disk, o SQLite e as fotos são efêmeros: o feed volta ao seed (12 perfis) a cada
+      # redeploy/restart. Para persistir, mude o plan para starter, anexe um Disk e descomente:
+      # - key: SF_DATA_DIR
+      #   value: /var/data
+      # - key: SF_UPLOAD_DIR
+      #   value: /var/data/uploads
+
+      # Só é necessário se você separar o site num "Static Site" e a API em outra web service:
+      # - key: VITE_API_BASE
+      #   value: https://smartfit-science.onrender.com
+
+# ---------------------------------------------------------------------------
+# Opcionais (comentados para não custar nada no plano free):
+#
+# - um Disk montado em /var/data (exige plano pago):
+#   disks:
+#     - name: smartfit-data
+#       sizeMB: 256
+#       mountPath: /var/data
+#
+# - ou o site 100% estático (sem feed/fotos/login; o resto do app funciona igual,
+#   porque tudo que é pessoal mora no localStorage do navegador):
+# static site "smartfit-science-site":
+#   type: static, plan: free, region: ohio, branch: main
+#   buildCommand: npm ci && npm run build
+#   publishDir: dist

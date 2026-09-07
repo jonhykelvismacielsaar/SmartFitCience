@@ -85,9 +85,15 @@ export function carregarEstado(): Estado {
   return estadoInicial();
 }
 
+/** Base da API. Vazio = mesma origem (o serviço que serve dist/ também serve /api).
+ *  Defina VITE_API_BASE no build só se o site for hospedado separado da API. */
+export const API_BASE = String((import.meta as any)?.env?.VITE_API_BASE || '').replace(/\/+$/, '');
+/** Caminho de arquivo de mídia devolvido pelo servidor (/<code>/media/id</code>) → absoluto quando houver base. */
+export const urlDeMidia = (u?: string | null) => (!u ? u : /^https?:/i.test(u) ? u : API_BASE + u);
+
 export async function api(path: string, init: { json?: any; method?: string; body?: any; headers?: Record<string, string> } = {}) {
   const token = typeof localStorage !== 'undefined' ? localStorage.getItem('sf_token') : null;
-  const r = await fetch('/api' + path, {
+  const r = await fetch(API_BASE + '/api' + path, {
     method: init.method || (init.json ? 'POST' : 'GET'),
     headers: {
       ...(init.json ? { 'Content-Type': 'application/json' } : init.body ? {} : {}),
